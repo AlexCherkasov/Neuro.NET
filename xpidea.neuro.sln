@@ -1,0 +1,72 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{779EA27C-AC8D-495A-9C4A-F04F600C0866}"
+	ProjectSection(SolutionItems) = preProject
+		License.txt = License.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net", "xpidea.neuro.net\xpidea.neuro.net.csproj", "{AFFE0ED8-D4D9-4B22-A535-B0105ED5EE05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net.examples.adaline.or", "xpidea.neuro.net.examples.adaline.or\xpidea.neuro.net.examples.adaline.or.csproj", "{5221523F-FF3F-47D4-9483-EEE3728166E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net.examples.backprop.xor", "xpidea.neuro.net.examples.backprop.xor\xpidea.neuro.net.examples.backprop.xor.csproj", "{4E02FD74-BEA6-4C22-A3CF-2A2424C9F2B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net.examples.backprop.ocr", "xpidea.neuro.net.examples.backprop.ocr\xpidea.neuro.net.examples.backprop.ocr.csproj", "{BFEEBCC9-2ABB-4C6F-928B-3F0C1CA5D4E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net.examples.son.movie", "xpidea.neuro.net.examples.son.movie\xpidea.neuro.net.examples.son.movie.csproj", "{574E5B4A-0ECD-4FF3-9140-06EC9559A3AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net.examples.backporpRPROP.ocr", "xpidea.neuro.net.examples.backporpRPROP.ocr\xpidea.neuro.net.examples.backporpRPROP.ocr.csproj", "{E6C6A3C1-41A9-428C-B2E0-DB342D2433EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xpidea.neuro.net.examples.bam.patterns", "xpidea.neuro.net.examples.bam.patterns\xpidea.neuro.net.examples.bam.patterns.csproj", "{CDC32749-D613-45FC-95BB-791027CB7410}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{397290F8-6A08-4707-8C4A-913A95852424}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFFE0ED8-D4D9-4B22-A535-B0105ED5EE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFFE0ED8-D4D9-4B22-A535-B0105ED5EE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFFE0ED8-D4D9-4B22-A535-B0105ED5EE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFFE0ED8-D4D9-4B22-A535-B0105ED5EE05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5221523F-FF3F-47D4-9483-EEE3728166E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5221523F-FF3F-47D4-9483-EEE3728166E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5221523F-FF3F-47D4-9483-EEE3728166E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5221523F-FF3F-47D4-9483-EEE3728166E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E02FD74-BEA6-4C22-A3CF-2A2424C9F2B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E02FD74-BEA6-4C22-A3CF-2A2424C9F2B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E02FD74-BEA6-4C22-A3CF-2A2424C9F2B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E02FD74-BEA6-4C22-A3CF-2A2424C9F2B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEEBCC9-2ABB-4C6F-928B-3F0C1CA5D4E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEEBCC9-2ABB-4C6F-928B-3F0C1CA5D4E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEEBCC9-2ABB-4C6F-928B-3F0C1CA5D4E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEEBCC9-2ABB-4C6F-928B-3F0C1CA5D4E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574E5B4A-0ECD-4FF3-9140-06EC9559A3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574E5B4A-0ECD-4FF3-9140-06EC9559A3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574E5B4A-0ECD-4FF3-9140-06EC9559A3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574E5B4A-0ECD-4FF3-9140-06EC9559A3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6C6A3C1-41A9-428C-B2E0-DB342D2433EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C6A3C1-41A9-428C-B2E0-DB342D2433EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C6A3C1-41A9-428C-B2E0-DB342D2433EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C6A3C1-41A9-428C-B2E0-DB342D2433EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC32749-D613-45FC-95BB-791027CB7410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC32749-D613-45FC-95BB-791027CB7410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC32749-D613-45FC-95BB-791027CB7410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC32749-D613-45FC-95BB-791027CB7410}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5221523F-FF3F-47D4-9483-EEE3728166E2} = {397290F8-6A08-4707-8C4A-913A95852424}
+		{4E02FD74-BEA6-4C22-A3CF-2A2424C9F2B9} = {397290F8-6A08-4707-8C4A-913A95852424}
+		{BFEEBCC9-2ABB-4C6F-928B-3F0C1CA5D4E9} = {397290F8-6A08-4707-8C4A-913A95852424}
+		{574E5B4A-0ECD-4FF3-9140-06EC9559A3AF} = {397290F8-6A08-4707-8C4A-913A95852424}
+		{E6C6A3C1-41A9-428C-B2E0-DB342D2433EE} = {397290F8-6A08-4707-8C4A-913A95852424}
+		{CDC32749-D613-45FC-95BB-791027CB7410} = {397290F8-6A08-4707-8C4A-913A95852424}
+	EndGlobalSection
+EndGlobal

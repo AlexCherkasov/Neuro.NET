@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0092)http://www.codeproject.com/script/Submit/ViewHTML.asp?guid=Simple%5FOCR%2Fdotnet4%2F5%2F2003 -->
+<!-- HTML for article "Creating Optical Character Recognition (OCR) applications using Neural Networks" by Alex Cherkasov,Alex Cherkasov,Alex Cherkasov
+     URL: http://www.codeproject.com/dotnet/simple_ocr.asp
+
+     Article content copyright Alex Cherkasov,Alex Cherkasov,Alex Cherkasov
+     All formatting, additions and alterations Copyright © CodeProject, 1999-2004
+--><!----------------------------- Ignore -----------------------------><HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=windows-1251"><LINK 
+href="SimpleOCR_files/global.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2800.1458" name=GENERATOR></HEAD>
+<BODY>
+<P><B>Please choose 'View Source' in your browser to view the HTML, or File | 
+Save to save this file to your hard drive for editing.</B></P>
+<HR noShade SIZE=1>
+<!----------------------------- Ignore -----------------------------><!----------------------------- Article Starts ----------------------------->
+<UL class=download>
+  <LI><A 
+  href="http://www.codeproject.com/dotnet/simple_ocr/SimpleOCR.zip">Download 
+  demo project - 22.6 Kb </A>
+  <LI><A 
+  href="http://www.codeproject.com/dotnet/simple_ocr/SimpleOCRsrc.zip">Download 
+  source - 9.78 Kb</A> </LI></UL>
+<P><IMG height=250 src="SimpleOCR_files/image001.jpg" width=500></P>
+<H2>Introduction</H2>
+<P>A lot of people today are trying to write their own OCR (Optical Character 
+Recognition) System or to improve the quality of an existing one.</P>
+<P>This article shows how the use of artificial neural network simplifies 
+development of an optical character recognition application, while achieving 
+highest quality of recognition and good performance.</P>
+<H2>Background</H2>
+<P>Developing proprietary OCR system is a complicated task and requires a lot of 
+effort. Such systems usually are really complicated and can hide a lot of logic 
+behind the code. The use of artificial neural network in OCR applications can 
+dramatically simplify the code and improve quality of recognition while 
+achieving good performance. Another benefit of using neural network in OCR is 
+extensibility of the system – ability to recognize more character sets than 
+initially defined. Most of traditional OCR systems are not extensible enough. 
+Why? Because such task as working with tens of thousands Chinese characters, for 
+example, is not as easy as working with 68 English typed character set and it 
+can easily bring the traditional system to its knees!</P>
+<P>Well, the Artificial Neural Network (ANN) is a wonderful tool that can help 
+to resolve such kind of problems. The ANN is an information-processing paradigm 
+inspired by the way the human brain processes information. Artificial neural 
+networks are collections of mathematical models that represent some of the 
+observed properties of biological nervous systems and draw on the analogies of 
+adaptive biological learning. The key element of ANN is topology. The ANN 
+consists of a large number of highly interconnected processing elements 
+<B>(<I>nodes</I>)</B> that are tied together with weighted connections 
+<B>(<I>links</I>)</B>. Learning in biological systems involves adjustments to 
+the synaptic connections that exist between the neurons. This is true for ANN as 
+well. Learning typically occurs by example through training, or exposure to a 
+set of input/output data <B>(<I>pattern</I>)</B> where the training algorithm 
+adjusts the link weights. The link weights store the knowledge necessary to 
+solve specific problems.</P>
+<P>Originated in late 1950's, neural networks didn’t gain much popularity until 
+1980s – a computer boom era. Today ANNs are mostly used for solution of complex 
+real world problems. They are often good at solving problems that are too 
+complex for conventional technologies (e.g., problems that do not have an 
+algorithmic solution or for which an algorithmic solution is too complex to be 
+found) and are often well suited to problems that people are good at solving, 
+but for which traditional methods are not. They are good pattern recognition 
+engines and robust classifiers, with the ability to generalize in making 
+decisions based on imprecise input data. They offer ideal solutions to a variety 
+of classification problems such as speech, character and signal recognition, as 
+well as functional prediction and system modeling, where the physical processes 
+are not understood or are highly complex. The advantage of ANNs lies in their 
+resilience against distortions in the input data and their capability to 
+learn.</P>
+<H2>Using the code</H2>
+<P>In this article I use a sample application from Neuro.NET library to show how 
+to use Backpropagation neural network in a simple OCR application.</P>
+<P>Let’s assume you that you already have gone through all image pre-processing 
+routines (resampling, deskew, zoning, blocking etc.) and you already have images 
+of the characters from your document. (In the example I simply generate those 
+images).</P>
+<H2>Creating the neural network.</H2>
+<P>Let’s construct the network first. In this example I use a Backpropagation 
+neural network. The Backpropagation network is a multilayer perceptron model 
+with an input layer, one or more hidden layers, and an output layer.</P>
+<P><IMG height=126 src="SimpleOCR_files/Backprop.jpg" width=154></P>
+<P>The nodes in the Backpropagation neural network are interconnected via 
+weighted links with each node usually connecting to the next layer up, till the 
+output layer which provides output for the network. The input pattern values are 
+presented and assigned to the input nodes of the input layer. The input values 
+are initialized to values between -1 and 1. The nodes in the next layer receive 
+the input values through links and compute output values of their own, which are 
+then passed to the next layer. These values propagate forward through the layers 
+till the output layer is reached, or put another way, till each output layer 
+node has produced an output value for the network. The desired output for the 
+input pattern is used to compute an error value for each node in the output 
+layer, and then propagated backwards (and here's where the network name comes 
+in) through the network as the delta rule is used to adjust the link values to 
+produce better, the desired output. Once the error produced by the patterns in 
+the training set is below a given tolerance, the training is complete and the 
+network is presented new input patterns and produce an output based on the 
+experience it gained from the learning process.</P>
+<P>I will use a library class <CODE lang=cs>BackPropagationRPROPNetwork</CODE> 
+to construct my own <CODE lang=cs>OCRNetwork</CODE>.</P><PRE lang=cs>//Inherit form Backpropagation neural network
+public class OCRNetwork: BackPropagationRPROPNetwork
+{
+    //Override method of the base class in order to implement our 
+    //own training method
+    public override void Train(PatternsCollection patterns) 
+    {    
+        ...
+    }
+}</PRE>
+<P>I override the <CODE lang=cs>Train</CODE> method of the base class to 
+implement my own training method. Why do I need to do it? I do it because of one 
+simple reason: the training progress of the network is measured by quality of 
+produced result and speed of training. You have to establish the criteria when 
+the quality of network output is acceptable for you and when you can stop the 
+training process. The implementation I provide here is proven (based on my 
+experience) to be fast and accurate. I decided that I can stop the training 
+process when network is able to recognize all of the patterns, without a single 
+error. So, here is the implementation of my training method.</P><PRE lang=cs>public override void Train(PatternsCollection patterns) 
+{   //Current iteration number 
+    if (patterns != null) 
+    {
+        double error = 0;
+        int good = 0;
+        // Train until all patterns are correct
+        while (good &lt; patterns.Count)
+         {
+            good = 0;
+            for (int i = 0; i&lt;patterns.Count; i++)
+            {
+                //Set the input values of the network 
+                for (int k = 0; k&lt;NodesInLayer(0); k++) 
+                    nodes[k].Value = patterns[i].Input[k];
+                //Run the network
+                this.Run();
+                //Set the expected result
+                for (int k = 0;k&lt; this.OutputNodesCount;k++) 
+                    this.OutputNode(k).Error = patterns[i].Output[k];
+                //Make the network to remember corresponding output 
+                //values. (Teach the network)
+                this.Learn();
+                //See if network did produced correct result during 
+                //this iteration
+                if (BestNodeIndex == OutputPatternIndex(patterns[i]))
+                                  good++;
+             }
+            //Adjust weights of the links in the network to their
+            //average value. (An epoch training technique)
+            foreach (NeuroLink link in links) 
+                ((EpochBackPropagationLink)link).Epoch(patterns.Count);
+        }
+    }
+}</PRE>
+<P>Also, I have implemented a <CODE lang=cs>BestNodeIndex</CODE> property that 
+returns the index of the node having maximum value and having the minimal error. 
+An <CODE lang=cs>OutputPatternIndex</CODE> method returns the index of the 
+pattern output element having value of 1. If those indices are matched – the 
+network has produced correct result. Here is how the <CODE 
+lang=cs>BestNodeIndex</CODE> implementation looks like:</P><PRE lang=cs>public int BestNodeIndex
+{
+    get {
+        int result = -1;
+        double aMaxNodeValue = 0;
+        double aMinError = double.PositiveInfinity;
+        for (int i = 0; i&lt; this.OutputNodesCount;i++)
+        {
+            NeuroNode node = OutputNode(i);
+            //Look for a node with maximum value or lesser error
+            if ((node.Value &gt; aMaxNodeValue)||
+                  ((node.Value &gt;= aMaxNodeValue)&amp;&amp;(node.Error &lt;aMinError))) 
+            {
+                aMaxNodeValue = node.Value;
+                aMinError = node.Error;
+                result = i;
+            }
+        }
+        return result;
+     }
+}</PRE>
+<P>As simple as it gets I create the instance of the neural network. The network 
+has one constructor parameter – integer array describing number of nodes in each 
+layer of the network. First layer in the network is an input layer. The number 
+of elements in this layer corresponds to number of elements in input pattern and 
+is equal to number of elements in digitized image matrix (we will talk about it 
+later). The network may have multiple middle layers with different number of 
+nodes in each layer. In this example I use only one layer and apply “not 
+official rule of thumb” to determine number of nodes in this layer:</P><PRE lang=cs>NodesNumber = (InputsCount+OutputsCount) / 2</PRE>
+<P></P>
+<P><B>Note:</B> You can experiment by adding more middle layers and using 
+different number of nodes in there - just to see how it will affect the training 
+speed and recognition quality of the network.</P>
+<P>The last layer in the network is an output layer. This is the layer where we 
+look for the results. I define the number of nodes in this layer equal to a 
+number of characters that we going to recognize.</P><PRE lang=cs>//Create an instance of the network
+backpropNetwork = new OCRNetwork(new int[3] {aMatrixDim * aMatrixDim, 
+       (aMatrixDim * aMatrixDim + aCharsCount)/2, aCharsCount});</PRE>
+<H2>Creating training patterns</H2>
+<P>Now let's talk about the training patterns. Those patterns will be used for 
+teaching the neural network to recognize the images. Basically, each training 
+pattern consists of two single-dimensional arrays of float numbers – <CODE 
+lang=cs>Inputs</CODE> and <CODE lang=cs>Outputs</CODE> arrays.</P><PRE lang=cs>/// &lt;summary&gt;
+/// A class representing single training pattern and is used to train a 
+/// neural network. Contains input data and expected results arrays.
+/// &lt;/summary&gt;
+public class Pattern: NeuroObject
+{
+    private double[] inputs, outputs;
+    ...
+}</PRE>
+<P>The <CODE lang=cs>Inputs</CODE> array contains your input data. In our case 
+it is a digitized representation of the character's image. Under “digitizing” 
+the image I mean process of creating a brightness (or absolute value of the 
+color vector-whatever you choose) map of the image. To create this map I split 
+the image into squares and calculate average value of each square. Then I store 
+those values into the array.</P>
+<P><IMG height=342 src="SimpleOCR_files/image002.jpg" width=267></P>
+<P>I have implemented <CODE lang=cs>CharToDoubleArray</CODE> method of the 
+network to digitize the image. There I use an absolute value of the color for 
+each element of the matrix. (No doubt that you can use other techniques there…) 
+After the image is digitized, I have to scale-down the results in order to fit 
+them into a range from -1 ..1 to comply with input values range of the network. 
+To do this I wrote a <CODE lang=cs>Scale</CODE> method, where I look for the 
+maximum element value of the matrix and then divide all elements of the matrix 
+by it. So, implementation of <CODE lang=cs>CharToDoubleArray</CODE> looks like 
+this:</P><PRE lang=cs>//aSrc – an image of the character
+//aArrayDim – dimension of the pattern matrix
+//calculate image quotation X step
+double xStep = (double)aSrc.Width/(double)aArrayDim; 
+//calculate image quotation Y step
+double yStep = (double)aSrc.Height/(double)aArrayDim;
+double[] result = new double[aMatrixDim*aMatrixDim ];
+for (int i=0; i&lt;aSrc.Width; i++)
+    for (int j=0;j&lt;aSrc.Height;j++)
+    {
+        //calculate matrix address 
+        int x = (int)(i/xStep);
+        int y = (int)(j/yStep);
+        //Get the color of the pixel 
+        Color c = aSrc.GetPixel(i,j);
+        //Absolute value of the color, but I guess, it is possible to
+        //use the B component of Alpha color space too...
+        result[y*x+y]+=Math.Sqrt(c.R*c.R+c.B*c.B+c.G*c.G); 
+    }
+//Scale the matrix to fit values into a range from 0..1 (required by 
+//ANN) In this method we look for a maximum value of the element 
+//and then divide all elements of the matrix by this maximum value.
+return Scale(result);</PRE>
+<P>The <CODE lang=cs>Outputs</CODE> array of the pattern represents an expected 
+result – the result that network will use during the training. There are as many 
+elements in this array as many characters we going to recognize. So, for 
+instance, to teach the network to recognize English letters from “A” to “Z” we 
+will need 25 elements in the <CODE lang=cs>Outputs</CODE> array. Make it 50 if 
+you decide to include lower case letters. Each element corresponds to a single 
+letter. The <CODE lang=cs>Inputs</CODE> of each pattern are set to a digitized 
+image data and a corresponding element in the <CODE lang=cs>Outputs</CODE> array 
+to 1, so network will know which output (letter) corresponds to input data. The 
+method <CODE lang=cs>CreateTrainingPatterns</CODE> does this job for me.</P><PRE lang=cs>public PatternsCollection CreateTrainingPatterns(Font font) { 
+//Create pattern collection 
+// As many inputs (examples) as many elements in digitized image matrix 
+// As many outputs as many characters we going to recognize.
+PatternsCollection result = new PatternsCollection(aCharsCount, 
+                              aMatrixDim * aMatrixDim, aCharsCount);
+// generate one pattern for each character
+for (int i= 0; i&lt;aCharsCount; i++)
+{
+      //CharToDoubleArray creates an image of the character and digitizes it.
+      //You can change this method to pass actual the image of the character 
+      double[] aBitMatrix = CharToDoubleArray(Convert.ToChar(aFirstChar + i), 
+                                                        font, aMatrixDim, 0); 
+      //Assign matrix value as input to the pattern
+       for (int j = 0; j&lt;aMatrixDim * aMatrixDim; j++)
+            result[i].Input[j] = aBitMatrix[j];
+      //Output value set to 1 for corresponding character.
+      //Rest of the outputs are set to 0 by default.
+           result[i].Output[i] = 1; 
+     }
+       return result;
+}</PRE>
+<P>Now we have completed creation of patterns and we can use those to train the 
+neural network.</P>
+<H2>Training of the network.</H2>
+<P>To start training process of the network simple call the <CODE 
+lang=cs>Train</CODE> method and pass your training patterns in it.</P><PRE lang=cs>//Train the network 
+backpropNetwork.Train(trainingPatterns);</PRE>
+<P>Normally, an execution flow will leave this method when training is complete, 
+but in some cases it could stay there forever (!).The <CODE lang=cs>Train</CODE> 
+method is currently implemented relying only on one fact: the network training 
+will be completed sooner or later. Well, I admit - this is wrong assumption and 
+network training may never complete. The most “popular” reasons for neural 
+network training failure are:</P>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P><B>Training never completes because:</B></P></TD>
+    <TD>
+      <P><B>Possible solution</B></P></TD></TR>
+  <TR>
+    <TD>
+      <P>1. The network topology is too simple to handle amount of training 
+      patterns you provide. You will have to create bigger network.</P></TD>
+    <TD>
+      <P>Add more nodes into middle layer or add more middle layers to the 
+      network.</P></TD></TR>
+  <TR>
+    <TD>
+      <P>2. The training patterns are not clear enough, not precise or are too 
+      complicated for the network to differentiate them.</P></TD>
+    <TD>
+      <P>As a solution you can clean the patterns or you can use different type 
+      of network /training algorithm. Also, you cannot train the network to 
+      guess next winning lottery numbers... :-)</P></TD></TR>
+  <TR>
+    <TD>
+      <P>3. Your training expectations are too high and/or not realistic.</P></TD>
+    <TD>
+      <P>Lower your expectations. The network could be never 100% 
+  "sure"</P></TD></TR>
+  <TR>
+    <TD>
+      <P>4. No reason</P></TD>
+    <TD>
+      <P>Check the code!</P></TD></TR></TBODY></TABLE>
+<P>Most of those reasons are very easy to resolve and it is a good subject for a 
+future article. Meanwhile, we can enjoy the results.</P>
+<H2>Enjoying the results</H2>
+<P>Now we can see what the network has learned. Following code fragment shows 
+how to use trained neural network in your OCR application.</P><PRE lang=cs>//Get your input data
+ double[] aInput = ... (your digitized image of the character)
+//Load the data into the network
+for (int i = 0; i&lt; backpropNetwork.InputNodesCount;i++)
+    backpropNetwork.InputNode(i).Value = aInput[i];
+//Run the network
+backpropNetwork.Run();
+//Get result from the network and convert it to a character
+return Convert.ToChar(aFirstChar + backpropNetwork.BestNodeIndex).ToString();</PRE>
+<P>In order to use the network you have to load your data into input layer. Then 
+use the <CODE lang=cs>Run</CODE> method to let the network process your data. 
+Finally, get your results out from output nodes of the network and analyze those 
+(The <CODE lang=cs>BestNodeIndex</CODE> property I created in <CODE 
+lang=cs>OCRNetwork</CODE> class does this job for me).</P><!----------------------------- Article Ends -----------------------------></BODY></HTML>

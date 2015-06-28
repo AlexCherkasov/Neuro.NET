@@ -1,0 +1,28 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling c:\Develop\xpidea.neuro.net\Help\ndoc_msdn_temp\XP Idea Neuro.NET.chm
+
+HHC4006: Warning: The file "xpidea.neuro.net.NeuralNetwork.LinksCount.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.NeuralNetwork.NodesCount.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.NeuroLink.InNode.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.NeuroLink.OutNode.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.adaline.AdalineNetwork.LearningRate.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.backprop.BackPropagationLink.LinkDelta.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.backprop.BackPropagationNetwork.LayersCount.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.backprop.BackPropagationNetwork.NodesInLayer.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.son.SelfOrganizingNetwork.CurrentNeighborhoodSize.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.son.SelfOrganizingNetwork.WinnigCol.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "xpidea.neuro.net.son.SelfOrganizingNetwork.WinnigRow.html" is already listed in the [FILES] section of the project file.
+
+Compile time: 0 minutes, 6 seconds
+446	Topics
+4,317	Local links
+0	Internet links
+7	Graphics
+
+
+Created c:\Develop\xpidea.neuro.net\Help\ndoc_msdn_temp\XP Idea Neuro.NET.chm, 261,753 bytes
+Compression decreased file by 1,400,063 bytes.

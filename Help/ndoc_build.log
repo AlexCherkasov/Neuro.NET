@@ -1,0 +1,542 @@
+Memory before build: 1058280
+Initializing Workspace
+Creating Help Project Resources
+Analyzing Assemblies & Merging XML Documentation
+Memory making xml: 2240616
+AssemblyLoader: Loading "C:\SyncRoot\Develop\Projects\Neuro.NET\NET\xpidea.neuro.net\bin\Release\xpidea.neuro.net.dll".
+XmlDocCommentLoader: Loaded 'C:\SyncRoot\Develop\Projects\Neuro.NET\NET\xpidea.neuro.net\bin\Release\xpidea.neuro.net.xml' (0.209 sec.)
+XmlDocCommentLoader: Cache 345
+Docs found : C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\mscorlib.xml
+XmlDocCommentLoader: Loaded 'C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\mscorlib.xml' (1.427 sec.)
+XmlDocCommentLoader: Cache 14359
+XmlDocCommentLoader: Loaded 'C:\SyncRoot\Develop\Tools\NDOC\Ndoc2Alpha3\Configuration\Supplemental Docs\en\mscorlib.xml' (0.051 sec.)
+XmlDocCommentLoader: Cache 15381
+Writing namespace xpidea.neuro.net...
+    Wrote 10 classes.
+    Wrote 1 enumerations.
+Writing namespace xpidea.neuro.net.adaline...
+    Wrote 3 classes.
+Writing namespace xpidea.neuro.net.backprop...
+    Wrote 9 classes.
+Writing namespace xpidea.neuro.net.bam...
+    Wrote 5 classes.
+Writing namespace xpidea.neuro.net.patterns...
+    Wrote 4 classes.
+Writing namespace xpidea.neuro.net.son...
+    Wrote 3 classes.
+Completed xpidea.neuro.net, Version=1.0.2366.16863, Culture=neutral, PublicKeyToken=null
+0.406 sec.
+MakeXML : 2.391 sec.
+Determining Document Structure
+Load Docs for Structure Production: 29.355 msec.
+Building File Map: 10.206 msec.
+Structure Production: 15346.617 msec.
+Initializing Documenter
+xslt-preprocess.xslt
+retrieved xslt-preprocess.xslt from Style2005
+    topics_main.xslt
+    retrieved topics_main.xslt from common
+    retrieved common.xslt from common
+    retrieved tags.xslt from Style2005
+    retrieved blank.xslt from common
+    retrieved indices.xslt from common
+    retrieved XLinks.xslt from common
+    retrieved style-common.xslt from Style2005
+    retrieved see-also.xslt from common
+    retrieved syntax.xslt from Style2005
+    retrieved syntax-common.xslt from common
+    retrieved syntax-map.xslt from common
+    retrieved memberscommon.xslt from Style2005
+    retrieved allmembers.xslt from Style2005
+    retrieved event.xslt from common
+    retrieved field.xslt from common
+    retrieved individualmembers.xslt from Style2005
+    retrieved member.xslt from common
+    retrieved memberoverload.xslt from Style2005
+    retrieved namespace.xslt from Style2005
+    retrieved namespacehierarchy.xslt from common
+    retrieved property.xslt from common
+    retrieved type.xslt from Style2005
+    retrieved typehierarchy.xslt from Style2005
+    1.021
+    toc_htmlhelp1.xslt
+    retrieved toc_htmlhelp1.xslt from common
+    0.008
+    toc_htmlhelp2.xslt
+    retrieved toc_htmlhelp2.xslt from common
+    0.003
+    toc_web.xslt
+    retrieved toc_web.xslt from common
+    0.005
+Building stylesheets 2.000
+Building Table-of-Contents
+Building Topic Pages
+456.612   namespace   N_xpidea_neuro_net.html
+21950.691   namespacehierarchy   Hier_N_xpidea_neuro_net.html
+460.088   type   T_xpidea_neuro_net_BiasNode.html
+262.622   allmembers   T_xpidea_neuro_net_BiasNode_Members.html
+30.474   individualmembers   T_xpidea_neuro_net_BiasNode_Methods.html
+205.334   member   C_xpidea_neuro_net_BiasNode_ctor.html
+86.629   member   M_xpidea_neuro_net_BiasNode_SetNodeValue.html
+9.123   type   T_xpidea_neuro_net_ENeuroException.html
+225.291   allmembers   T_xpidea_neuro_net_ENeuroException_Members.html
+9.762   member   C_xpidea_neuro_net_ENeuroException_ctor.html
+9.092   type   T_xpidea_neuro_net_FeedForwardNode.html
+15.031   allmembers   T_xpidea_neuro_net_FeedForwardNode_Members.html
+13.820   individualmembers   T_xpidea_neuro_net_FeedForwardNode_Methods.html
+9.106   member   C_xpidea_neuro_net_FeedForwardNode_ctor.html
+8.308   member   M_xpidea_neuro_net_FeedForwardNode_Run.html
+11.923   member   M_xpidea_neuro_net_FeedForwardNode_Transfer.html
+9.641   type   T_xpidea_neuro_net_InputNode.html
+16.390   allmembers   T_xpidea_neuro_net_InputNode_Members.html
+8.632   member   C_xpidea_neuro_net_InputNode_ctor.html
+11.876   type   T_xpidea_neuro_net_NeuralNetwork.html
+25.042   allmembers   T_xpidea_neuro_net_NeuralNetwork_Members.html
+9.229   individualmembers   T_xpidea_neuro_net_NeuralNetwork_Fields.html
+9.870   individualmembers   T_xpidea_neuro_net_NeuralNetwork_Properties.html
+14.482   individualmembers   T_xpidea_neuro_net_NeuralNetwork_Methods.html
+97.679   memberoverload   T_xpidea_neuro_net_NeuralNetwork_Constructor.html
+8.888   member   C_xpidea_neuro_net_NeuralNetwork_ctor_.html
+9.367   member   C_xpidea_neuro_net_NeuralNetwork_ctor_16219e3a.html
+43.329   field   F_xpidea_neuro_net_NeuralNetwork_links.html
+22.512   field   F_xpidea_neuro_net_NeuralNetwork_linksCount.html
+9.117   field   F_xpidea_neuro_net_NeuralNetwork_nodes.html
+9.778   field   F_xpidea_neuro_net_NeuralNetwork_nodesCount.html
+132.343   property   P_xpidea_neuro_net_NeuralNetwork_InputNodesCount.html
+11.431   property   P_xpidea_neuro_net_NeuralNetwork_LinksCount.html
+9.313   property   P_xpidea_neuro_net_NeuralNetwork_NetworkType.html
+9.500   property   P_xpidea_neuro_net_NeuralNetwork_NodesCount.html
+9.433   property   P_xpidea_neuro_net_NeuralNetwork_OutputNodesCount.html
+9.169   member   M_xpidea_neuro_net_NeuralNetwork_CreateNetwork.html
+9.293   member   M_xpidea_neuro_net_NeuralNetwork_Epoch.html
+11.146   member   M_xpidea_neuro_net_NeuralNetwork_GetInputNode.html
+9.260   member   M_xpidea_neuro_net_NeuralNetwork_GetInputNodesCount.html
+9.405   member   M_xpidea_neuro_net_NeuralNetwork_GetNetworkType.html
+9.437   member   M_xpidea_neuro_net_NeuralNetwork_GetOutPutNodesCount.html
+9.664   member   M_xpidea_neuro_net_NeuralNetwork_GetOutputNode.html
+9.489   member   M_xpidea_neuro_net_NeuralNetwork_InputNode.html
+81.159   member   M_xpidea_neuro_net_NeuralNetwork_Load.html
+9.121   member   M_xpidea_neuro_net_NeuralNetwork_LoadInputs.html
+9.591   member   M_xpidea_neuro_net_NeuralNetwork_OutputNode.html
+22.447   member   M_xpidea_neuro_net_NeuralNetwork_Save.html
+11.950   member   M_xpidea_neuro_net_NeuralNetwork_Train.html
+11.382   type   T_xpidea_neuro_net_NeuroLink.html
+15.513   allmembers   T_xpidea_neuro_net_NeuroLink_Members.html
+9.105   individualmembers   T_xpidea_neuro_net_NeuroLink_Fields.html
+8.732   individualmembers   T_xpidea_neuro_net_NeuroLink_Properties.html
+15.068   individualmembers   T_xpidea_neuro_net_NeuroLink_Methods.html
+9.301   member   C_xpidea_neuro_net_NeuroLink_ctor.html
+9.779   field   F_xpidea_neuro_net_NeuroLink_inNode.html
+10.869   field   F_xpidea_neuro_net_NeuroLink_linkWeight.html
+9.321   field   F_xpidea_neuro_net_NeuroLink_outNode.html
+9.178   property   P_xpidea_neuro_net_NeuroLink_InNode.html
+9.518   property   P_xpidea_neuro_net_NeuroLink_OutNode.html
+37.807   property   P_xpidea_neuro_net_NeuroLink_Weight.html
+9.151   member   M_xpidea_neuro_net_NeuroLink_GetLinkWeight.html
+9.820   member   M_xpidea_neuro_net_NeuroLink_Load.html
+9.848   member   M_xpidea_neuro_net_NeuroLink_Save.html
+9.455   member   M_xpidea_neuro_net_NeuroLink_SetInNode.html
+9.513   member   M_xpidea_neuro_net_NeuroLink_SetLinkWeight.html
+9.732   member   M_xpidea_neuro_net_NeuroLink_SetOutNode.html
+9.736   member   M_xpidea_neuro_net_NeuroLink_UpdateWeight.html
+10.272   member   M_xpidea_neuro_net_NeuroLink_WeightedInError.html
+9.336   member   M_xpidea_neuro_net_NeuroLink_WeightedInValue.html
+9.338   member   M_xpidea_neuro_net_NeuroLink_WeightedOutError.html
+9.322   member   M_xpidea_neuro_net_NeuroLink_WeightedOutValue.html
+108.834   type   T_xpidea_neuro_net_NeuroLinkCollection.html
+248.153   allmembers   T_xpidea_neuro_net_NeuroLinkCollection_Members.html
+10.494   individualmembers   T_xpidea_neuro_net_NeuroLinkCollection_Properties.html
+16.898   individualmembers   T_xpidea_neuro_net_NeuroLinkCollection_Methods.html
+8.848   memberoverload   T_xpidea_neuro_net_NeuroLinkCollection_Constructor.html
+9.123   member   C_xpidea_neuro_net_NeuroLinkCollection_ctor_.html
+9.552   member   C_xpidea_neuro_net_NeuroLinkCollection_ctor_0b20f2e2.html
+9.360   member   C_xpidea_neuro_net_NeuroLinkCollection_ctor_10a77152.html
+26.159   property   P_xpidea_neuro_net_NeuroLinkCollection_Item.html
+10.159   member   M_xpidea_neuro_net_NeuroLinkCollection_Add.html
+7.777   memberoverload   O_T_xpidea_neuro_net_NeuroLinkCollection_AddRange.html
+9.496   member   M_xpidea_neuro_net_NeuroLinkCollection_AddRange_10a77152.html
+9.598   member   M_xpidea_neuro_net_NeuroLinkCollection_AddRange_0b20f2e2.html
+23.371   member   M_xpidea_neuro_net_NeuroLinkCollection_Contains.html
+36.777   member   M_xpidea_neuro_net_NeuroLinkCollection_CopyTo.html
+8.454   member   M_xpidea_neuro_net_NeuroLinkCollection_CreateContainigObject.html
+9.928   member   M_xpidea_neuro_net_NeuroLinkCollection_GetEnumerator.html
+11.188   member   M_xpidea_neuro_net_NeuroLinkCollection_IndexOf.html
+9.933   member   M_xpidea_neuro_net_NeuroLinkCollection_Insert.html
+10.510   member   M_xpidea_neuro_net_NeuroLinkCollection_Remove.html
+13.122   type   T_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator.html
+17.521   allmembers   T_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_Members.html
+8.702   individualmembers   T_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_Properties.html
+11.039   individualmembers   T_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_Methods.html
+8.278   member   C_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_ctor.html
+9.827   property   P_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_Current.html
+9.640   member   M_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_MoveNext.html
+10.200   member   M_xpidea_neuro_net_NeuroLinkCollection_CustomNeuroLinkEnumerator_Reset.html
+12.086   type   T_xpidea_neuro_net_NeuroNode.html
+17.183   allmembers   T_xpidea_neuro_net_NeuroNode_Members.html
+9.528   individualmembers   T_xpidea_neuro_net_NeuroNode_Fields.html
+9.209   individualmembers   T_xpidea_neuro_net_NeuroNode_Properties.html
+13.354   individualmembers   T_xpidea_neuro_net_NeuroNode_Methods.html
+12.368   member   C_xpidea_neuro_net_NeuroNode_ctor.html
+9.911   field   F_xpidea_neuro_net_NeuroNode_nodeError.html
+9.422   field   F_xpidea_neuro_net_NeuroNode_nodeValue.html
+10.187   property   P_xpidea_neuro_net_NeuroNode_Error.html
+9.554   property   P_xpidea_neuro_net_NeuroNode_InLinks.html
+9.308   property   P_xpidea_neuro_net_NeuroNode_OutLinks.html
+9.117   property   P_xpidea_neuro_net_NeuroNode_Value.html
+9.886   member   M_xpidea_neuro_net_NeuroNode_GetNodeError.html
+9.368   member   M_xpidea_neuro_net_NeuroNode_GetNodeValue.html
+9.244   member   M_xpidea_neuro_net_NeuroNode_Learn.html
+9.963   member   M_xpidea_neuro_net_NeuroNode_LinkTo.html
+9.500   member   M_xpidea_neuro_net_NeuroNode_Load.html
+9.328   member   M_xpidea_neuro_net_NeuroNode_Run.html
+11.157   member   M_xpidea_neuro_net_NeuroNode_Save.html
+9.654   member   M_xpidea_neuro_net_NeuroNode_SetNodeError.html
+9.630   member   M_xpidea_neuro_net_NeuroNode_SetNodeValue.html
+10.198   type   T_xpidea_neuro_net_NeuroObject.html
+13.219   allmembers   T_xpidea_neuro_net_NeuroObject_Members.html
+12.902   individualmembers   T_xpidea_neuro_net_NeuroObject_Methods.html
+9.239   member   C_xpidea_neuro_net_NeuroObject_ctor.html
+10.105   member   M_xpidea_neuro_net_NeuroObject_Epoch.html
+9.441   member   M_xpidea_neuro_net_NeuroObject_Load.html
+9.587   member   M_xpidea_neuro_net_NeuroObject_LoadFromFile.html
+9.858   member   M_xpidea_neuro_net_NeuroObject_Random.html
+9.824   member   M_xpidea_neuro_net_NeuroObject_RoundToNextInt.html
+9.611   member   M_xpidea_neuro_net_NeuroObject_Save.html
+9.673   member   M_xpidea_neuro_net_NeuroObject_SaveToFile.html
+53.172   type   T_xpidea_neuro_net_NeuralNetworkType.html
+7.584   namespace   N_xpidea_neuro_net_adaline.html
+6.710   namespacehierarchy   Hier_N_xpidea_neuro_net_adaline.html
+9.045   type   T_xpidea_neuro_net_adaline_AdalineLink.html
+18.725   allmembers   T_xpidea_neuro_net_adaline_AdalineLink_Members.html
+8.938   member   C_xpidea_neuro_net_adaline_AdalineLink_ctor.html
+10.782   type   T_xpidea_neuro_net_adaline_AdalineNetwork.html
+19.711   allmembers   T_xpidea_neuro_net_adaline_AdalineNetwork_Members.html
+10.226   individualmembers   T_xpidea_neuro_net_adaline_AdalineNetwork_Fields.html
+10.209   individualmembers   T_xpidea_neuro_net_adaline_AdalineNetwork_Properties.html
+14.299   individualmembers   T_xpidea_neuro_net_adaline_AdalineNetwork_Methods.html
+8.599   memberoverload   T_xpidea_neuro_net_adaline_AdalineNetwork_Constructor.html
+9.689   member   C_xpidea_neuro_net_adaline_AdalineNetwork_ctor_28cecd8f.html
+8.875   member   C_xpidea_neuro_net_adaline_AdalineNetwork_ctor_.html
+9.797   member   C_xpidea_neuro_net_adaline_AdalineNetwork_ctor_16219e3a.html
+9.382   field   F_xpidea_neuro_net_adaline_AdalineNetwork_learningRate.html
+9.710   property   P_xpidea_neuro_net_adaline_AdalineNetwork_AdalineNode.html
+9.364   property   P_xpidea_neuro_net_adaline_AdalineNetwork_LearningRate.html
+9.605   member   M_xpidea_neuro_net_adaline_AdalineNetwork_CreateNetwork.html
+11.597   member   M_xpidea_neuro_net_adaline_AdalineNetwork_GetInputNode.html
+9.434   member   M_xpidea_neuro_net_adaline_AdalineNetwork_GetInputNodesCount.html
+9.654   member   M_xpidea_neuro_net_adaline_AdalineNetwork_GetNetworkType.html
+9.403   member   M_xpidea_neuro_net_adaline_AdalineNetwork_GetOutPutNodesCount.html
+10.506   member   M_xpidea_neuro_net_adaline_AdalineNetwork_GetOutputNode.html
+9.506   member   M_xpidea_neuro_net_adaline_AdalineNetwork_Load.html
+9.887   member   M_xpidea_neuro_net_adaline_AdalineNetwork_Save.html
+9.658   member   M_xpidea_neuro_net_adaline_AdalineNetwork_SetValuesFromPattern.html
+9.889   member   M_xpidea_neuro_net_adaline_AdalineNetwork_Train.html
+21.000   type   T_xpidea_neuro_net_adaline_AdalineNode.html
+26.375   allmembers   T_xpidea_neuro_net_adaline_AdalineNode_Members.html
+12.529   individualmembers   T_xpidea_neuro_net_adaline_AdalineNode_Properties.html
+13.424   individualmembers   T_xpidea_neuro_net_adaline_AdalineNode_Methods.html
+8.189   memberoverload   T_xpidea_neuro_net_adaline_AdalineNode_Constructor.html
+9.285   member   C_xpidea_neuro_net_adaline_AdalineNode_ctor_.html
+9.293   member   C_xpidea_neuro_net_adaline_AdalineNode_ctor_16514d3a.html
+10.619   property   P_xpidea_neuro_net_adaline_AdalineNode_LearningRate.html
+9.821   member   M_xpidea_neuro_net_adaline_AdalineNode_GetNodeLearningRate.html
+9.420   member   M_xpidea_neuro_net_adaline_AdalineNode_Learn.html
+9.694   member   M_xpidea_neuro_net_adaline_AdalineNode_SetNodeLearningRate.html
+10.072   member   M_xpidea_neuro_net_adaline_AdalineNode_Transfer.html
+8.141   namespace   N_xpidea_neuro_net_backprop.html
+7.450   namespacehierarchy   Hier_N_xpidea_neuro_net_backprop.html
+10.095   type   T_xpidea_neuro_net_backprop_BackPropagationLink.html
+38.910   allmembers   T_xpidea_neuro_net_backprop_BackPropagationLink_Members.html
+9.561   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationLink_Properties.html
+13.681   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationLink_Methods.html
+9.141   member   C_xpidea_neuro_net_backprop_BackPropagationLink_ctor.html
+9.624   property   P_xpidea_neuro_net_backprop_BackPropagationLink_LinkDelta.html
+9.264   member   M_xpidea_neuro_net_backprop_BackPropagationLink_DoAfterCreate.html
+8.217   member   M_xpidea_neuro_net_backprop_BackPropagationLink_GetLinkDelta.html
+9.872   member   M_xpidea_neuro_net_backprop_BackPropagationLink_Load.html
+11.112   member   M_xpidea_neuro_net_backprop_BackPropagationLink_Save.html
+9.110   member   M_xpidea_neuro_net_backprop_BackPropagationLink_SetLinkDelta.html
+9.724   member   M_xpidea_neuro_net_backprop_BackPropagationLink_UpdateWeight.html
+12.027   type   T_xpidea_neuro_net_backprop_BackPropagationMiddleNode.html
+19.776   allmembers   T_xpidea_neuro_net_backprop_BackPropagationMiddleNode_Members.html
+17.133   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationMiddleNode_Methods.html
+12.377   member   C_xpidea_neuro_net_backprop_BackPropagationMiddleNode_ctor.html
+273.851   member   M_xpidea_neuro_net_backprop_BackPropagationMiddleNode_ComputeError.html
+66.291   type   T_xpidea_neuro_net_backprop_BackPropagationNetwork.html
+20.696   allmembers   T_xpidea_neuro_net_backprop_BackPropagationNetwork_Members.html
+9.111   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationNetwork_Fields.html
+47.709   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationNetwork_Methods.html
+65.960   memberoverload   T_xpidea_neuro_net_backprop_BackPropagationNetwork_Constructor.html
+10.554   member   C_xpidea_neuro_net_backprop_BackPropagationNetwork_ctor_80cf509b.html
+8.792   member   C_xpidea_neuro_net_backprop_BackPropagationNetwork_ctor_.html
+57.198   member   C_xpidea_neuro_net_backprop_BackPropagationNetwork_ctor_16219e3a.html
+9.906   field   F_xpidea_neuro_net_backprop_BackPropagationNetwork_firstMiddleNode.html
+38.430   field   F_xpidea_neuro_net_backprop_BackPropagationNetwork_firstOutputNode.html
+65.759   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_CreateLink.html
+9.581   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_CreateNetwork.html
+9.639   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_GetInputNodesCount.html
+9.435   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_GetNetworkType.html
+9.849   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_GetOutPutNodesCount.html
+9.745   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_GetOutputNode.html
+9.618   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_Learn.html
+9.610   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_Load.html
+9.841   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_NodesInLayer.html
+10.446   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_Run.html
+9.585   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_Save.html
+9.742   member   M_xpidea_neuro_net_backprop_BackPropagationNetwork_Train.html
+14.121   type   T_xpidea_neuro_net_backprop_BackPropagationNode.html
+20.912   allmembers   T_xpidea_neuro_net_backprop_BackPropagationNode_Members.html
+13.406   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationNode_Methods.html
+22.062   member   C_xpidea_neuro_net_backprop_BackPropagationNode_ctor.html
+9.670   member   M_xpidea_neuro_net_backprop_BackPropagationNode_Transfer.html
+10.831   type   T_xpidea_neuro_net_backprop_BackPropagationOutputNode.html
+19.018   allmembers   T_xpidea_neuro_net_backprop_BackPropagationOutputNode_Members.html
+10.227   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationOutputNode_Properties.html
+14.717   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationOutputNode_Methods.html
+9.266   member   C_xpidea_neuro_net_backprop_BackPropagationOutputNode_ctor.html
+8.017   property   P_xpidea_neuro_net_backprop_BackPropagationOutputNode_LearningRate.html
+13.321   property   P_xpidea_neuro_net_backprop_BackPropagationOutputNode_Momentum.html
+9.280   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_ComputeError.html
+9.440   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_GetNodeLearningRate.html
+9.435   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_GetNodeMomentum.html
+9.277   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_Learn.html
+9.661   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_Load.html
+10.097   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_Save.html
+10.260   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_SetNodeLearningRate.html
+9.457   member   M_xpidea_neuro_net_backprop_BackPropagationOutputNode_SetNodeMomentum.html
+10.702   type   T_xpidea_neuro_net_backprop_BackPropagationRPROPLink.html
+18.570   allmembers   T_xpidea_neuro_net_backprop_BackPropagationRPROPLink_Members.html
+14.936   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationRPROPLink_Methods.html
+11.447   member   C_xpidea_neuro_net_backprop_BackPropagationRPROPLink_ctor.html
+9.505   member   M_xpidea_neuro_net_backprop_BackPropagationRPROPLink_DoAfterCreate.html
+9.742   member   M_xpidea_neuro_net_backprop_BackPropagationRPROPLink_Epoch.html
+8.726   type   T_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork.html
+22.729   allmembers   T_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork_Members.html
+16.135   individualmembers   T_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork_Methods.html
+8.123   memberoverload   T_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork_Constructor.html
+9.376   member   C_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork_ctor_16219e3a.html
+9.582   member   C_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork_ctor_c4d7d4db.html
+9.356   member   M_xpidea_neuro_net_backprop_BackPropagationRPROPNetwork_CreateLink.html
+10.514   type   T_xpidea_neuro_net_backprop_EpochBackPropagationLink.html
+17.923   allmembers   T_xpidea_neuro_net_backprop_EpochBackPropagationLink_Members.html
+9.379   individualmembers   T_xpidea_neuro_net_backprop_EpochBackPropagationLink_Fields.html
+9.368   individualmembers   T_xpidea_neuro_net_backprop_EpochBackPropagationLink_Properties.html
+14.001   individualmembers   T_xpidea_neuro_net_backprop_EpochBackPropagationLink_Methods.html
+9.357   member   C_xpidea_neuro_net_backprop_EpochBackPropagationLink_ctor.html
+8.518   field   F_xpidea_neuro_net_backprop_EpochBackPropagationLink_linkEpoch.html
+8.882   property   P_xpidea_neuro_net_backprop_EpochBackPropagationLink_LinkEpoch.html
+9.747   member   M_xpidea_neuro_net_backprop_EpochBackPropagationLink_Epoch.html
+9.459   member   M_xpidea_neuro_net_backprop_EpochBackPropagationLink_GetLinkEpoch.html
+9.599   member   M_xpidea_neuro_net_backprop_EpochBackPropagationLink_Load.html
+9.930   member   M_xpidea_neuro_net_backprop_EpochBackPropagationLink_Save.html
+10.153   member   M_xpidea_neuro_net_backprop_EpochBackPropagationLink_SetLinkEpoch.html
+9.834   member   M_xpidea_neuro_net_backprop_EpochBackPropagationLink_UpdateWeight.html
+10.691   type   T_xpidea_neuro_net_backprop_EpochBackPropagationNetwork.html
+21.531   allmembers   T_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_Members.html
+15.084   individualmembers   T_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_Methods.html
+8.404   memberoverload   T_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_Constructor.html
+10.097   member   C_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_ctor_80cf509b.html
+9.253   member   C_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_ctor_16219e3a.html
+8.232   member   M_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_CreateLink.html
+9.750   member   M_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_Epoch.html
+37.601   member   M_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_GetNetworkType.html
+9.729   member   M_xpidea_neuro_net_backprop_EpochBackPropagationNetwork_Train.html
+7.692   namespace   N_xpidea_neuro_net_bam.html
+7.441   namespacehierarchy   Hier_N_xpidea_neuro_net_bam.html
+10.632   type   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryInputNode.html
+17.689   allmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryInputNode_Members.html
+14.200   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryInputNode_Methods.html
+9.112   member   C_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryInputNode_ctor.html
+9.555   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryInputNode_Learn.html
+9.402   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryInputNode_Run.html
+19.498   type   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryLink.html
+18.127   allmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryLink_Members.html
+9.025   member   C_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryLink_ctor.html
+11.027   type   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork.html
+20.238   allmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Members.html
+12.580   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Fields.html
+14.748   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Methods.html
+8.234   memberoverload   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Constructor.html
+9.785   member   C_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_ctor_fc96d728.html
+9.621   member   C_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_ctor_16219e3a.html
+9.302   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_inputLayerNodesCount.html
+9.282   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_outputLayerNodesCount.html
+9.507   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_CreateNetwork.html
+9.567   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_GetInputNodesCount.html
+15.912   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_GetNetworkType.html
+11.327   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_GetNodeError.html
+10.728   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_GetOutPutNodesCount.html
+10.643   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_GetOutputNode.html
+9.234   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Learn.html
+9.604   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Load.html
+9.284   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_LoadInputs.html
+8.219   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Run.html
+9.706   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Save.html
+13.026   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_SetValues.html
+9.689   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_SetValuesFromPattern.html
+23.143   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_Train.html
+9.138   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_UnLearn.html
+15.274   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryNetwork_value.html
+10.461   type   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode.html
+35.061   allmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Members.html
+9.436   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Fields.html
+9.743   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Properties.html
+13.584   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Methods.html
+9.890   member   C_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_ctor.html
+9.365   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_nodesLastValue.html
+9.993   property   P_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_NodeLastValue.html
+9.217   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_GetNodeLastValue.html
+10.094   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Learn.html
+10.057   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Load.html
+9.465   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Run.html
+10.341   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_Save.html
+9.844   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_SetNodeLastValue.html
+11.337   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemoryOutputNode_SetNodeValue.html
+12.226   type   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem.html
+27.654   allmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Members.html
+14.211   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Fields.html
+19.506   individualmembers   T_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Methods.html
+10.196   member   C_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_ctor.html
+9.451   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_best.html
+9.908   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_bestError.html
+9.239   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_data.html
+9.848   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_networks.html
+9.420   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_networksCount.html
+9.229   field   F_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_orthogonalBAMEnergy.html
+30.697   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_CreateNetwork.html
+9.201   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_GetNetworkType.html
+9.365   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_GetNodeError.html
+9.958   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_GetOutputNode.html
+9.491   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Learn.html
+9.845   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Load.html
+9.450   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_LoadInputs.html
+10.207   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Run.html
+9.636   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_Save.html
+10.008   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_SetValues.html
+26.486   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_SetValuesFromPattern.html
+9.645   member   M_xpidea_neuro_net_bam_BidirectionalAssociativeMemorySystem_value.html
+7.793   namespace   N_xpidea_neuro_net_patterns.html
+7.171   namespacehierarchy   Hier_N_xpidea_neuro_net_patterns.html
+11.125   type   T_xpidea_neuro_net_patterns_NeuroObjectCollection.html
+46.052   allmembers   T_xpidea_neuro_net_patterns_NeuroObjectCollection_Members.html
+13.466   individualmembers   T_xpidea_neuro_net_patterns_NeuroObjectCollection_Methods.html
+8.547   memberoverload   T_xpidea_neuro_net_patterns_NeuroObjectCollection_Constructor.html
+8.863   member   C_xpidea_neuro_net_patterns_NeuroObjectCollection_ctor_.html
+10.078   member   C_xpidea_neuro_net_patterns_NeuroObjectCollection_ctor_16219e3a.html
+9.637   member   M_xpidea_neuro_net_patterns_NeuroObjectCollection_CreateContainigObject.html
+9.737   member   M_xpidea_neuro_net_patterns_NeuroObjectCollection_Load.html
+9.758   member   M_xpidea_neuro_net_patterns_NeuroObjectCollection_LoadFromFile.html
+11.950   member   M_xpidea_neuro_net_patterns_NeuroObjectCollection_Save.html
+9.734   member   M_xpidea_neuro_net_patterns_NeuroObjectCollection_SaveToFile.html
+10.067   type   T_xpidea_neuro_net_patterns_Pattern.html
+26.041   allmembers   T_xpidea_neuro_net_patterns_Pattern_Members.html
+45.296   individualmembers   T_xpidea_neuro_net_patterns_Pattern_Properties.html
+11.439   individualmembers   T_xpidea_neuro_net_patterns_Pattern_Methods.html
+9.542   member   C_xpidea_neuro_net_patterns_Pattern_ctor.html
+9.793   property   P_xpidea_neuro_net_patterns_Pattern_Input.html
+9.141   property   P_xpidea_neuro_net_patterns_Pattern_InputsCount.html
+9.414   property   P_xpidea_neuro_net_patterns_Pattern_Output.html
+9.690   property   P_xpidea_neuro_net_patterns_Pattern_OutputsCount.html
+13.425   member   M_xpidea_neuro_net_patterns_Pattern_Load.html
+13.833   member   M_xpidea_neuro_net_patterns_Pattern_Save.html
+10.953   type   T_xpidea_neuro_net_patterns_PatternsCollection.html
+19.614   allmembers   T_xpidea_neuro_net_patterns_PatternsCollection_Members.html
+10.947   individualmembers   T_xpidea_neuro_net_patterns_PatternsCollection_Properties.html
+16.630   individualmembers   T_xpidea_neuro_net_patterns_PatternsCollection_Methods.html
+8.490   memberoverload   T_xpidea_neuro_net_patterns_PatternsCollection_Constructor.html
+11.243   member   C_xpidea_neuro_net_patterns_PatternsCollection_ctor_.html
+10.991   member   C_xpidea_neuro_net_patterns_PatternsCollection_ctor_772fec2f.html
+10.108   member   C_xpidea_neuro_net_patterns_PatternsCollection_ctor_4a3b6aec.html
+9.790   member   C_xpidea_neuro_net_patterns_PatternsCollection_ctor_3cafaa5d.html
+9.444   member   C_xpidea_neuro_net_patterns_PatternsCollection_ctor_16219e3a.html
+11.413   property   P_xpidea_neuro_net_patterns_PatternsCollection_Item.html
+18.871   member   M_xpidea_neuro_net_patterns_PatternsCollection_Add.html
+8.860   memberoverload   O_T_xpidea_neuro_net_patterns_PatternsCollection_AddRange.html
+10.100   member   M_xpidea_neuro_net_patterns_PatternsCollection_AddRange_4a3b6aec.html
+9.987   member   M_xpidea_neuro_net_patterns_PatternsCollection_AddRange_772fec2f.html
+10.990   member   M_xpidea_neuro_net_patterns_PatternsCollection_Contains.html
+10.879   member   M_xpidea_neuro_net_patterns_PatternsCollection_CopyTo.html
+9.844   member   M_xpidea_neuro_net_patterns_PatternsCollection_CreateContainigObject.html
+9.570   member   M_xpidea_neuro_net_patterns_PatternsCollection_GetEnumerator.html
+10.041   member   M_xpidea_neuro_net_patterns_PatternsCollection_IndexOf.html
+10.647   member   M_xpidea_neuro_net_patterns_PatternsCollection_Insert.html
+10.101   member   M_xpidea_neuro_net_patterns_PatternsCollection_Remove.html
+10.830   type   T_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator.html
+14.046   allmembers   T_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_Members.html
+8.656   individualmembers   T_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_Properties.html
+9.770   individualmembers   T_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_Methods.html
+9.410   member   C_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_ctor.html
+9.244   property   P_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_Current.html
+9.565   member   M_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_MoveNext.html
+29.313   member   M_xpidea_neuro_net_patterns_PatternsCollection_CustomPatternEnumerator_Reset.html
+7.475   namespace   N_xpidea_neuro_net_son.html
+7.096   namespacehierarchy   Hier_N_xpidea_neuro_net_son.html
+10.158   type   T_xpidea_neuro_net_son_SelfOrganizingLink.html
+17.627   allmembers   T_xpidea_neuro_net_son_SelfOrganizingLink_Members.html
+8.883   member   C_xpidea_neuro_net_son_SelfOrganizingLink_ctor.html
+11.040   type   T_xpidea_neuro_net_son_SelfOrganizingNetwork.html
+22.507   allmembers   T_xpidea_neuro_net_son_SelfOrganizingNetwork_Members.html
+11.083   individualmembers   T_xpidea_neuro_net_son_SelfOrganizingNetwork_Fields.html
+10.977   individualmembers   T_xpidea_neuro_net_son_SelfOrganizingNetwork_Properties.html
+15.287   individualmembers   T_xpidea_neuro_net_son_SelfOrganizingNetwork_Methods.html
+8.444   memberoverload   T_xpidea_neuro_net_son_SelfOrganizingNetwork_Constructor.html
+24.630   member   C_xpidea_neuro_net_son_SelfOrganizingNetwork_ctor_4b8d9f6b.html
+9.241   member   C_xpidea_neuro_net_son_SelfOrganizingNetwork_ctor_.html
+9.474   member   C_xpidea_neuro_net_son_SelfOrganizingNetwork_ctor_16219e3a.html
+9.348   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_columsCount.html
+9.548   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_currentIteration.html
+9.198   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_currentNeighborhoodSize.html
+9.278   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_finalLearningRate.html
+10.955   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_initialLearningRate.html
+9.256   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_initialNeighborhoodSize.html
+9.930   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_kohonenLayer.html
+10.968   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_neighborhoodReduceInterval.html
+9.573   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_rowsCount.html
+9.580   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_trainingIterations.html
+9.487   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_winnigCol.html
+9.306   field   F_xpidea_neuro_net_son_SelfOrganizingNetwork_winnigRow.html
+10.376   property   P_xpidea_neuro_net_son_SelfOrganizingNetwork_CurrentNeighborhoodSize.html
+10.029   property   P_xpidea_neuro_net_son_SelfOrganizingNetwork_KohonenColumsCount.html
+9.608   property   P_xpidea_neuro_net_son_SelfOrganizingNetwork_KohonenNode.html
+9.274   property   P_xpidea_neuro_net_son_SelfOrganizingNetwork_KohonenRowsCount.html
+9.781   property   P_xpidea_neuro_net_son_SelfOrganizingNetwork_WinnigCol.html
+9.347   property   P_xpidea_neuro_net_son_SelfOrganizingNetwork_WinnigRow.html
+9.269   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_CreateNetwork.html
+10.195   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_Epoch.html
+9.585   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetInputNode.html
+8.177   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetInputNodesCount.html
+9.789   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetNetworkType.html
+9.357   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetNodeError.html
+9.660   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetOutPutNodesCount.html
+10.229   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetOutputNode.html
+9.572   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_Learn.html
+12.081   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_Load.html
+9.779   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_Run.html
+9.416   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_Save.html
+9.800   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_SetNodeError.html
+9.721   member   M_xpidea_neuro_net_son_SelfOrganizingNetwork_Train.html
+10.061   type   T_xpidea_neuro_net_son_SelfOrganizingNode.html
+18.036   allmembers   T_xpidea_neuro_net_son_SelfOrganizingNode_Members.html
+9.412   individualmembers   T_xpidea_neuro_net_son_SelfOrganizingNode_Fields.html
+12.904   individualmembers   T_xpidea_neuro_net_son_SelfOrganizingNode_Methods.html
+9.539   member   C_xpidea_neuro_net_son_SelfOrganizingNode_ctor.html
+9.234   field   F_xpidea_neuro_net_son_SelfOrganizingNode_LearningRate.html
+9.101   member   M_xpidea_neuro_net_son_SelfOrganizingNode_Learn.html
+12.156   member   M_xpidea_neuro_net_son_SelfOrganizingNode_Run.html
+It took 56 seconds to make the html
+Completing Help Project Resources
+Compiling HTML Help file...
+Microsoft HTML Help Compiler 4.74.8702
+Compiling c:\SyncRoot\Develop\Projects\Neuro.NET\NET\Help\ndoc_msdn_temp\xpidea.neuro.net.chm
+Compile time: 0 minutes, 8 seconds
+456	Topics
+5,975	Local links
+452	Internet links
+20	Graphics
+Created c:\SyncRoot\Develop\Projects\Neuro.NET\NET\Help\ndoc_msdn_temp\xpidea.neuro.net.chm, 568,857 bytes
+Compression decreased file by 5,059,270 bytes.
+
+Html Help compile complete
+Writing documentation to output path
+Build Completed.
+The build took a total of 69 seconds

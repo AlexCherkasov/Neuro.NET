@@ -1,0 +1,831 @@
+<html dir="LTR" xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:tool="http://www.microsoft.com/tooltip" xmlns:ndoc="urn:ndoc-preprocess">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <title>SelfOrganizingNetwork Members</title>
+    <link rel="stylesheet" type="text/css" href="ndoc.css"> </link>
+    <link rel="stylesheet" type="text/css" href="user.css"> </link>
+    <script type="text/javascript" src="ndoc.js"> </script>
+  </head>
+  <body style="display: none;">
+    <input type="hidden" id="userDataCache" class="userDataStyle" />
+    <input type="hidden" id="hiddenScrollOffset" />
+    <img id="dropDownImage" style="display:none; height:0; width:0;" src="drpdown.gif" />
+    <img id="dropDownHoverImage" style="display:none; height:0; width:0;" src="drpdown_orange.gif" />
+    <img id="collapseImage" style="display:none; height:0; width:0;" src="collapse.gif" />
+    <img id="expandImage" style="display:none; height:0; width:0;" src="exp.gif" />
+    <img id="collapseAllImage" style="display:none; height:0; width:0;" src="collall.gif" />
+    <img id="expandAllImage" style="display:none; height:0; width:0;" src="expall.gif" />
+    <img id="copyImage" style="display:none; height:0; width:0;" src="copycode.gif" />
+    <img id="copyHoverImage" style="display:none; height:0; width:0;" src="copycodeHighlight.gif" />
+    <div id="header">
+      <table width="100%" id="topTable">
+        <tr id="headerTableRow1">
+          <td align="left">
+            <span id="runningHeaderText">Neural Networks Library for .NET</span>
+          </td>
+        </tr>
+        <tr id="headerTableRow2">
+          <td align="left">
+            <span id="nsrTitle">SelfOrganizingNetwork Members</span>
+          </td>
+        </tr>
+        <tr id="headerTableRow3">
+          <td>
+            <a id="seeAlsoSectionLink" href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">See Also</a>
+            <a id="exampleSectionLink" href="#codeExampleToggle" onclick="OpenSection(codeExampleToggle)">Example</a>
+            <a href="#PublicFieldsToggle" onclick="OpenSection(PublicFieldsToggle)">Fields</a>
+            <a href="#PublicPropertiesToggle" onclick="OpenSection(PublicPropertiesToggle)">Properties</a>
+            <a href="#PublicMethodsToggle" onclick="OpenSection(PublicMethodsToggle)">Methods</a>
+            <a href="#PrivateExplicitInterfaceImplementationToggle" onclick="OpenSection(PrivateExplicitInterfaceImplementationToggle)">Explicit Inteface Implementations</a>
+          </td>
+        </tr>
+      </table>
+      <table width="100%" id="bottomTable" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <span onclick="ExpandCollapseAll(toggleAllImage)" style="cursor:default;" onkeypress="ExpandCollapseAll_CheckKey(toggleAllImage)" tabindex="0">
+              <img ID="toggleAllImage" class="toggleAll" src="collall.gif" />
+              <label id="collapseAllLabel" for="toggleAllImage" style="display: none;">
+							Collapse All
+						</label>
+              <label id="expandAllLabel" for="toggleAllImage" style="display: none;">
+							Expand All
+						</label>
+            </span>
+            <span id="membersOptionsFilterToolTip" style="cursor:default;" onmouseover="membersOptionsFilterImage.src=dropDownHoverImage.src;" onfocusin="membersOptionsFilterImage.src=dropDownHoverImage.src;" onmouseout="membersOptionsFilterImage.src=dropDownImage.src;" onfocusout="membersOptionsFilterImage.src=dropDownImage.src;" tabindex="0">
+              <img id="membersOptionsFilterImage" src="drpdown.gif" />
+              <label id="showAllMembersLabel" for="membersOptionsFilterImage" style="display: none;">
+				Members Options: Show All
+			</label>
+              <label id="filteredMembersLabel" for="membersOptionsFilterImage" style="display: none;">
+				Members Options: Filtered
+			</label>
+            </span>
+          </td>
+        </tr>
+      </table>
+      <span style="display:none" id="membersOptionsSpan">
+        <input id="inheritedCheckbox" type="checkbox" name="membersOptionsFilter" onClick="SetMembersOptions(this)" />
+        <label class="membersOptionsFilter" for="inheritedCheckbox">
+				Include Inherited Members
+			</label>
+        <br />
+        <input id="protectedCheckbox" type="checkbox" name="membersOptionsFilter" onClick="SetMembersOptions(this)" />
+        <label class="membersOptionsFilter" for="protectedCheckbox">
+				Include Protected Members
+			</label>
+        <br />
+        <input id="assemblyCheckbox" type="checkbox" name="membersOptionsFilter" onClick="SetMembersOptions(this)" />
+        <label class="membersOptionsFilter" for="assemblyCheckbox">
+				Include Internal Members
+			</label>
+        <br />
+        <input id="privateCheckbox" type="checkbox" name="membersOptionsFilter" onClick="SetMembersOptions(this)" />
+        <label class="membersOptionsFilter" for="privateCheckbox">
+				Include Private Members
+			</label>
+        <br />
+        <input id="netcfCheckbox" type="checkbox" name="membersOptionsFilter" onClick="SetMembersOptions(this)" />
+        <label class="membersOptionsFilter" for="netcfCheckbox">
+				.NET Compact Framework Members Only
+			</label>
+        <br />
+      </span>
+    </div>
+    <div id="mainSection">
+      <div id="mainBody">
+        <div id="allHistory" class="saveHistory" onsave="saveAll()" onload="loadAll()" />
+        <p>Implements the Self Organizing Network (SON).</p>
+        <br />
+        <p>The following tables list the members exposed by <a href="T_xpidea_neuro_net_son_SelfOrganizingNetwork.html">SelfOrganizingNetwork</a>.</p>
+        <h1 class="heading">
+          <span style="cursor:default;" tabindex="0" onclick="ExpandCollapse(PublicConstructorsToggle)" onkeypress="ExpandCollapse_CheckKey(PublicConstructorsToggle)">
+            <img class="toggle" name="toggleSwitch" src="collapse.gif" id="PublicConstructorsToggle" />Public Constructors</span>
+        </h1>
+        <div class="section" name="collapseableSection" id="PublicConstructorsSection">
+          <table width="100%" class="memberListTable">
+            <col width="10%" />
+            <col width="30%" />
+            <col width="60%" />
+            <tr>
+              <th style="border-right-style: none;"> </th>
+              <th align="left" style="border-left-style: none; border-right-style: none;">Name</th>
+              <th align="left" style="border-left-style: none;">Description</th>
+            </tr>
+            <tr>
+              <td class="imageCell">
+                <img src="pubinterface.gif" alt="Static" />
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="T_xpidea_neuro_net_son_SelfOrganizingNetwork_Constructor.html">SelfOrganizingNetwork</a>
+              </td>
+              <td>Overloaded.  </td>
+            </tr>
+          </table>
+          <a href="#mainBody">Top</a>
+        </div>
+        <h1 class="heading">
+          <span style="cursor:default;" tabindex="0" onclick="ExpandCollapse(FamilyFieldsToggle)" onkeypress="ExpandCollapse_CheckKey(FamilyFieldsToggle)">
+            <img class="toggle" name="toggleSwitch" src="collapse.gif" id="FamilyFieldsToggle" />Protected Fields</span>
+        </h1>
+        <div class="section" name="collapseableSection" id="FamilyFieldsSection">
+          <table width="100%" class="memberListTable">
+            <col width="10%" />
+            <col width="30%" />
+            <col width="60%" />
+            <tr>
+              <th style="border-right-style: none;"> </th>
+              <th align="left" style="border-left-style: none; border-right-style: none;">Name</th>
+              <th align="left" style="border-left-style: none;">Description</th>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_columsCount.html">columsCount</a>
+              </td>
+              <td>Number of colums in output layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_currentIteration.html">currentIteration</a>
+              </td>
+              <td>Current iteration.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_currentNeighborhoodSize.html">currentNeighborhoodSize</a>
+              </td>
+              <td>Current neighborhood size.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_finalLearningRate.html">finalLearningRate</a>
+              </td>
+              <td>Final learning rate.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_initialLearningRate.html">initialLearningRate</a>
+              </td>
+              <td>Initial learning rate.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_initialNeighborhoodSize.html">initialNeighborhoodSize</a>
+              </td>
+              <td>Initial neighborhood size.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_kohonenLayer.html">kohonenLayer</a>
+              </td>
+              <td>Represents the Kohonen layer as two-dimetional array of <nobr><a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a></nobr>.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_adaline_AdalineNetwork_learningRate.html">learningRate</a>
+              </td>
+              <td>Stores a learning rate value. (inherited from <a href="T_xpidea_neuro_net_adaline_AdalineNetwork.html">AdalineNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_NeuralNetwork_links.html">links</a>
+              </td>
+              <td>Links in the network. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_NeuralNetwork_linksCount.html">linksCount</a>
+              </td>
+              <td>Number of links in the network. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_neighborhoodReduceInterval.html">neighborhoodReduceInterval</a>
+              </td>
+              <td>Neighborhood reduce interval.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_NeuroNode_nodeError.html">nodeError</a>
+              </td>
+              <td>Node value and node error. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_NeuralNetwork_nodes.html">nodes</a>
+              </td>
+              <td>Nodes in the netowrk. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_NeuralNetwork_nodesCount.html">nodesCount</a>
+              </td>
+              <td>Number of nodes in the network. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_NeuroNode_nodeValue.html">nodeValue</a>
+              </td>
+              <td>Node value and node error. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_rowsCount.html">rowsCount</a>
+              </td>
+              <td>Number of rows in output layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_trainingIterations.html">trainingIterations</a>
+              </td>
+              <td>Number of training iterations.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_winnigCol.html">winnigCol</a>
+              </td>
+              <td>Winning column in output layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protfield.gif" alt="Family field" />
+              </td>
+              <td class="nameCell">
+                <a href="F_xpidea_neuro_net_son_SelfOrganizingNetwork_winnigRow.html">winnigRow</a>
+              </td>
+              <td>Winning row in output layer.</td>
+            </tr>
+          </table>
+          <a href="#mainBody">Top</a>
+        </div>
+        <h1 class="heading">
+          <span style="cursor:default;" tabindex="0" onclick="ExpandCollapse(PublicPropertiesToggle)" onkeypress="ExpandCollapse_CheckKey(PublicPropertiesToggle)">
+            <img class="toggle" name="toggleSwitch" src="collapse.gif" id="PublicPropertiesToggle" />Public Properties</span>
+        </h1>
+        <div class="section" name="collapseableSection" id="PublicPropertiesSection">
+          <table width="100%" class="memberListTable">
+            <col width="10%" />
+            <col width="30%" />
+            <col width="60%" />
+            <tr>
+              <th style="border-right-style: none;"> </th>
+              <th align="left" style="border-left-style: none; border-right-style: none;">Name</th>
+              <th align="left" style="border-left-style: none;">Description</th>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_adaline_AdalineNetwork_AdalineNode.html">AdalineNode</a>
+              </td>
+              <td>An output, Adaline node, of the Adaline network. (inherited from <a href="T_xpidea_neuro_net_adaline_AdalineNetwork.html">AdalineNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_son_SelfOrganizingNetwork_CurrentNeighborhoodSize.html">CurrentNeighborhoodSize</a>
+              </td>
+              <td>Current neighborhood size.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuroNode_Error.html">Error</a>
+              </td>
+              <td>
+                <b xmlns="">Error</b> property of the node. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuroNode_InLinks.html">InLinks</a>
+              </td>
+              <td>Incomming links for this node. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuralNetwork_InputNodesCount.html">InputNodesCount</a>
+              </td>
+              <td>Number of input nodes. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_son_SelfOrganizingNetwork_KohonenColumsCount.html">KohonenColumsCount</a>
+              </td>
+              <td>Number of colums in Kohonen layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_son_SelfOrganizingNetwork_KohonenNode.html">KohonenNode</a>
+              </td>
+              <td>Array of nodes representing Kohonen layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_son_SelfOrganizingNetwork_KohonenRowsCount.html">KohonenRowsCount</a>
+              </td>
+              <td>Number of rows in Kohonen layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_adaline_AdalineNetwork_LearningRate.html">LearningRate</a>
+              </td>
+              <td>Network's learning rate property. (inherited from <a href="T_xpidea_neuro_net_adaline_AdalineNetwork.html">AdalineNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuralNetwork_LinksCount.html">LinksCount</a>
+              </td>
+              <td>Total number of links in the network. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuralNetwork_NetworkType.html">NetworkType</a>
+              </td>
+              <td>Returns network type. Used for persistent purposes. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuralNetwork_NodesCount.html">NodesCount</a>
+              </td>
+              <td>Total number of nodes in the network. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuroNode_OutLinks.html">OutLinks</a>
+              </td>
+              <td>Outgoing links of this node. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuralNetwork_OutputNodesCount.html">OutputNodesCount</a>
+              </td>
+              <td>Number of output nodes. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_NeuroNode_Value.html">Value</a>
+              </td>
+              <td>
+                <b xmlns="">Value</b> property of the node. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_son_SelfOrganizingNetwork_WinnigCol.html">WinnigCol</a>
+              </td>
+              <td>Winning column index.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubproperty.gif" alt="Public property" />
+              </td>
+              <td class="nameCell">
+                <a href="P_xpidea_neuro_net_son_SelfOrganizingNetwork_WinnigRow.html">WinnigRow</a>
+              </td>
+              <td>Winning row index.</td>
+            </tr>
+          </table>
+          <a href="#mainBody">Top</a>
+        </div>
+        <h1 class="heading">
+          <span style="cursor:default;" tabindex="0" onclick="ExpandCollapse(PublicMethodsToggle)" onkeypress="ExpandCollapse_CheckKey(PublicMethodsToggle)">
+            <img class="toggle" name="toggleSwitch" src="collapse.gif" id="PublicMethodsToggle" />Public Methods</span>
+        </h1>
+        <div class="section" name="collapseableSection" id="PublicMethodsSection">
+          <table width="100%" class="memberListTable">
+            <col width="10%" />
+            <col width="30%" />
+            <col width="60%" />
+            <tr>
+              <th style="border-right-style: none;"> </th>
+              <th align="left" style="border-left-style: none; border-right-style: none;">Name</th>
+              <th align="left" style="border-left-style: none;">Description</th>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_Epoch.html">Epoch</a>
+              </td>
+              <td>Overridden. Overridden.Epoch - number of patterns that was exposed to a network during one training cycle.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell"><a href="http://msdn2.microsoft.com/en-us/library/System.Object.Equals" target="_top">Equals</a></td>
+              <td>Determines whether the specified <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a></nobr> is equal to the current <nobr><b>Object</b></nobr>. (inherited from <a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell"><a href="http://msdn2.microsoft.com/en-us/library/System.Object.GetHashCode" target="_top">GetHashCode</a></td>
+              <td>Serves as a hash function for a particular type. <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.Object.GetHashCode" target="_top">GetHashCode</a></nobr> is suitable for use in hashing algorithms and data structures like a hash table. (inherited from <a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell"><a href="http://msdn2.microsoft.com/en-us/library/System.Object.GetType" target="_top">GetType</a></td>
+              <td>Gets the <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.Type" target="_top">Type</a></nobr> of the current instance. (inherited from <a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuralNetwork_InputNode.html">InputNode</a>
+              </td>
+              <td>Returns N-th input node of the network.<seealso cref="P:xpidea.neuro.net.NeuralNetwork.InputNodesCount" xmlns="" /> (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_Learn.html">Learn</a>
+              </td>
+              <td>Overridden. Overridden.Teaches the network.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuroNode_LinkTo.html">LinkTo</a>
+              </td>
+              <td>Connects this node to <b xmlns="">toNode</b> using link <b xmlns="">link</b>. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_Load.html">Load</a>
+              </td>
+              <td>Overridden. Overridden.Loads network data from the binary stream.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuroObject_LoadFromFile.html">LoadFromFile</a>
+              </td>
+              <td>Loads object data from a file. (inherited from <a href="T_xpidea_neuro_net_NeuroObject.html">NeuroObject</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuralNetwork_OutputNode.html">OutputNode</a>
+              </td>
+              <td>Returns N-th output node of the network. <seealso cref="P:xpidea.neuro.net.NeuralNetwork.OutputNodesCount" xmlns="" /> (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_Run.html">Run</a>
+              </td>
+              <td>Overridden. Overridden.Runs the network.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_Save.html">Save</a>
+              </td>
+              <td>Overridden. Overridden.Stores network into to a binary stream.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuroObject_SaveToFile.html">SaveToFile</a>
+              </td>
+              <td>Saves object to a file in a binary format. (inherited from <a href="T_xpidea_neuro_net_NeuroObject.html">NeuroObject</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_adaline_AdalineNetwork_SetValuesFromPattern.html">SetValuesFromPattern</a>
+              </td>
+              <td>Sets input values of the network from the pattern. (inherited from <a href="T_xpidea_neuro_net_adaline_AdalineNetwork.html">AdalineNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell"><a href="http://msdn2.microsoft.com/en-us/library/System.Object.ToString" target="_top">ToString</a></td>
+              <td>Returns a <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.String" target="_top">String</a></nobr> that represents the current <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a></nobr>. (inherited from <a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="pubmethod.gif" alt="Public method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_Train.html">Train</a>
+              </td>
+              <td>Overridden. Overridden.Trains the network.</td>
+            </tr>
+          </table>
+          <a href="#mainBody">Top</a>
+        </div>
+        <h1 class="heading">
+          <span style="cursor:default;" tabindex="0" onclick="ExpandCollapse(FamilyMethodsToggle)" onkeypress="ExpandCollapse_CheckKey(FamilyMethodsToggle)">
+            <img class="toggle" name="toggleSwitch" src="collapse.gif" id="FamilyMethodsToggle" />Protected Methods</span>
+        </h1>
+        <div class="section" name="collapseableSection" id="FamilyMethodsSection">
+          <table width="100%" class="memberListTable">
+            <col width="10%" />
+            <col width="30%" />
+            <col width="60%" />
+            <tr>
+              <th style="border-right-style: none;"> </th>
+              <th align="left" style="border-left-style: none; border-right-style: none;">Name</th>
+              <th align="left" style="border-left-style: none;">Description</th>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_CreateNetwork.html">CreateNetwork</a>
+              </td>
+              <td>Overridden. Overridden.Constructs network topology.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell"><a href="http://msdn2.microsoft.com/en-us/library/System.Object.Finalize" target="_top">Finalize</a></td>
+              <td>Allows an <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a></nobr> to attempt to free resources and perform other cleanup operations before the <nobr><b>Object</b></nobr> is reclaimed by garbage collection. (inherited from <a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetInputNode.html">GetInputNode</a>
+              </td>
+              <td>Overridden. Overridden.Retrieves the input node by its index.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetInputNodesCount.html">GetInputNodesCount</a>
+              </td>
+              <td>Overridden. Overridden.Returns number of nodes in input layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetNetworkType.html">GetNetworkType</a>
+              </td>
+              <td>Overridden. Overridden.Returns <nobr><a href="T_xpidea_neuro_net_NeuralNetworkType.html">nntSON</a></nobr> for SON network.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetNodeError.html">GetNodeError</a>
+              </td>
+              <td>Overridden. Overridden.Always returns 0. There is no output node.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuroNode_GetNodeValue.html">GetNodeValue</a>
+              </td>
+              <td>Getter methos of <nobr><a href="P_xpidea_neuro_net_NeuroNode_Value.html">Value</a></nobr> property. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetOutputNode.html">GetOutputNode</a>
+              </td>
+              <td>Overridden. Overridden.Returns an output node by its index.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_GetOutPutNodesCount.html">GetOutPutNodesCount</a>
+              </td>
+              <td>Overridden. Overridden.Number of nodes in output layer. Always return 0 since there are no nodes as its have an Kohonen layer.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuralNetwork_LoadInputs.html">LoadInputs</a>
+              </td>
+              <td>Loads data into input nodes of the network. (inherited from <a href="T_xpidea_neuro_net_NeuralNetwork.html">NeuralNetwork</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell"><a href="http://msdn2.microsoft.com/en-us/library/System.Object.MemberwiseClone" target="_top">MemberwiseClone</a></td>
+              <td>Creates a shallow copy of the current <nobr><a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a></nobr>. (inherited from <a href="http://msdn2.microsoft.com/en-us/library/System.Object" target="_top">Object</a>)</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_son_SelfOrganizingNetwork_SetNodeError.html">SetNodeError</a>
+              </td>
+              <td>Overridden. Overridden.Doesn't do anything. There is no output node.</td>
+            </tr>
+            <tr VALIGN="top">
+              <td class="imageCell">
+                <img src="protmethod.gif" alt="Family method" />
+              </td>
+              <td class="nameCell">
+                <a href="M_xpidea_neuro_net_NeuroNode_SetNodeValue.html">SetNodeValue</a>
+              </td>
+              <td>Setter method of <nobr><a href="P_xpidea_neuro_net_NeuroNode_Value.html">Value</a></nobr> property. (inherited from <a href="T_xpidea_neuro_net_NeuroNode.html">NeuroNode</a>)</td>
+            </tr>
+          </table>
+          <a href="#mainBody">Top</a>
+        </div>
+        <h1 class="heading">
+          <span style="cursor:default;" tabindex="0" onclick="ExpandCollapse(PrivateExplicitInterfaceImplementationToggle)" onkeypress="ExpandCollapse_CheckKey(PrivateExplicitInterfaceImplementationToggle)">
+            <img class="toggle" name="toggleSwitch" src="collapse.gif" id="PrivateExplicitInterfaceImplementationToggle" />Explicit Interface Implementations</span>
+        </h1>
+        <div class="section" name="collapseableSection" id="PrivateExplicitInterfaceImplementationSection">
+          <table width="100%" class="memberListTable">
+            <col width="10%" />
+            <col width="30%" />
+            <col width="60%" />
+            <tr>
+              <th style="border-right-style: none;"> </th>
+              <th align="left" style="border-left-style: none; border-right-style: none;">Name</th>
+              <th align="left" style="border-left-style: none;">Description</th>
+            </tr>
+            <tr>
+              <td class="imageCell">
+                <img src="pubinterface.gif" alt="Static" />
+                <img src="privmethod.gif" alt="Private method" />
+              </td>
+              <td class="nameCell">
+                <a href="T_xpidea_neuro_net_son_SelfOrganizingNetwork_Constructor.html">SelfOrganizingNetwork</a>
+              </td>
+              <td>Overloaded.  </td>
+            </tr>
+          </table>
+          <a href="#mainBody">Top</a>
+        </div>
+        <h1 class="heading">
+          <span style="cursor:default;" onclick="ExpandCollapse(seeAlsoToggle)" onkeypress="ExpandCollapse_CheckKey(seeAlsoToggle)" tabindex="0">
+            <img id="seeAlsoToggle" class="toggle" name="toggleSwitch" src="collapse.gif" />See Also</span>
+        </h1>
+        <div id="seeAlsoSection" class="section" name="collapseableSection">
+          <a href="T_xpidea_neuro_net_son_SelfOrganizingNetwork.html">SelfOrganizingNetwork Class</a>
+          <br />
+          <a href="N_xpidea_neuro_net_son.html">xpidea.neuro.net.son Namespace</a>
+        </div>
+      </div>
+      <DIV CLASS="footer">
+        <p>
+          <center>
+            <font color="red">
+              <i>
+                Syntax based on .NET Framework version 2.0.<br />
+                Documentation version 1.0.0.0.
+              </i>
+            </font>
+          </center>
+        </p>
+      </DIV>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:info@xpidea.com?subject=Neural%20Networks%20Library%20for%20.NET%201.0.0.0%20Documentation%20Feedback:%20SelfOrganizingNetwork%20Members&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://xpidea.com">Copyright (c) 2001-2007 XP Idea, LLC. All rights reserved.</a>
+        </p>
+        <p />
+      </div><!--[if gte IE 5]><tool:tip element="membersOptionsFilterToolTip" avoidmouse="false" /><![endif]--></div>
+  </body>
+</html>
