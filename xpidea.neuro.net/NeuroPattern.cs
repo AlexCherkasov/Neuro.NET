@@ -261,7 +261,7 @@ namespace xpidea.neuro.net.patterns
         /// </exception>
         public Pattern this[int index]
         {
-            get { return ((Pattern) (List[index])); }
+            get { return ((Pattern)(List[index])); }
             set { List[index] = value; }
         }
 
@@ -365,7 +365,7 @@ namespace xpidea.neuro.net.patterns
         ///     <para>-or-</para>
         ///     <para>
         ///         The number of elements in the <see cref="xpidea.neuro.net.patterns.PatternsCollection" /> is greater than the
-        ///         available space between <paramref name="arrayIndex" /> and the end of <paramref name="array" />.
+        ///         available space between <paramref name="index" /> and the end of <paramref name="array" />.
         ///     </para>
         /// </exception>
         /// <exception cref="System.ArgumentNullException"><paramref name="array" /> is <see langword="null" />. </exception>
@@ -463,7 +463,7 @@ namespace xpidea.neuro.net.patterns
             /// </summary>
             public Pattern Current
             {
-                get { return ((Pattern) (baseEnumerator.Current)); }
+                get { return ((Pattern)(baseEnumerator.Current)); }
             }
 
             object IEnumerator.Current

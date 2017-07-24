@@ -50,7 +50,7 @@ namespace xpidea.neuro.net.backprop
         /// <returns>A transfer result.</returns>
         protected override double Transfer(double value)
         {
-            return 1F/(1F + Math.Exp(-value)); //Sigmoid transfer 
+            return 1F / (1F + Math.Exp(-value)); //Sigmoid transfer 
         }
     }
 
@@ -135,7 +135,7 @@ namespace xpidea.neuro.net.backprop
         /// <param name="deltaWeight">Delta of link weight change.</param>
         public override void UpdateWeight(double deltaWeight)
         {
-            Weight = Weight + deltaWeight + ((BackPropagationOutputNode) OutNode).Momentum*LinkDelta;
+            Weight = Weight + deltaWeight + ((BackPropagationOutputNode)OutNode).Momentum * LinkDelta;
             LinkDelta = deltaWeight;
         }
     }
@@ -191,7 +191,7 @@ namespace xpidea.neuro.net.backprop
         protected virtual double ComputeError()
         {
             var nv = Value; //optimized for speed
-            return nv*(1F - nv)*(Error - nv);
+            return nv * (1F - nv) * (Error - nv);
         }
 
         /// <summary>
@@ -261,7 +261,7 @@ namespace xpidea.neuro.net.backprop
             Error = err;
             for (var i = 0; i < InLinks.Count; i++)
             {
-                var delta = LearningRate*err*InLinks[i].InNode.Value; //(2.18)
+                var delta = LearningRate * err * InLinks[i].InNode.Value; //(2.18)
                 InLinks[i].UpdateWeight(delta);
             }
         }
@@ -292,7 +292,7 @@ namespace xpidea.neuro.net.backprop
             foreach (var link in OutLinks)
                 total += link.WeightedOutError();
             var nv = Value;
-            return nv*(1F - nv)*total;
+            return nv * (1F - nv) * total;
         }
     }
 
@@ -362,7 +362,7 @@ namespace xpidea.neuro.net.backprop
                 nodesInLayer[i] = nodesInEachLayer[i];
                 nodesCount += nodesInLayer[i];
                 if (i > 0)
-                    linksCount += nodesInLayer[i - 1]*nodesInLayer[i];
+                    linksCount += nodesInLayer[i - 1] * nodesInLayer[i];
             }
             this.learningRate = learningRate;
             this.momentum = momentum;
@@ -393,7 +393,7 @@ namespace xpidea.neuro.net.backprop
         {
             if ((index >= GetMiddleNodesCount()) || (index < 0))
                 throw new ENeuroException("Middlenode index out of bounds.");
-                    //In case of Adaline an index always will be 0.
+            //In case of Adaline an index always will be 0.
             return nodes[firstMiddleNode + index];
         }
 
@@ -439,7 +439,7 @@ namespace xpidea.neuro.net.backprop
         {
             if ((index >= OutputNodesCount) || (index < 0))
                 throw new ENeuroException("OutputNode index out of bounds.");
-                    //In case of Adaline an index always will be 0.
+            //In case of Adaline an index always will be 0.
             return nodes[firstOutputNode + index];
         }
 
@@ -676,9 +676,9 @@ namespace xpidea.neuro.net.backprop
         /// <param name="epoch">Number of patterns that was exposed to the network.</param>
         public override void Epoch(int epoch)
         {
-            var momentum = ((BackPropagationOutputNode) OutNode).Momentum;
-            var delta = LinkEpoch/epoch;
-            Weight = Weight + delta + (momentum*LinkDelta); //Wji(n+1)=Wij(n)+deltaWij(n)+alpha*deltaWij(n-1);
+            var momentum = ((BackPropagationOutputNode)OutNode).Momentum;
+            var delta = LinkEpoch / epoch;
+            Weight = Weight + delta + (momentum * LinkDelta); //Wji(n+1)=Wij(n)+deltaWij(n)+alpha*deltaWij(n-1);
             LinkDelta = delta;
             LinkEpoch = 0F;
         }
@@ -808,20 +808,20 @@ namespace xpidea.neuro.net.backprop
         /// <remarks>Implements RPROP training algorithm.</remarks>
         public override void Epoch(int epoch)
         {
-            var delta = -LinkEpoch/epoch;
+            var delta = -LinkEpoch / epoch;
             var deltaOld = LinkDelta;
-            var deltaProduct = deltaOld*delta;
+            var deltaProduct = deltaOld * delta;
             var deltaSign = Math.Sign(delta);
-            delta = delta - decayTerm*Weight;
+            delta = delta - decayTerm * Weight;
             if (deltaProduct >= 0)
             {
-                if (deltaProduct > 0) eta = Math.Min(eta*etaPlus, maxDelta);
-                Weight = Weight - deltaSign*eta;
+                if (deltaProduct > 0) eta = Math.Min(eta * etaPlus, maxDelta);
+                Weight = Weight - deltaSign * eta;
                 deltaOld = delta;
             }
             else if (deltaProduct < 0)
             {
-                eta = Math.Max(eta*etaMinus, minDelta);
+                eta = Math.Max(eta * etaMinus, minDelta);
                 deltaOld = 0.0;
             }
             LinkDelta = deltaOld;

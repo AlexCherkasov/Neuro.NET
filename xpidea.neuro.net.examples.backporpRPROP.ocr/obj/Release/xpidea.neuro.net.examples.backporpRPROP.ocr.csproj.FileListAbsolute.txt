@@ -1,0 +1,7 @@
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\bin\Release\xpidea.neuro.net.examples.backporpRPROP.ocr.exe
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\bin\Release\xpidea.neuro.net.dll
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\bin\Release\xpidea.neuro.net.xml
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\obj\Release\xpidea.neuro.net.examples.backporpRPROP.ocr.csprojResolveAssemblyReference.cache
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\obj\Release\xpidea.neuro.net.examples.backprop.ocr.Form1.resources
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\obj\Release\xpidea.neuro.net.examples.backporpRPROP.ocr.csproj.GenerateResource.Cache
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backporpRPROP.ocr\obj\Release\xpidea.neuro.net.examples.backporpRPROP.ocr.exe

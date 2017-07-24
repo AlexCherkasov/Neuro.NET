@@ -120,7 +120,7 @@ namespace xpidea.neuro.net.bam
         public override void Learn()
         {
             foreach (var link in InLinks)
-                link.UpdateWeight(link.InNode.Value*link.OutNode.Value);
+                link.UpdateWeight(link.InNode.Value * link.OutNode.Value);
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace xpidea.neuro.net.bam
             inputLayerNodesCount = aInputNodesCount;
             outputLayerNodesCount = aOutputNodesCount;
             nodesCount = InputNodesCount + OutputNodesCount;
-            linksCount = InputNodesCount*OutputNodesCount;
+            linksCount = InputNodesCount * OutputNodesCount;
             CreateNetwork();
         }
 
@@ -240,11 +240,11 @@ namespace xpidea.neuro.net.bam
                 {
                     var node = nodes[i];
                     var link = node.InLinks[j];
-                    e1 = e1 + link.WeightedInValue()*link.OutNode.Value;
-                    e2 = e2 + link.WeightedInError()*link.OutNode.Value;
+                    e1 = e1 + link.WeightedInValue() * link.OutNode.Value;
+                    e2 = e2 + link.WeightedInError() * link.OutNode.Value;
                 }
             if (e1 == e2)
-                return Math.Abs(-InputNodesCount*OutputNodesCount + e1);
+                return Math.Abs(-InputNodesCount * OutputNodesCount + e1);
             return double.PositiveInfinity;
         }
 
@@ -359,7 +359,7 @@ namespace xpidea.neuro.net.bam
                 {
                     for (var j = 0; j < InputNodesCount + OutputNodesCount; j++)
                     {
-                        var node = (BidirectionalAssociativeMemoryOutputNode) nodes[j];
+                        var node = (BidirectionalAssociativeMemoryOutputNode)nodes[j];
                         if (!IsStable) break;
                         if (node.Value != node.NodeLastValue)
                             IsStable = false;
@@ -513,7 +513,7 @@ namespace xpidea.neuro.net.bam
             nodes = new NeuroNode[0];
             links = new NeuroLink[0];
             networksCount = 0;
-            orthogonalBAMEnergy = -inputLayerNodesCount*outputLayerNodesCount;
+            orthogonalBAMEnergy = -inputLayerNodesCount * outputLayerNodesCount;
             bestError = double.PositiveInfinity;
         }
 
@@ -631,7 +631,7 @@ namespace xpidea.neuro.net.bam
         {
             if ((index >= OutputNodesCount) || (index < 0))
                 throw new ENeuroException("OutputNode index out of bounds.");
-                    //In case of Adaline an index always will be 0.
+            //In case of Adaline an index always will be 0.
             return best.OutputNode(index);
         }
 

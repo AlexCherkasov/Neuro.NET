@@ -1,0 +1,7 @@
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\bin\Debug\xpidea.neuro.net.examples.backprop.xor.exe
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\bin\Debug\xpidea.neuro.net.examples.backprop.xor.pdb
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\bin\Debug\xpidea.neuro.net.dll
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\bin\Debug\xpidea.neuro.net.pdb
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\obj\Debug\xpidea.neuro.net.examples.backprop.xor.csprojResolveAssemblyReference.cache
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\obj\Debug\xpidea.neuro.net.examples.backprop.xor.exe
+C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.backprop.xor\obj\Debug\xpidea.neuro.net.examples.backprop.xor.pdb
