@@ -1,5 +1,0 @@
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\bin\Debug\xpidea.neuro.net.dll
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\bin\Debug\xpidea.neuro.net.pdb
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\bin\Debug\xpidea.neuro.net.documentation
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\obj\Debug\xpidea.neuro.net.dll
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\obj\Debug\xpidea.neuro.net.pdb

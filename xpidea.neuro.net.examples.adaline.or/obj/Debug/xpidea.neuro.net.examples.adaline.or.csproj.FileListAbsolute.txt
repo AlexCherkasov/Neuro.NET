@@ -1,7 +1,0 @@
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\bin\Debug\xpidea.neuro.net.examples.adaline.or.exe
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\bin\Debug\xpidea.neuro.net.examples.adaline.or.pdb
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\bin\Debug\xpidea.neuro.net.dll
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\bin\Debug\xpidea.neuro.net.pdb
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\obj\Debug\xpidea.neuro.net.examples.adaline.or.csprojResolveAssemblyReference.cache
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\obj\Debug\xpidea.neuro.net.examples.adaline.or.exe
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.adaline.or\obj\Debug\xpidea.neuro.net.examples.adaline.or.pdb

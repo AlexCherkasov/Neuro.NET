@@ -110,10 +110,10 @@ namespace xpidea.neuro.net.adaline
         /// <remarks>This method gets executed only if the node produces incorrect output.</remarks>
         public override void Learn()
         {
-            Error = Value * -2;
+            Error = Value*-2;
             foreach (var link in InLinks)
             {
-                var delta = LearningRate * link.InNode.Value * Error;
+                var delta = LearningRate*link.InNode.Value*Error;
                 link.UpdateWeight(delta);
             }
         }
@@ -205,7 +205,7 @@ namespace xpidea.neuro.net.adaline
 
         private AdalineNode GetAdalineNode()
         {
-            return (AdalineNode)(OutputNode(OutputNodesCount - 1));
+            return (AdalineNode) (OutputNode(OutputNodesCount - 1));
         }
 
         /// <summary>
@@ -275,7 +275,7 @@ namespace xpidea.neuro.net.adaline
         {
             if ((index >= OutputNodesCount) || (index < 0))
                 throw new ENeuroException("OutputNode index out of bounds.");
-            //In case of Adaline an index always will be 0.
+                    //In case of Adaline an index always will be 0.
             return nodes[NodesCount - 1];
         }
 

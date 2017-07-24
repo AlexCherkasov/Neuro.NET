@@ -1,5 +1,0 @@
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.bam.patterns\bin\Release\xpidea.neuro.net.examples.bam.patterns.exe
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.bam.patterns\bin\Release\xpidea.neuro.net.dll
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.bam.patterns\bin\Release\xpidea.neuro.net.xml
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.bam.patterns\obj\Release\xpidea.neuro.net.examples.bam.patterns.csprojResolveAssemblyReference.cache
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.bam.patterns\obj\Release\xpidea.neuro.net.examples.bam.patterns.exe

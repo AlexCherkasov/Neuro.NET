@@ -1,4 +1,0 @@
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\bin\Release\xpidea.neuro.net.dll
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\bin\Release\xpidea.neuro.net.xml
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\obj\Release\xpidea.neuro.net.csprojResolveAssemblyReference.cache
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net\obj\Release\xpidea.neuro.net.dll

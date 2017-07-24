@@ -76,7 +76,7 @@ namespace xpidea.neuro.net.son
         {
             foreach (var link in InLinks)
             {
-                var delta = LearningRate * (link.InNode.Value - link.Weight);
+                var delta = LearningRate*(link.InNode.Value - link.Weight);
                 link.UpdateWeight(delta);
             }
         }
@@ -277,7 +277,7 @@ namespace xpidea.neuro.net.son
         protected override void CreateNetwork()
         {
             nodes = new NeuroNode[NodesCount];
-            linksCount = NodesCount * rowsCount * columsCount;
+            linksCount = NodesCount*rowsCount*columsCount;
             kohonenLayer = new NeuroNode[rowsCount, columsCount];
             links = new NeuroLink[LinksCount];
             for (var i = 0; i < NodesCount; i++)
@@ -344,8 +344,8 @@ namespace xpidea.neuro.net.son
         {
             currentIteration++;
             learningRate = initialLearningRate -
-                           ((currentIteration / (double)trainingIterations) * (initialLearningRate - finalLearningRate));
-            if (((((currentIteration + 1) % neighborhoodReduceInterval) == 0) && (currentNeighborhoodSize > 0)))
+                           ((currentIteration/(double) trainingIterations)*(initialLearningRate - finalLearningRate));
+            if (((((currentIteration + 1)%neighborhoodReduceInterval) == 0) && (currentNeighborhoodSize > 0)))
                 currentNeighborhoodSize--;
         }
 
@@ -442,7 +442,7 @@ namespace xpidea.neuro.net.son
             for (var row = startRow; row <= endRow; row++)
                 for (var col = startCol; col <= endCol; col++)
                 {
-                    var node = (SelfOrganizingNode)kohonenLayer[row, col];
+                    var node = (SelfOrganizingNode) kohonenLayer[row, col];
                     node.LearningRate = learningRate;
                     node.Learn();
                 }

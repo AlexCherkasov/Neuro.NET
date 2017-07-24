@@ -170,7 +170,7 @@ namespace xpidea.neuro.net
         /// <returns>Rounded to the nearest integer value of value</returns>
         public static int RoundToNextInt(double value)
         {
-            var result = (int)Math.Round(value);
+            var result = (int) Math.Round(value);
             if (value > 0)
             {
                 if (value > result) result++;
@@ -199,7 +199,7 @@ namespace xpidea.neuro.net
             }
             if (min == max) return max;
             aRange = max - min;
-            return random.NextDouble() * aRange + min;
+            return random.NextDouble()*aRange + min;
         }
     }
 
@@ -337,7 +337,7 @@ namespace xpidea.neuro.net
         /// <returns>InNode.Value * Weight</returns>
         public virtual double WeightedInValue()
         {
-            return InNode.Value * Weight;
+            return InNode.Value*Weight;
         }
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace xpidea.neuro.net
         /// <returns>OutNode.Value * Weight</returns>
         public virtual double WeightedOutValue()
         {
-            return OutNode.Value * Weight;
+            return OutNode.Value*Weight;
         }
 
         /// <summary>
@@ -355,7 +355,7 @@ namespace xpidea.neuro.net
         /// <returns>InNode.Error * Weight</returns>
         public virtual double WeightedInError()
         {
-            return InNode.Error * Weight;
+            return InNode.Error*Weight;
         }
 
         /// <summary>
@@ -364,7 +364,7 @@ namespace xpidea.neuro.net
         /// <returns>OutNode.Error * Weight</returns>
         public virtual double WeightedOutError()
         {
-            return OutNode.Error * Weight;
+            return OutNode.Error*Weight;
         }
     }
 
@@ -427,7 +427,7 @@ namespace xpidea.neuro.net
         /// </exception>
         public NeuroLink this[int index]
         {
-            get { return ((NeuroLink)(List[index])); }
+            get { return ((NeuroLink) (List[index])); }
             set { List[index] = value; }
         }
 
@@ -527,11 +527,12 @@ namespace xpidea.neuro.net
         ///     <para>-or-</para>
         ///     <para>
         ///         The number of elements in the <see cref="xpidea.neuro.net.NeuroLinkCollection" /> is greater than the
-        ///         available space between <paramref name="array" /> and the end of <paramref name="array" />.
+        ///         available space between <paramref name="arrayIndex" /> and the end of <paramref name="array" />.
         ///     </para>
         /// </exception>
         /// <exception cref="System.ArgumentNullException"><paramref name="array" /> is <see langword="null" />. </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
+        ///     <paramref name="arrayIndex" /> is less than
         ///     <paramref name="array" />'s lowbound.
         /// </exception>
         /// <seealso cref="System.Array" />
@@ -627,7 +628,7 @@ namespace xpidea.neuro.net
             /// </summary>
             public NeuroLink Current
             {
-                get { return ((NeuroLink)(baseEnumerator.Current)); }
+                get { return ((NeuroLink) (baseEnumerator.Current)); }
             }
 
             object IEnumerator.Current
@@ -899,14 +900,14 @@ namespace xpidea.neuro.net
 
         private void CheckNetworkType(BinaryReader binaryReader)
         {
-            var nt = (NeuralNetworkType)binaryReader.ReadInt32();
+            var nt = (NeuralNetworkType) binaryReader.ReadInt32();
             if (NetworkType != nt)
                 throw new ENeuroException("Cannot load data. Invalid format.");
         }
 
         private void SaveNetworkType(BinaryWriter binaryWriter)
         {
-            binaryWriter.Write((int)NetworkType);
+            binaryWriter.Write((int) NetworkType);
         }
 
         /// <summary>

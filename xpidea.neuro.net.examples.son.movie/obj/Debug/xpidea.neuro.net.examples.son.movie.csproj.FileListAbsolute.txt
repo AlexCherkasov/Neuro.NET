@@ -1,9 +1,0 @@
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\bin\Debug\xpidea.neuro.net.examples.son.movie.exe
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\bin\Debug\xpidea.neuro.net.examples.son.movie.pdb
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\bin\Debug\xpidea.neuro.net.dll
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\bin\Debug\xpidea.neuro.net.pdb
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\obj\Debug\xpidea.neuro.net.examples.son.movie.csprojResolveAssemblyReference.cache
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\obj\Debug\xpidea.neuro.net.examples.son.movie.PatternStyles.resources
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\obj\Debug\xpidea.neuro.net.examples.son.movie.csproj.GenerateResource.Cache
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\obj\Debug\xpidea.neuro.net.examples.son.movie.exe
-C:\Users\yanke\OneDrive\AlexC\xpidea.neuro.net.examples.son.movie\obj\Debug\xpidea.neuro.net.examples.son.movie.pdb

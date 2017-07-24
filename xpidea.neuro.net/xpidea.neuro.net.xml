@@ -6,411 +6,858 @@
     <members>
         <member name="T:xpidea.neuro.net.adaline.AdalineNode">
             <summary>
-                Class implementing an Adaline node in the Adaline network.
+            Class implementing an Adaline node in the Adaline network.
+            </summary>
+        </member>
+        <member name="T:xpidea.neuro.net.FeedForwardNode">
+            <summary>
+            A node that produce its value based on sum of values of it's inputs.
+            </summary>
+        </member>
+        <member name="T:xpidea.neuro.net.NeuroNode">
+            <summary>
+            Represents the Node in a neural network.
+            </summary>
+        </member>
+        <member name="T:xpidea.neuro.net.NeuroObject">
+            <summary>
+            Is the abstract base class for all neural network classes.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.Epoch(System.Int32)">
+            <summary>
+            Method used on epoch training of neural network. Must be executed every time 
+            after each itteration through the pattern set. This method calculates average delta.
+            </summary>
+            <param name="epoch">Number of patterns that was presentend during this learning cycle.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.Save(System.IO.BinaryWriter)">
+            <summary>
+            Stores the object in a binary stream.
+            </summary>
+            <param name="binaryWriter">Binary stream writer.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.Load(System.IO.BinaryReader)">
+            <summary>
+            Restores object data from a binary stream.
+            </summary>
+            <param name="binaryReader">Binary stream reader.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.SaveToFile(System.String)">
+            <summary>
+            Saves object to a file in a binary format.
+            </summary>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.LoadFromFile(System.String)">
+            <summary>
+            Loads object data from a file.
+            </summary>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.RoundToNextInt(System.Double)">
+            <summary>
+            Rounds given value to a nearest integer. 
+            For example:
+               RoundToNextInt(0.2) is 1
+               RoundToNextInt(-0.9) is -1
+               RoundToNextInt(-9) is -9    
+            </summary>
+            <param name="value">is a value to be rounded.</param>
+            <returns>Rounded to the nearest integer value of value</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroObject.Random(System.Double,System.Double)">
+            <summary>
+            Returns random value between min and max (inclusive). 
+            </summary>
+            <param name="min">First value.</param>
+            <param name="max">Second value.</param>
+            <returns> </returns>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroNode.inLinks">
+            <summary>
+            Incomming and Outgoing links of this node.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroNode.outLinks">
+            <summary>
+            Incomming and Outgoing links of this node.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroNode.nodeValue">
+            <summary>
+            Node value and node error.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroNode.nodeError">
+            <summary>
+            Node value and node error.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.GetNodeValue">
+            <summary>
+            Getter methos of <see cref="P:xpidea.neuro.net.NeuroNode.Value"/> property.
+            </summary>
+            <returns>Node value.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.SetNodeValue(System.Double)">
+            <summary>
+            Setter method of <see cref="P:xpidea.neuro.net.NeuroNode.Value"/> property.
+            </summary>
+            <param name="value">New node value.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.GetNodeError">
+            <summary>
+            Getter method of <see cref="P:xpidea.neuro.net.NeuroNode.Error"/> property.
+            </summary>
+            <returns>Node error.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.SetNodeError(System.Double)">
+            <summary>
+            Setter method of <see cref="P:xpidea.neuro.net.NeuroNode.Error"/> property.
+            </summary>
+            <param name="error">Node error.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.Run">
+            <summary>
+            Executes node functionality.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.Learn">
+            <summary>
+            Teaches the node. 
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.LinkTo(xpidea.neuro.net.NeuroNode,xpidea.neuro.net.NeuroLink)">
+            <summary>
+            Connects this node to <b>toNode</b> using link <b>link</b>.
+            </summary>
+            <param name="toNode">Destination node.</param>
+            <param name="link">Link used to connect nodes.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.Load(System.IO.BinaryReader)">
+            <summary>
+            Overridden.Loads node data from a binary stream.
+            </summary>
+            <param name="binaryReader">Binary stream reader.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroNode.Save(System.IO.BinaryWriter)">
+            <summary>
+            Overridden.Stores node data into binary stream.
+            </summary>
+            <param name="binaryWriter">Binary stream writer.</param>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroNode.InLinks">
+            <summary>
+            Incomming links for this node.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroNode.OutLinks">
+            <summary>
+            Outgoing links of this node.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroNode.Value">
+            <summary>
+            <b>Value</b> property of the node.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroNode.Error">
+            <summary>
+            <b>Error</b> property of the node.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.FeedForwardNode.Transfer(System.Double)">
+            <summary>
+            An Activation function of the node.
+            </summary>
+            <param name="value">Sum of input values of the node.</param>
+            <returns>result</returns>
+            <remarks>Activation functions for the hidden nodes are needed to introduce
+             nonlinearity into the network. You can override this method to introduce your own function.
+              </remarks>
+        </member>
+        <member name="M:xpidea.neuro.net.FeedForwardNode.Run">
+            <summary>
+            Overridden.Execute node's functionality.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.adaline.AdalineNode.nodeLearningRate">
             <summary>
-                Stores the learning rate of the node.
+            Stores the learning rate of the node. 
             </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.adaline.AdalineNode.#ctor">
-            <summary>
-                Initializes a new instance of the Adaline node.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.adaline.AdalineNode.#ctor(System.Double)">
-            <summary>
-                Initializes a new instance of the Adaline node and sets the
-                <see cref="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate" />.
-            </summary>
-            <param name="learningRate">Usually in range  from 0..1 </param>
-        </member>
-        <member name="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate">
-            <summary>
-                Gets and sets the LearnigRate value of the Adaline node.
-            </summary>
-            <remarks>The LearningRate value defines how fast node will "learn".</remarks>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNode.GetNodeLearningRate">
             <summary>
-                Gets <see cref="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate" /> of the node.
+            Gets <see cref="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate"/> of the node.
             </summary>
             <returns>Learning rate value.</returns>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNode.SetNodeLearningRate(System.Double)">
             <summary>
-                Sets <see cref="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate" /> of the node.
+            Sets <see cref="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate"/> of the node.
             </summary>
             <param name="learningRate">Learnig rate value.</param>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNode.Transfer(System.Double)">
             <summary>
-                Overridden. Translates node output into network specific output. In case of Adaline network implements simple
-                threshold function: Returns -1 if value less than 0, otherwise returns 1.
+            Overridden. Translates node output into network specific output. In case of Adaline network implements simple threshold function: Returns -1 if value less than 0, otherwise returns 1.
             </summary>
             <param name="value">Node value.</param>
             <returns>Result value.</returns>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNode.Learn">
             <summary>
-                Overridden. Implements the Delta Rule to modify the link values.
+              Overridden. Implements the Delta Rule to modify the link values. 
             </summary>
             <remarks>This method gets executed only if the node produces incorrect output.</remarks>
         </member>
+        <member name="M:xpidea.neuro.net.adaline.AdalineNode.#ctor">
+            <summary>
+            Initializes a new instance of the Adaline node.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.adaline.AdalineNode.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the Adaline node and sets the <see cref="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate"/>.
+            </summary>
+            <param name="learningRate">Usually in range  from 0..1 </param>
+        </member>
+        <member name="P:xpidea.neuro.net.adaline.AdalineNode.LearningRate">
+            <summary>
+            Gets and sets the LearnigRate value of the Adaline node. 
+            </summary>
+            <remarks>The LearningRate value defines how fast node will "learn".</remarks>
+        </member>
         <member name="T:xpidea.neuro.net.adaline.AdalineLink">
             <summary>
-                Represents the link in the <see cref="T:xpidea.neuro.net.adaline.AdalineNetwork" /> network.
+            Represents the link in the <see cref="T:xpidea.neuro.net.adaline.AdalineNetwork"/> network.
+            </summary>
+        </member>
+        <member name="T:xpidea.neuro.net.NeuroLink">
+            <summary>
+            Connects two nodes in a network.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroLink.inNode">
+            <summary>
+            Refers to source and destination node connected by this link.	
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroLink.outNode">
+            <summary>
+            Refers to source and destination node connected by this link.	
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuroLink.linkWeight">
+            <summary>
+            Link weight. 
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.GetLinkWeight">
+            <summary>
+            Getter of <see cref="P:xpidea.neuro.net.NeuroLink.Weight"/> property.
+            </summary>
+            <returns>Link's weight.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.SetLinkWeight(System.Double)">
+            <summary>
+            Setter of <see cref="P:xpidea.neuro.net.NeuroLink.Weight"/> property.
+            </summary>
+            <param name="value">New link's weight value</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.Load(System.IO.BinaryReader)">
+            <summary>
+            Overridden.Loads link data from a binary stream.
+            </summary>
+            <param name="binaryReader">Binary stream reader.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.Save(System.IO.BinaryWriter)">
+            <summary>
+            Overridden.Stores link data in a binary stream.
+            </summary>
+            <param name="binaryWriter">Binary stream writer.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.SetInNode(xpidea.neuro.net.NeuroNode)">
+            <summary>
+            Setter for <see cref="P:xpidea.neuro.net.NeuroLink.InNode"/> property.
+            </summary>
+            <param name="node">Incomming (source) node.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.SetOutNode(xpidea.neuro.net.NeuroNode)">
+            <summary>
+            Setter for <see cref="P:xpidea.neuro.net.NeuroLink.OutNode"/> property.
+            </summary>
+            <param name="node">Outgoing (destination) node.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.UpdateWeight(System.Double)">
+            <summary>
+            Updates weight of the link on specified delta.
+            </summary>
+            <param name="deltaWeight">Weight change value.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.WeightedInValue">
+            <summary>
+            Weighted <see cref="P:xpidea.neuro.net.NeuroLink.InNode"/> value.
+            </summary>
+            <returns>InNode.Value * Weight</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.WeightedOutValue">
+            <summary>
+            Weighted <see cref="P:xpidea.neuro.net.NeuroLink.OutNode"/> value.
+            </summary>
+            <returns>OutNode.Value * Weight</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.WeightedInError">
+            <summary>
+            Weighted <see cref="P:xpidea.neuro.net.NeuroLink.InNode"/> error.
+            </summary>
+            <returns>InNode.Error * Weight</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLink.WeightedOutError">
+            <summary>
+            Weighted <see cref="P:xpidea.neuro.net.NeuroLink.OutNode"/> error.
+            </summary>
+            <returns>OutNode.Error * Weight</returns>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroLink.Weight">
+            <summary>
+            Property defines weight of the link.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroLink.InNode">
+            <summary>
+             A source node. The node link is comming from.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroLink.OutNode">
+            <summary>
+            A Destination node. A node the link is going to.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineLink.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:xpidea.neuro.net.adaline.AdalineLink" /> and sets
-                <see cref="P:xpidea.neuro.net.NeuroLink.Weight" /> to a random value of range from -1 to 1.
+            Initializes a new instance of the <see cref="T:xpidea.neuro.net.adaline.AdalineLink"/> and sets <see cref="P:xpidea.neuro.net.NeuroLink.Weight"/> to a random value of range from -1 to 1.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.adaline.AdalineNetwork">
             <summary>
-                Represents an Adaline network.
+            Represents an Adaline network.
             </summary>
-            <remarks>
-                An adaptive linear element or Adaline, proposed by Widrow (1959, 1960), is a simple perceptron-like system that
-                accomplishes classification by modifying weights in such a way as to diminish the mean squared error (MSE) at every
-                iteration. The architecture of the Adaline is the simplest of all neural networks. It is a simple processing
-                element capable of sorting a set of input patterns into two categories. It has an ability to learn through a
-                supervised learning process.
-                Although the Adaline works quite well for many applications, it is restrictd to a linear problem space. The input
-                patterns in the Adaline's training set must be linearly separable; otherwise, the Adaline will never categorize all
-                of the training patterns correctly even when it reaches the low point of the error surface paraboloid. However, the
-                Adaline is guaranteed to reach its minimum error state since there are no obstacles along the error surface (like
-                local minima) to interfere with the training process.Training occurs by repeatedly presenting sets of data composed
-                of input patterns and their desired outputs. Learning occurs as the Adaline minimized the number of errors it makes
-                when sorting the patterns into their correct categories. Once trained, the Adaline can categorize new inputs
-                according to the experience it gained.
-                <img src="Adaline.jpg"></img>
+            <remarks>	
+            An adaptive linear element or Adaline, proposed by Widrow (1959, 1960), is a simple perceptron-like system that accomplishes classification by modifying weights in such a way as to diminish the mean squared error (MSE) at every iteration. The architecture of the Adaline is the simplest of all neural networks. It is a simple processing element capable of sorting a set of input patterns into two categories. It has an ability to learn through a supervised learning process.
+            Although the Adaline works quite well for many applications, it is restrictd to a linear problem space. The input patterns in the Adaline's training set must be linearly separable; otherwise, the Adaline will never categorize all of the training patterns correctly even when it reaches the low point of the error surface paraboloid. However, the Adaline is guaranteed to reach its minimum error state since there are no obstacles along the error surface (like local minima) to interfere with the training process.Training occurs by repeatedly presenting sets of data composed of input patterns and their desired outputs. Learning occurs as the Adaline minimized the number of errors it makes when sorting the patterns into their correct categories. Once trained, the Adaline can categorize new inputs according to the experience it gained.
+            <img src="Adaline.jpg"></img>
             </remarks>
+        </member>
+        <member name="T:xpidea.neuro.net.NeuralNetwork">
+            <summary>
+            Base abstract class for all neural networks.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuralNetwork.nodes">
+            <summary>
+            Nodes in the netowrk.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuralNetwork.links">
+            <summary>
+            Links in the network.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuralNetwork.nodesCount">
+            <summary>
+            Number of nodes in the network.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.NeuralNetwork.linksCount">
+            <summary>
+            Number of links in the network.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.CreateNetwork">
+            <summary>
+            Performs network construction based on specific topology.  Connects all nodes in the network using the links.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.LoadInputs">
+            <summary>
+             Loads data into input nodes of the network.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.GetNetworkType">
+            <summary>
+            Neural network type.
+            </summary>
+            <returns>Type of neural network.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.GetInputNodesCount">
+            <summary>
+             Returns number of input nodes in the network.
+            </summary>
+            <returns>Number of input nodes in the network.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.GetOutPutNodesCount">
+            <summary>
+            Returns number of output nodes in the network.
+            </summary>
+            <returns>Number of output nodes in the network.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.GetInputNode(System.Int32)">
+            <summary>
+            Returns N-th input node in the network.
+            </summary>
+            <param name="index">Node index.</param>
+            <returns>Input node.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.GetOutputNode(System.Int32)">
+            <summary>
+            Returns N-th output node in the network.
+            </summary>
+            <param name="index">Node index.</param>
+            <returns>Output node.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.#ctor">
+            <summary>
+            Constructor. Creates new instance of the network.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.#ctor(System.String)">
+            <summary>
+            Creates the network and loads it's state from a file.
+            </summary>
+            <param name="fileName">A file name.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.Epoch(System.Int32)">
+            <summary>
+            Overridden.Finalizes trainig cycle of the network. Used by <see cref="M:xpidea.neuro.net.NeuralNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)"/> method of the network.
+            </summary>
+            <param name="epoch">Number of patterns was exposed to the network.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.Load(System.IO.BinaryReader)">
+            <summary>
+            Overridden.Loads network data from a binary stream.
+            </summary>
+            <param name="binaryReader">Binary stream reader.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.Save(System.IO.BinaryWriter)">
+            <summary>
+            Overridden.Saves the network to a binary stream.
+            </summary>
+            <param name="binaryWriter">Binary stream writer.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
+             <summary>
+             Performs network training. Here you write the code to train your network.
+             </summary>
+             <param name="patterns">Set of the patterns that will be exposed to a network during the training.</param>
+            <remarks>
+            <p >There are several major paradigms, or approaches, to neural network learning. These include <i>supervised, unsupervised</i>, and <i>reinforcement</i> learning. How the training data is processed is a major aspect of these learning paradigms.</p>		
+            <p ><i>Supervised</i> learning is the most common form of learning and is sometimes called programming by example. The neural network is trained by showing it examples of the problem state or attributes along with the desired output or action. The neural network makes a prediction based on the inputs and if the output differs from 
+            the desired out put, then the network is adjusted or adapted to produce the correct output. This process is repeated over and over until the agent learns to make accurate classifications or predictions. Historical data from databases, sensor logs, or trace logs is often used as the training or example data. </p>		
+            <p ><i>Unsupervised</i> learning is used when the neural network needs to recognize similarities between inputs or to identify features in the input data. The data is presented to the network, and it adapts so that it partitions the data into groups. The clustering or segmenting process continues until the neural network places the 
+            same data into the same group on successive passes over the data. An unsupervised learning algorithm performs a type of feature detection where important common attributes in the data are extracted. The Kohonen map will be a good example of the network using unsupervised learning.</p>		
+            <p ><i>Reinforcement</i> learning is a type of supervised learning used when explicit input/ output pairs of training data are not available. It can be used in cases where there is a sequence of inputs arid the desired output is only known after the specific sequence occurs. This process of identifying the relationship between a 
+            series of input values and a later output value is called temporal credit assignment. Because we provide less specific error information, reinforcement learning usually takes longer than supervised learning and is less efficient. However, in many situations, having exact prior information about the desired outcome is not possible. In many ways, 
+            reinforcement learning is the most realistic form of learning. </p>		
+            </remarks>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.InputNode(System.Int32)">
+            <summary>
+            Returns N-th input node of the network.<seealso cref="P:xpidea.neuro.net.NeuralNetwork.InputNodesCount"/>
+            </summary>
+            <param name="index">Node index.</param>
+            <returns>Node.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuralNetwork.OutputNode(System.Int32)">
+            <summary>
+            Returns N-th output node of the network. <seealso cref="P:xpidea.neuro.net.NeuralNetwork.OutputNodesCount"/>
+            </summary>
+            <param name="index">Node index</param>
+            <returns>Node</returns>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuralNetwork.NetworkType">
+            <summary>
+            Returns network type. Used for persistent purposes.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuralNetwork.NodesCount">
+            <summary>
+            Total number of nodes in the network.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuralNetwork.LinksCount">
+            <summary>
+            Total number of links in the network.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuralNetwork.InputNodesCount">
+            <summary>
+            Number of input nodes.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuralNetwork.OutputNodesCount">
+            <summary>
+            Number of output nodes.
+            </summary>
         </member>
         <member name="F:xpidea.neuro.net.adaline.AdalineNetwork.learningRate">
             <summary>
-                Stores a learning rate value.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.#ctor(System.Int32,System.Double)">
-            <summary>
-                Creates an instance of Adaline network.
-            </summary>
-            <param name="aNodesCount">Number of input nodes of the network.</param>
-            <param name="learningRate">Learning rate.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.#ctor">
-            <summary>
-                Creates unitialized instance of Adaline network.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.#ctor(System.String)">
-            <summary>
-                Creates the network from a file.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.adaline.AdalineNetwork.LearningRate">
-            <summary>
-                Network's learning rate property.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.adaline.AdalineNetwork.AdalineNode">
-            <summary>
-                An output, Adaline node, of the Adaline network.
+            Stores a learning rate value.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.CreateNetwork">
             <summary>
-                Overridden.Constructs network topology.
+            Overridden.Constructs network topology.
             </summary>
             <remarks>Creates nodes, links and connects nodes using created links.</remarks>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.GetNetworkType">
             <summary>
-                Overridden.Returns type of the network.
+            Overridden.Returns type of the network.
             </summary>
-            <returns>Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nnAdaline" /> for Adaline networks.</returns>
+            <returns>Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nnAdaline"/> for Adaline networks.</returns>
             <remarks>Used for persistence purposes.</remarks>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.GetInputNodesCount">
             <summary>
-                Overridden.Returns number of Input nodes in the network.
+            Overridden.Returns number of Input nodes in the network.
             </summary>
             <returns>Number of inputs.</returns>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.GetOutPutNodesCount">
             <summary>
-                Overridden.Returns number of output nodes in the network.
+            Overridden.Returns number of output nodes in the network. 
             </summary>
             <returns>Number of output nodes. In case of Adaline network it always 1.</returns>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.GetInputNode(System.Int32)">
             <summary>
-                Overridden.Retrieves an input node by its index.
+            Overridden.Retrieves an input node by its index.
             </summary>
             <param name="index">Node index</param>
             <returns>Input node.</returns>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.GetOutputNode(System.Int32)">
             <summary>
-                Overridden.Retrieves an output node by its index.
+            Overridden.Retrieves an output node by its index.
             </summary>
             <param name="index">Node index.</param>
             <returns>Output node.</returns>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.SetValuesFromPattern(xpidea.neuro.net.patterns.Pattern)">
             <summary>
-                Sets input values of the network from the pattern.
+            Sets input values of the network from the pattern.
             </summary>
             <param name="pattern">Training pattern.</param>
         </member>
-        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
+        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.#ctor(System.Int32,System.Double)">
             <summary>
-                Overridden.Performs network training. Here you write the code to train your network.
+            Creates an instance of Adaline network.
             </summary>
-            <param name="patterns">Set of the patterns that will be exposed to a network during the training.</param>
-            <remarks>
-                This method implementation is for reference only -
-                You may want to implement your own method by overriding this one.
-                This implementation will
-                complete network training only after the network will produce
-                correct output for all input patterns.
-                Be advised that in this example network training will never complete if input patterns
-                have non-linear character.
-            </remarks>
+            <param name="aNodesCount">Number of input nodes of the network.</param>
+            <param name="learningRate">Learning rate.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.#ctor">
+            <summary>
+            Creates unitialized instance of Adaline network.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.#ctor(System.String)">
+            <summary>
+            Creates the network from a file.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
+             <summary>
+             Overridden.Performs network training. Here you write the code to train your network.
+             </summary>
+             <param name="patterns">Set of the patterns that will be exposed to a network during the training.</param>
+             <remarks> This method implementation is for reference only -
+            You may want to implement your own method by overriding this one.
+            This implementation will
+            complete network training only after the network will produce
+            correct output for all input patterns.
+            Be advised that in this example network training will never complete if input patterns
+            have non-linear character.</remarks>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads network data from a binary stream.
+            Overridden.Loads network data from a binary stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.adaline.AdalineNetwork.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Saves the network to a binary stream.
+            Overridden.Saves the network to a binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
+        <member name="P:xpidea.neuro.net.adaline.AdalineNetwork.LearningRate">
+            <summary>
+            Network's learning rate property.  
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.adaline.AdalineNetwork.AdalineNode">
+            <summary>
+            An output, Adaline node, of the Adaline network.
+            </summary>
+        </member>
         <member name="T:xpidea.neuro.net.backprop.BackPropagationNode">
             <summary>
-                Implements a node in BackPropagation network.
+            Implements a node in BackPropagation network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNode.Transfer(System.Double)">
             <summary>
-                Overridden. Implements sigmoid tranfer function for BackProp nodes
+            Overridden. Implements sigmoid tranfer function for BackProp nodes
             </summary>
             <param name="value">The node value</param>
             <returns>A transfer result.</returns>
         </member>
         <member name="T:xpidea.neuro.net.backprop.BackPropagationLink">
             <summary>
-                Implements the link  in the Backpropagaion network.
+            Implements the link  in the Backpropagaion network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.backprop.BackPropagationLink.linkDelta">
             <summary>
-                Class field stores link's delta weight.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.#ctor">
-            <summary>
-                Constructs the link and calls <see cref="M:xpidea.neuro.net.backprop.BackPropagationLink.DoAfterCreate" /> method to
-                initialize data.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.backprop.BackPropagationLink.LinkDelta">
-            <summary>
-                Returns link delta.
+            Class field stores link's delta weight.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.GetLinkDelta">
             <summary>
-                Getter method of <see cref="M:xpidea.neuro.net.backprop.BackPropagationLink.GetLinkDelta" /> property.
+            Getter method of <see cref="M:xpidea.neuro.net.backprop.BackPropagationLink.GetLinkDelta"/> property.
             </summary>
             <returns>Link's delta.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.DoAfterCreate">
             <summary>
-                Initializes link weight to a random value from -1..1  and link delta to 0.
+            Initializes link weight to a random value from -1..1  and link delta to 0.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.SetLinkDelta(System.Double)">
             <summary>
-                Setter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationLink.LinkDelta" /> property.
+            Setter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationLink.LinkDelta"/> property.
             </summary>
             <param name="delta">New delta value.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads link's data from the binary stream.
+            Overridden.Loads link's data from the binary stream.
             </summary>
             <param name="binaryReader">A binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.Save(System.IO.BinaryWriter)">
+             <summary>
+            Overridden. Stores link's data in a binary stream.
+             </summary>
+             <param name="binaryWriter">A binary stream writer.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.#ctor">
             <summary>
-                Overridden. Stores link's data in a binary stream.
+            Constructs the link and calls <see cref="M:xpidea.neuro.net.backprop.BackPropagationLink.DoAfterCreate"/> method to initialize data.
             </summary>
-            <param name="binaryWriter">A binary stream writer.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationLink.UpdateWeight(System.Double)">
             <summary>
-                Overridden.Updates link weight according the formula.
+            Overridden.Updates link weight according the formula.
             </summary>
             <param name="deltaWeight">Delta of link weight change.</param>
         </member>
-        <member name="T:xpidea.neuro.net.backprop.BackPropagationOutputNode">
+        <member name="P:xpidea.neuro.net.backprop.BackPropagationLink.LinkDelta">
             <summary>
-                Represents an output node in backpropagation network.
+            Returns link delta.
             </summary>
         </member>
-        <member name="F:xpidea.neuro.net.backprop.BackPropagationOutputNode.learningRate">
+        <member name="T:xpidea.neuro.net.backprop.BackPropagationOutputNode">
             <summary>
-                Private variable stores node's learning rate.
+            Represents an output node in backpropagation network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.backprop.BackPropagationOutputNode.momentum">
             <summary>
-                Private variable stores node momentum.
+            Private variable stores node momentum.
             </summary>
         </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.#ctor(System.Double,System.Double)">
+        <member name="F:xpidea.neuro.net.backprop.BackPropagationOutputNode.learningRate">
             <summary>
-                Constructs BackPropagationOutputNode.
-            </summary>
-            <param name="learningRate">Learning rate value.</param>
-            <param name="momentum">Momentum value.</param>
-        </member>
-        <member name="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum">
-            <summary>
-                Node momentum.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate">
-            <summary>
-                Node learning rate.
+            Private variable stores node's learning rate.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.ComputeError">
             <summary>
-                Method computes node error, based on current node value and previous node error.
+            Method computes node error, based on current node value and previous node error.
             </summary>
             <returns>New value of error.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.GetNodeMomentum">
             <summary>
-                Getter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum" /> property.
+            Getter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum"/> property.
             </summary>
             <returns>Node momentum.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.SetNodeMomentum(System.Double)">
             <summary>
-                Setter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum" /> property.
+            Setter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum"/> property.
             </summary>
             <param name="momentum">New node momentum value.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.GetNodeLearningRate">
             <summary>
-                Getter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate" /> property.
+            Getter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate"/> property.
             </summary>
             <returns>Node's learning rate.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.SetNodeLearningRate(System.Double)">
             <summary>
-                Setter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate" /> property.
+            Setter method of <see cref="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate"/> property.
             </summary>
             <param name="learningRate">A new learning rate value.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads node data from the binary stream.
+             Overridden.Loads node data from the binary stream.
             </summary>
             <param name="binaryReader">A binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Stores node data in a binary stream.
+             Overridden.Stores node data in a binary stream.
             </summary>
             <param name="binaryWriter">A binary stream writer.</param>
         </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructs BackPropagationOutputNode.
+            </summary>
+            <param name="learningRate">Learning rate value.</param>
+            <param name="momentum">Momentum value.</param>
+        </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationOutputNode.Learn">
             <summary>
-                Overridden.Makes the node to learn a new pattern data.
+            Overridden.Makes the node to learn a new pattern data.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.Momentum">
+            <summary>
+            Node momentum.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.backprop.BackPropagationOutputNode.LearningRate">
+            <summary>
+            Node learning rate.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.backprop.BackPropagationMiddleNode">
             <summary>
-                Represents a node in middle layer(s) of backpropagation network.
+            Represents a node in middle layer(s) of backpropagation network.
             </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationMiddleNode.ComputeError">
+            <summary>
+            Overridden.Computes node error.
+            </summary>
+            <returns>New node error.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationMiddleNode.#ctor(System.Double,System.Double)">
             <summary>
-                Constructor.
+            Constructor.
             </summary>
             <param name="learningRate"></param>
             <param name="momentum"></param>
         </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationMiddleNode.ComputeError">
-            <summary>
-                Overridden.Computes node error.
-            </summary>
-            <returns>New node error.</returns>
-        </member>
         <member name="T:xpidea.neuro.net.backprop.BackPropagationNetwork">
             <summary>
-                Class implementing Backpropagation network.
+            Class implementing Backpropagation network.
             </summary>
-            <remarks>
-                The backpropagation technique is basically an extension of the adaline. The backpropagation network is a multilayer
-                perceptron model with an input layer, one or more hidden layers, and an output layer. These layers are organized
-                into interconnected layers, allowing the backpropagation network to escape the adaline's linear separability
-                limitations making this network much more powerful. This approach was documented by Werbos (1974).
-                The backpropagation network is used for problems that involve classification, projection, interpretation, and
-                generalization. The nodes in the backpropagation neural network are interconnected via weighted links with each
-                node usually connecting to the next layer up till the output layer which provides output for the network. The input
-                patterns values are presented and assigned to the input nodes of the input layer. The input values are initialized
-                to values between -1.1 and 1.1. The nodes in the next layer receive the input values through links and compute
-                output values of their own, which are then passed to the next layer. These values propagate forward through the
-                layers till the output layer is reached, or put another way, till each output layer node has produced an output
-                value for the network. The desired output for the input pattern is used to compute an error value for each node in
-                the output layer, and then propagated backwards (and here's where the network name comes in) through the network as
-                the delta rule is used to adjust the link values to produce better the desired output. Once the error produced by
-                the patterns in the training set is below a given tolerance, the training is complete and the network is presented
-                new input patterns and produce an output based on the experience it gained from the learning process.
-                <img src="Backprop.jpg"></img>
+            <remarks>	
+            The backpropagation technique is basically an extension of the adaline. The backpropagation network is a multilayer perceptron model with an input layer, one or more hidden layers, and an output layer. These layers are organized into interconnected layers, allowing the backpropagation network to escape the adaline's linear separability limitations making this network much more powerful. This approach was documented by Werbos (1974).
+            The backpropagation network is used for problems that involve classification, projection, interpretation, and generalization. The nodes in the backpropagation neural network are interconnected via weighted links with each node usually connecting to the next layer up till the output layer which provides output for the network. The input patterns values are presented and assigned to the input nodes of the input layer. The input values are initialized to values between -1.1 and 1.1. The nodes in the next layer receive the input values through links and compute output values of their own, which are then passed to the next layer. These values propagate forward through the layers till the output layer is reached, or put another way, till each output layer node has produced an output value for the network. The desired output for the input pattern is used to compute an error value for each node in the output layer, and then propagated backwards (and here's where the network name comes in) through the network as the delta rule is used to adjust the link values to produce better the desired output. Once the error produced by the patterns in the training set is below a given tolerance, the training is complete and the network is presented new input patterns and produce an output based on the experience it gained from the learning process.
+            <img src="Backprop.jpg"></img>
             </remarks>
         </member>
-        <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.momentum">
+        <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.layersCount">
             <summary>
-                Stores network momentum.
+            Variable stores total number of layers in the network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.firstMiddleNode">
             <summary>
-                Is a index of first middle layer node in the <see cref="F:xpidea.neuro.net.NeuralNetwork.nodes" /> array.
+            Is a index of first middle layer node in the <see cref="F:xpidea.neuro.net.NeuralNetwork.nodes"/> array.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.firstOutputNode">
             <summary>
-                Is a index of first output node in the <see cref="F:xpidea.neuro.net.NeuralNetwork.nodes" /> array.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.layersCount">
-            <summary>
-                Variable stores total number of layers in the network.
+            Is a index of first output node in the <see cref="F:xpidea.neuro.net.NeuralNetwork.nodes"/> array.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.nodesInLayer">
             <summary>
-                Array definening number of nodes in each layer of the network.
+            Array definening number of nodes in each layer of the network.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.backprop.BackPropagationNetwork.momentum">
+            <summary>
+            Stores network momentum.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetNetworkType">
+            <summary>
+            Overridden.Returns type of the network.
+            </summary>
+            <returns>Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntBackProp"/> for backpropagation network.</returns>
+            <remarks>Used for persistence purposes.</remarks>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetInputNodesCount">
+            <summary>
+            Overridden.Returns number of nodes in the input layer of the network.
+            </summary>
+            <returns>Nodes count.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetOutPutNodesCount">
+            <summary>
+            Overridden.Returns number of nodes in output layer of the network.
+            </summary>
+            <returns>Nodes number.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetOutputNode(System.Int32)">
+            <summary>
+            Overridden.Returns output node of the network by its index.
+            </summary>
+            <param name="index">Output node index.</param>
+            <returns>Output node.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.CreateLink">
+            <summary>
+            Creates a link that will be used to constract the network. In case of <see cref="T:xpidea.neuro.net.backprop.BackPropagationNetwork"/> network a 
+            <see cref="T:xpidea.neuro.net.backprop.BackPropagationLink"/> link is created.
+            </summary>
+            <returns>Link object.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.CreateNetwork">
+            <summary>
+            Overridden.Method that constructs network topology.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.#ctor(System.Double,System.Double,System.Int32[])">
             <summary>
-                Constructs the BackPropagation network.
+            Constructs the BackPropagation network. 
             </summary>
             <param name="learningRate">Leraning rate of the network.</param>
             <param name="momentum">Momentum</param>
@@ -418,152 +865,135 @@
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.#ctor">
             <summary>
-                Creates not initialized instance of BackPropagation network.
+            Creates not initialized instance of BackPropagation network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.#ctor(System.String)">
             <summary>
-                Creates the network from a file.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetNetworkType">
-            <summary>
-                Overridden.Returns type of the network.
-            </summary>
-            <returns>Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntBackProp" /> for backpropagation network.</returns>
-            <remarks>Used for persistence purposes.</remarks>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetInputNodesCount">
-            <summary>
-                Overridden.Returns number of nodes in the input layer of the network.
-            </summary>
-            <returns>Nodes count.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetOutPutNodesCount">
-            <summary>
-                Overridden.Returns number of nodes in output layer of the network.
-            </summary>
-            <returns>Nodes number.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.GetOutputNode(System.Int32)">
-            <summary>
-                Overridden.Returns output node of the network by its index.
-            </summary>
-            <param name="index">Output node index.</param>
-            <returns>Output node.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.CreateLink">
-            <summary>
-                Creates a link that will be used to constract the network. In case of
-                <see cref="T:xpidea.neuro.net.backprop.BackPropagationNetwork" /> network a
-                <see cref="T:xpidea.neuro.net.backprop.BackPropagationLink" /> link is created.
-            </summary>
-            <returns>Link object.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.CreateNetwork">
-            <summary>
-                Overridden.Method that constructs network topology.
+            Creates the network from a file.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads network data from a binary stream.
+            Overridden.Loads network data from a binary stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Saves the network to a binary stream.
+            Overridden.Saves the network to a binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Run">
             <summary>
-                Overridden.Tells the network to produce output values based on its input.
+            Overridden.Tells the network to produce output values based on its input.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Learn">
             <summary>
-                Overridden.Makes the network to learn the pattern that was just exposed to the network.
-                Usually executes right after <see cref="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Run" /> method.
-                <seealso cref="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Run" />
+            Overridden.Makes the network to learn the pattern that was just exposed to the network.
+            Usually executes right after <see cref="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Run"/> method.
+            <seealso cref="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Run"/>
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
             <summary>
-                Overridden.Performs network training. Here you write the code to train your network.
+            Overridden.Performs network training. Here you write the code to train your network.
             </summary>
             <param name="patterns">Set of the patterns that will be exposed to a network during the training.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationNetwork.NodesInLayer(System.Int32)">
             <summary>
-                Returns number of nodes in specific layer.
+            Returns number of nodes in specific layer.
             </summary>
             <param name="index">Layer index.</param>
             <returns></returns>
         </member>
         <member name="T:xpidea.neuro.net.backprop.EpochBackPropagationLink">
             <summary>
-                A link in <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationNetwork" />. Implements functionality related to
-                an epoch network training model.
+            A link in <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationNetwork"/>. Implements functionality related to an epoch network training model.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.backprop.EpochBackPropagationLink.linkEpoch">
             <summary>
-                Stores epoch of the link.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch">
-            <summary>
-                Property stores accumulated weight change during current epoch.
+            Stores epoch of the link.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationLink.GetLinkEpoch">
             <summary>
-                Getter for <see cref="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch" /> property.
+            Getter for <see cref="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch"/> property.
             </summary>
             <returns>Link epoch.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationLink.SetLinkEpoch(System.Double)">
             <summary>
-                Setter for <see cref="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch" /> property.
+            Setter for <see cref="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch"/> property.
             </summary>
             <param name="epoch">New epoch value.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationLink.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads the link data from the stream.
+            Overridden.Loads the link data from the stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationLink.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Stores link data in a binary stream.
+            Overridden.Stores link data in a binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationLink.UpdateWeight(System.Double)">
             <summary>
-                Overridden.Updates the link weightaccording to the training model.
-                In this particular case accumulates deltaWeight values in
-                <see cref="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch" /> property.
+            Overridden.Updates the link weightaccording to the training model.
+            In this particular case accumulates deltaWeight values in <see cref="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch"/> property.
             </summary>
             <param name="deltaWeight">Delta of the weight change.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationLink.Epoch(System.Int32)">
             <summary>
-                Overridden.Tells the link, that all patterns have been exposed and it's time to update link weight.
+            Overridden.Tells the link, that all patterns have been exposed and it's time to update link weight.
             </summary>
             <param name="epoch">Number of patterns that was exposed to the network.</param>
         </member>
+        <member name="P:xpidea.neuro.net.backprop.EpochBackPropagationLink.LinkEpoch">
+            <summary>
+            Property stores accumulated weight change during current epoch.
+            </summary>
+        </member>
         <member name="T:xpidea.neuro.net.backprop.EpochBackPropagationNetwork">
             <summary>
-                Nwtwork that implements Epoch training strategy.
+            Nwtwork that implements Epoch training strategy.
             </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.CreateLink">
+            <summary>
+            Overridden.Creates new <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationLink"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.GetNetworkType">
+            <summary>
+            Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntEpochBackProp"/> for this network.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
+            <summary>
+            Overridden.Trains the network (makes the network learn the patterns).
+            </summary>
+            <param name="patterns">Training patterns.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.Epoch(System.Int32)">
+            <summary>
+            Overridden.Finalizes trainig cycle of the network. Used by <see cref="M:xpidea.neuro.net.NeuralNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)"/> method of the network.
+            </summary>
+            <param name="epoch">Number of patterns was exposed to the network.</param>
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.#ctor(System.Double,System.Double,System.Int32[])">
             <summary>
-                Constructs EpochBackPropagationNetwork network.
+            Constructs EpochBackPropagationNetwork network.
             </summary>
             <param name="learningRate">Network's leraning rate.</param>
             <param name="momentum">Nodes momentum.</param>
@@ -571,1287 +1001,835 @@
         </member>
         <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.#ctor(System.String)">
             <summary>
-                Creates the network from a file.
+            Creates the network from a file.
             </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.CreateLink">
-            <summary>
-                Overridden.Creates new <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationLink" />
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.GetNetworkType">
-            <summary>
-                Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntEpochBackProp" /> for this network.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
-            <summary>
-                Overridden.Trains the network (makes the network learn the patterns).
-            </summary>
-            <param name="patterns">Training patterns.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.backprop.EpochBackPropagationNetwork.Epoch(System.Int32)">
-            <summary>
-                Overridden.Finalizes trainig cycle of the network. Used by <see cref="M:xpidea.neuro.net.NeuralNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)" />
-                method of the network.
-            </summary>
-            <param name="epoch">Number of patterns was exposed to the network.</param>
         </member>
         <member name="T:xpidea.neuro.net.backprop.BackPropagationRPROPLink">
             <summary>
-                A link for <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationNetwork" /> network.
+            A link for <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationNetwork"/> network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationRPROPLink.DoAfterCreate">
             <summary>
-                Overridden.Initializes private variables.
+            Overridden.Initializes private variables.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationRPROPLink.Epoch(System.Int32)">
             <summary>
-                Overridden.Tells the link, that all patterns have been exposed and it's time to update link weight.
+             Overridden.Tells the link, that all patterns have been exposed and it's time to update link weight.
             </summary>
             <param name="epoch">Number of patterns that was exposed to the network.</param>
             <remarks>Implements RPROP training algorithm.</remarks>
         </member>
         <member name="T:xpidea.neuro.net.backprop.BackPropagationRPROPNetwork">
             <summary>
-                A Backpropagation network with epoch training implementing RPOP training algorithm.
+            A Backpropagation network with epoch training implementing RPOP training algorithm. 
             </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.backprop.BackPropagationRPROPNetwork.CreateLink">
+            <summary>
+            Overridden.Creates new <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationLink"/>
+            </summary>
+            <returns>Link.</returns>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationRPROPNetwork.#ctor(System.String)">
             <summary>
-                Creates the network from a file.
+            Creates the network from a file.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.backprop.BackPropagationRPROPNetwork.#ctor(System.Int32[])">
             <summary>
-                Creates the network.
+            Creates the network.
             </summary>
             <param name="nodesInEachLayer">Nodes in each layer of the network.</param>
         </member>
-        <member name="M:xpidea.neuro.net.backprop.BackPropagationRPROPNetwork.CreateLink">
-            <summary>
-                Overridden.Creates new <see cref="T:xpidea.neuro.net.backprop.EpochBackPropagationLink" />
-            </summary>
-            <returns>Link.</returns>
-        </member>
         <member name="T:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryLink">
             <summary>
-                A link for the Bidirectional Associative Memory (BAM) network.
+            A link for the Bidirectional Associative Memory (BAM) network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryLink.#ctor">
             <summary>
-                Constructs the link and initializes its weight to zero.
+            Constructs the link and initializes its weight to zero.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode">
             <summary>
-                Implements output node in the BAM network.
+            Implements output node in the BAM network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.nodesLastValue">
             <summary>
-                Stores previous value of the node.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.NodeLastValue">
-            <summary>
-                Property contains previous (the value of the node before method
-                <see cref="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Run" /> was executed) value of the node.
+            Stores previous value of the node.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.GetNodeLastValue">
             <summary>
-                Retrieves previous value of the node.
+            Retrieves previous value of the node.
             </summary>
             <returns>Node previous value.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.SetNodeLastValue(System.Double)">
             <summary>
-                Sets node previous value.
+            Sets node previous value.
             </summary>
             <param name="aLastValue">Previous value of the node.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.SetNodeValue(System.Double)">
             <summary>
-                Overridden.Sets node value.
+            Overridden.Sets node value.
             </summary>
             <param name="value">New node value.</param>
             <remarks>As well sets node error equal to node value.</remarks>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Run">
             <summary>
-                Overridden.Runs the node.
+            Overridden.Runs the node.
             </summary>
-            <remarks>
-                Stores current value of the node as
-                <see cref="P:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.NodeLastValue" /> and runs the node to
-                calculate the new value.
-            </remarks>
+            <remarks>Stores current value of the node as <see cref="P:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.NodeLastValue"/> and runs the node to calculate the new value.</remarks>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Learn">
             <summary>
-                Overridden.Teaches the node.
+            Overridden.Teaches the node.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads node data from a binary stream.
+            Overridden.Loads node data from a binary stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Stores node data into the binary stream.
+            Overridden.Stores node data into the binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
+        <member name="P:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.NodeLastValue">
+            <summary>
+            Property contains previous (the value of the node before method <see cref="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Run"/> was executed) value of the node.
+            </summary>
+        </member>
         <member name="T:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryInputNode">
             <summary>
-                Implements an input node in BAM network.
+            Implements an input node in BAM network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryInputNode.Run">
             <summary>
-                Overridden.Runs the node.
+            Overridden.Runs the node.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryInputNode.Learn">
             <summary>
-                Overridden.Does nothing, since the learning process of the BAM network is different.
+            Overridden.Does nothing, since the learning process of the BAM network is different.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork">
             <summary>
-                Implements the Bidirectional Associative Memory  (BAM) network.
+            Implements the Bidirectional Associative Memory  (BAM) network.
             </summary>
             <remarks>
-                <img src="BAM.jpg"></img>
-                The  Bidirectional Associative Memory (BAM) network that consists of two layers. An input layer and an output
-                layer. The main difference between backpropagation architecture is that BAM does not stop learning when input
-                values reach the output layer. The learning phase stops when the network becomes stable ; no change between input
-                and output values during two consecutive cycles. The pattern sets for training and running and ouput results can
-                only have two values : 1.1 or -1.1. The BAM is a relatively simple neural network architecture with a content
-                addressable memory. BAM is usefull for pattern recognition or with noisy and corrupted patterns.  Bam can also
-                "forget" if there are two many patterns in it. BAM becomes saturated when the number of patterns stored is greater
-                than the minimum of the input layer count and the ouput layer node count. BAM System is created to solve this
-                problem.
+            <img src="BAM.jpg"></img>
+            The  Bidirectional Associative Memory (BAM) network that consists of two layers. An input layer and an output layer. The main difference between backpropagation architecture is that BAM does not stop learning when input values reach the output layer. The learning phase stops when the network becomes stable ; no change between input and output values during two consecutive cycles. The pattern sets for training and running and ouput results can only have two values : 1.1 or -1.1. The BAM is a relatively simple neural network architecture with a content addressable memory. BAM is usefull for pattern recognition or with noisy and corrupted patterns.  Bam can also "forget" if there are two many patterns in it. BAM becomes saturated when the number of patterns stored is greater than the minimum of the input layer count and the ouput layer node count. BAM System is created to solve this problem. 
             </remarks>
         </member>
         <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.inputLayerNodesCount">
             <summary>
-                Stores nodes count in input layer.
+            Stores nodes count in input layer.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.outputLayerNodesCount">
             <summary>
-                Stores nodes count in output layer.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.#ctor(System.Int32,System.Int32)">
-            <summary>
-                Creates BAM network.
-            </summary>
-            <param name="aInputNodesCount">Number of nodes in the input layer.</param>
-            <param name="aOutputNodesCount">Number of nodes in the output layer.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.#ctor(System.String)">
-            <summary>
-                Creates the network from a file.
+            Stores nodes count in output layer.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.value(System.Int32)">
             <summary>
-                Returns value of the output node specified by index.
+            Returns value of the output node specified by index.
             </summary>
             <param name="index">Node index.</param>
             <returns>Node value.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.GetNodeError">
             <summary>
-                Overridden.Returns node error.
+            Overridden.Returns node error.
             </summary>
             <returns>Node error.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.SetValues(System.Int32,System.Double)">
             <summary>
-                Sets value of the node.
+            Sets value of the node.
             </summary>
             <param name="index">Node index.</param>
             <param name="value">New node value.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.CreateNetwork">
             <summary>
-                Overridden.Constucts the network topology.
+            Overridden.Constucts the network topology.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.LoadInputs">
             <summary>
-                Overridden.Loads input values into the input layer.
+            Overridden.Loads input values into the input layer.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.GetNetworkType">
             <summary>
-                Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntBAM" /> for the BAM network.
+            Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntBAM"/> for the BAM network.
             </summary>
             <returns></returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.GetInputNodesCount">
             <summary>
-                Overridden.Returns nodes count in the input layer.
+            Overridden.Returns nodes count in the input layer.
             </summary>
             <returns>Nodes count.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.GetOutPutNodesCount">
             <summary>
-                Overridden.Returns nodes count in output layer.
+            Overridden.Returns nodes count in output layer.
             </summary>
             <returns>Nodes count.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.GetOutputNode(System.Int32)">
             <summary>
-                Overridden.Returns output node by its index.
+            Overridden.Returns output node by its index.
             </summary>
             <param name="index">Output node index.</param>
             <returns>Node.</returns>
         </member>
+        <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates BAM network.
+            </summary>
+            <param name="aInputNodesCount">Number of nodes in the input layer.</param>
+            <param name="aOutputNodesCount">Number of nodes in the output layer.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.#ctor(System.String)">
+            <summary>
+            Creates the network from a file.
+            </summary>
+        </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.SetValuesFromPattern(xpidea.neuro.net.patterns.Pattern)">
             <summary>
-                Overridden.Loads the values into the input layer from the pattern.
+            Overridden.Loads the values into the input layer from the pattern.
             </summary>
             <param name="pattern">Pattern.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.Run">
             <summary>
-                Overridden.Runs the network.
+            Overridden.Runs the network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.Learn">
             <summary>
-                Overridden.Teaches the network.
+            Overridden.Teaches the network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
             <summary>
-                Overridden.Trains the network to recognize specific patterns. Employs
-                <see cref="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Run" /> and
-                <see cref="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Learn" />
-                to teach the network.
+            Overridden.Trains the network to recognize specific patterns. Employs <see cref="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Run"/> and <see cref="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryOutputNode.Learn"/>
+            to teach the network.
             </summary>
             <param name="patterns">Training patterns.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.UnLearn">
             <summary>
-                Tells the network to "forget" last learn operation.
+            Tells the network to "forget" last learn operation.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads network data from a binary stream.
+            Overridden.Loads network data from a binary stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemoryNetwork.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Stores network data in the binary stream.
+            Overridden.Stores network data in the binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
         <member name="T:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem">
             <summary>
-                Implements the system of BAM networks.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.best">
-            <summary>
-                The network having the minimum error.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.bestError">
-            <summary>
-                Best error.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.data">
-            <summary>
-                Stores the pattern.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.networks">
-            <summary>
-                Array of BAM networks.
+            Implements the system of BAM networks.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.networksCount">
             <summary>
-                Stores networks count in the system.
+            Stores networks count in the system.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.networks">
+            <summary>
+            Array of BAM networks.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.orthogonalBAMEnergy">
             <summary>
-                Orthogonal network energy.
+            Orthogonal network energy.
             </summary>
         </member>
-        <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.#ctor(System.Int32,System.Int32)">
+        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.bestError">
             <summary>
-                Creates the BAM system.
+            Best error.
             </summary>
-            <param name="aInputNodesCount">Number of nodes in input layer.</param>
-            <param name="aOutputNodesCount">Number of nodes in output layer.</param>
+        </member>
+        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.data">
+            <summary>
+            Stores the pattern.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.best">
+            <summary>
+            The network having the minimum error.
+            </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.value(System.Int32)">
             <summary>
-                Overridden.Node value by index from the best network.
+            Overridden.Node value by index from the best network.
             </summary>
             <param name="index">Node index.</param>
             <returns>Node value.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.GetNodeError">
             <summary>
-                Overridden.Returns the best error.
+            Overridden.Returns the best error.
             </summary>
             <returns>Error value.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.SetValues(System.Int32,System.Double)">
             <summary>
-                Overridden.Stores node values in the <see cref="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.data" />
-                field.
+            Overridden.Stores node values in the <see cref="F:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.data"/> field.
             </summary>
             <param name="index">Node index.</param>
             <param name="value">Node value.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.CreateNetwork">
             <summary>
-                Overridden.Initializes network data after construction.
+            Overridden.Initializes network data after construction.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.LoadInputs">
             <summary>
-                Overridden.Loads input data to the system from the the nodes attached to input.
+            Overridden.Loads input data to the system from the the nodes attached to input.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.GetNetworkType">
             <summary>
-                Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntBAMSystem" /> for BAM system.
+            Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntBAMSystem"/> for BAM system.
             </summary>
             <returns>Type of neural network.</returns>
         </member>
+        <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates the BAM system.
+            </summary>
+            <param name="aInputNodesCount">Number of nodes in input layer.</param>
+            <param name="aOutputNodesCount">Number of nodes in output layer.</param>
+        </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.Run">
             <summary>
-                Overridden.Runs the system.
+            Overridden.Runs the system.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.Learn">
             <summary>
-                Overridden.Teaches the system.
+            Overridden.Teaches the system.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads the BAM system data from a binary stream.
+            Overridden.Loads the BAM system data from a binary stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Stores BAM system data in a binary stream.
+            Overridden.Stores BAM system data in a binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.GetOutputNode(System.Int32)">
             <summary>
-                Overridden.Retrieves an output node by its index.
+            Overridden.Retrieves an output node by its index.
             </summary>
             <param name="index">Node index.</param>
             <returns>Output node.</returns>
         </member>
         <member name="M:xpidea.neuro.net.bam.BidirectionalAssociativeMemorySystem.SetValuesFromPattern(xpidea.neuro.net.patterns.Pattern)">
             <summary>
-                Overridden.Sets input and output values from the pattern.
+            Overridden.Sets input and output values from the pattern.
             </summary>
             <param name="pattern"></param>
         </member>
         <member name="T:xpidea.neuro.net.NeuralNetworkType">
             <summary>
-                Specifies the type of a neural network, a property of a NeuralNetwork used for persitence purposes.
+            Specifies the type of a neural network, a property of a NeuralNetwork used for persitence purposes.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.NeuralNetworkType.nnAdaline">
             <summary>
-                Adaline network.
+            Adaline network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.NeuralNetworkType.nntBackProp">
             <summary>
-                Backpropagation network.
+            Backpropagation network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.NeuralNetworkType.nntSON">
             <summary>
-                Self Organizing network
+            Self Organizing network
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.NeuralNetworkType.nntBAM">
             <summary>
-                Bidirectional Associative Memory network.
+            Bidirectional Associative Memory network.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.NeuralNetworkType.nntBAMSystem">
             <summary>
-                System of Bidirectional Associative Memory networks.
+             System of Bidirectional Associative Memory networks.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.NeuralNetworkType.nntEpochBackProp">
             <summary>
-                Backpropagation network implementing epoch learning.
+             Backpropagation network implementing epoch learning.
             </summary>
-        </member>
-        <member name="T:xpidea.neuro.net.NeuroObject">
-            <summary>
-                Is the abstract base class for all neural network classes.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.#ctor">
-            <summary>
-                Constructor.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.Epoch(System.Int32)">
-            <summary>
-                Method used on epoch training of neural network. Must be executed every time
-                after each itteration through the pattern set. This method calculates average delta.
-            </summary>
-            <param name="epoch">Number of patterns that was presentend during this learning cycle.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.Save(System.IO.BinaryWriter)">
-            <summary>
-                Stores the object in a binary stream.
-            </summary>
-            <param name="binaryWriter">Binary stream writer.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.Load(System.IO.BinaryReader)">
-            <summary>
-                Restores object data from a binary stream.
-            </summary>
-            <param name="binaryReader">Binary stream reader.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.SaveToFile(System.String)">
-            <summary>
-                Saves object to a file in a binary format.
-            </summary>
-            <param name="fileName">File name.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.LoadFromFile(System.String)">
-            <summary>
-                Loads object data from a file.
-            </summary>
-            <param name="fileName">File name.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.RoundToNextInt(System.Double)">
-            <summary>
-                Rounds given value to a nearest integer.
-                For example:
-                RoundToNextInt(0.2) is 1
-                RoundToNextInt(-0.9) is -1
-                RoundToNextInt(-9) is -9
-            </summary>
-            <param name="value">is a value to be rounded.</param>
-            <returns>Rounded to the nearest integer value of value</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroObject.Random(System.Double,System.Double)">
-            <summary>
-                Returns random value between min and max (inclusive).
-            </summary>
-            <param name="min">First value.</param>
-            <param name="max">Second value.</param>
-            <returns> </returns>
         </member>
         <member name="T:xpidea.neuro.net.ENeuroException">
             <summary>
-                Implements an exception thrown on any execution error.
+            Implements an exception thrown on any execution error.  
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.ENeuroException.#ctor(System.String)">
             <summary>
-                Cunstructor. Creates the exception.
+            Cunstructor. Creates the exception.
             </summary>
             <param name="message">Error message.</param>
         </member>
-        <member name="T:xpidea.neuro.net.NeuroLink">
-            <summary>
-                Connects two nodes in a network.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuroLink.inNode">
-            <summary>
-                Refers to source and destination node connected by this link.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuroLink.outNode">
-            <summary>
-                Refers to source and destination node connected by this link.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuroLink.linkWeight">
-            <summary>
-                Link weight.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.#ctor">
-            <summary>
-                Constructor.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroLink.Weight">
-            <summary>
-                Property defines weight of the link.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroLink.InNode">
-            <summary>
-                A source node. The node link is comming from.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroLink.OutNode">
-            <summary>
-                A Destination node. A node the link is going to.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.GetLinkWeight">
-            <summary>
-                Getter of <see cref="P:xpidea.neuro.net.NeuroLink.Weight" /> property.
-            </summary>
-            <returns>Link's weight.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.SetLinkWeight(System.Double)">
-            <summary>
-                Setter of <see cref="P:xpidea.neuro.net.NeuroLink.Weight" /> property.
-            </summary>
-            <param name="value">New link's weight value</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.Load(System.IO.BinaryReader)">
-            <summary>
-                Overridden.Loads link data from a binary stream.
-            </summary>
-            <param name="binaryReader">Binary stream reader.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.Save(System.IO.BinaryWriter)">
-            <summary>
-                Overridden.Stores link data in a binary stream.
-            </summary>
-            <param name="binaryWriter">Binary stream writer.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.SetInNode(xpidea.neuro.net.NeuroNode)">
-            <summary>
-                Setter for <see cref="P:xpidea.neuro.net.NeuroLink.InNode" /> property.
-            </summary>
-            <param name="node">Incomming (source) node.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.SetOutNode(xpidea.neuro.net.NeuroNode)">
-            <summary>
-                Setter for <see cref="P:xpidea.neuro.net.NeuroLink.OutNode" /> property.
-            </summary>
-            <param name="node">Outgoing (destination) node.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.UpdateWeight(System.Double)">
-            <summary>
-                Updates weight of the link on specified delta.
-            </summary>
-            <param name="deltaWeight">Weight change value.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.WeightedInValue">
-            <summary>
-                Weighted <see cref="P:xpidea.neuro.net.NeuroLink.InNode" /> value.
-            </summary>
-            <returns>InNode.Value * Weight</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.WeightedOutValue">
-            <summary>
-                Weighted <see cref="P:xpidea.neuro.net.NeuroLink.OutNode" /> value.
-            </summary>
-            <returns>OutNode.Value * Weight</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.WeightedInError">
-            <summary>
-                Weighted <see cref="P:xpidea.neuro.net.NeuroLink.InNode" /> error.
-            </summary>
-            <returns>InNode.Error * Weight</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLink.WeightedOutError">
-            <summary>
-                Weighted <see cref="P:xpidea.neuro.net.NeuroLink.OutNode" /> error.
-            </summary>
-            <returns>OutNode.Error * Weight</returns>
-        </member>
         <member name="T:xpidea.neuro.net.NeuroLinkCollection">
             <summary>
-                A collection that stores <see cref='T:xpidea.neuro.net.NeuroLink' /> objects.
+              A collection that stores <see cref="T:xpidea.neuro.net.NeuroLink"/> objects.
             </summary>
-            <seealso cref='T:xpidea.neuro.net.NeuroLinkCollection' />
+            <seealso cref="T:xpidea.neuro.net.NeuroLinkCollection"/>
+        </member>
+        <member name="T:xpidea.neuro.net.patterns.NeuroObjectCollection">
+            <summary>
+            Represents vollection of <see cref="T:xpidea.neuro.net.NeuroObject"/>
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.#ctor">
+            <summary>
+            Creates the collection.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.#ctor(System.String)">
+            <summary>
+            Constructor. Creates the collection and loads content from a file.
+            </summary>
+            <param name="fileName">Name of the file to load data from.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.Save(System.IO.BinaryWriter)">
+            <summary>
+            
+            </summary>
+            <param name="binaryWriter"></param>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.Load(System.IO.BinaryReader)">
+            <summary>
+            
+            </summary>
+            <param name="binaryReader"></param>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.CreateContainigObject">
+            <summary>
+            Constucts the object that could be stored in this collection.
+            </summary>
+            <returns>Object.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.LoadFromFile(System.String)">
+            <summary>
+            Loads collection from a file.
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.SaveToFile(System.String)">
+            <summary>
+            Stores collection of the objectects into a file in a binary format.
+            </summary>
+            <param name="fileName">File name.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.NeuroLinkCollection.CreateContainigObject">
+            <summary>
+            Overridden.Creates new object contained by collection.
+            </summary>
+            <returns>NeuroObject</returns>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.#ctor">
             <summary>
                 <para>
-                    Initializes a new instance of <see cref='T:xpidea.neuro.net.NeuroLinkCollection' />.
-                </para>
+                  Initializes a new instance of <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/>.
+               </para>
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.#ctor(xpidea.neuro.net.NeuroLinkCollection)">
             <summary>
                 <para>
-                    Initializes a new instance of <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> based on another
-                    <see cref='T:xpidea.neuro.net.NeuroLinkCollection' />.
-                </para>
+                  Initializes a new instance of <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> based on another <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/>.
+               </para>
             </summary>
-            <param name='value'>
-                A <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> from which the contents are copied
+            <param name="value">
+                  A <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> from which the contents are copied
             </param>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.#ctor(xpidea.neuro.net.NeuroLink[])">
             <summary>
                 <para>
-                    Initializes a new instance of <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> containing any array of
-                    <see cref='T:xpidea.neuro.net.NeuroLink' /> objects.
-                </para>
+                  Initializes a new instance of <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> containing any array of <see cref="T:xpidea.neuro.net.NeuroLink"/> objects.
+               </para>
             </summary>
-            <param name='value'>
-                A array of <see cref='T:xpidea.neuro.net.NeuroLink' /> objects with which to intialize the collection
+            <param name="value">
+                  A array of <see cref="T:xpidea.neuro.net.NeuroLink"/> objects with which to intialize the collection
             </param>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroLinkCollection.Item(System.Int32)">
-            <summary>
-                <para>Represents the entry at the specified index of the <see cref='T:xpidea.neuro.net.NeuroLink' />.</para>
-            </summary>
-            <param name='index'>
-                <para>The zero-based index of the entry to locate in the collection.</para>
-            </param>
-            <value>
-                <para> The entry at the specified index of the collection.</para>
-            </value>
-            <exception cref='T:System.ArgumentOutOfRangeException'>
-                <paramref name='index' /> is outside the valid range of indexes
-                for the collection.
-            </exception>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroLinkCollection.CreateContainigObject">
-            <summary>
-                Overridden.Creates new object contained by collection.
-            </summary>
-            <returns>NeuroObject</returns>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)">
             <summary>
-                <para>
-                    Adds a <see cref='T:xpidea.neuro.net.NeuroLink' /> with the specified value to the
-                    <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> .
-                </para>
+               <para>Adds a <see cref="T:xpidea.neuro.net.NeuroLink"/> with the specified value to the 
+               <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> .</para>
             </summary>
-            <param name='value'>The <see cref='T:xpidea.neuro.net.NeuroLink' /> to add.</param>
+            <param name="value">The <see cref="T:xpidea.neuro.net.NeuroLink"/> to add.</param>
             <returns>
-                <para>The index at which the new element was inserted.</para>
+               <para>The index at which the new element was inserted.</para>
             </returns>
-            <seealso cref='M:xpidea.neuro.net.NeuroLinkCollection.AddRange(xpidea.neuro.net.NeuroLink[])' />
+            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.AddRange(xpidea.neuro.net.NeuroLink[])"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.AddRange(xpidea.neuro.net.NeuroLink[])">
             <summary>
-                <para>Copies the elements of an array to the end of the <see cref="T:xpidea.neuro.net.NeuroLinkCollection" />.</para>
+            	<para>Copies the elements of an array to the end of the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/>.</para>
             </summary>
             <param name="value">
-                An array of type <see cref="T:xpidea.neuro.net.NeuroLink" /> containing the objects to add to the collection.
+               An array of type <see cref="T:xpidea.neuro.net.NeuroLink"/> containing the objects to add to the collection.
             </param>
-            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)" />
+            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.AddRange(xpidea.neuro.net.NeuroLinkCollection)">
             <summary>
-                <para>
-                    Adds the contents of another <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> to the end of the collection.
-                </para>
+            	<para>
+                  Adds the contents of another <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> to the end of the collection.
+               </para>
             </summary>
             <param name="value">
-                A <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> containing the objects to add to the collection.
+               A <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> containing the objects to add to the collection.
             </param>
-            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)" />
+            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.Contains(xpidea.neuro.net.NeuroLink)">
             <summary>
-                <para>
-                    Gets a value indicating whether the
-                    <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> contains the specified
-                    <see cref='T:xpidea.neuro.net.NeuroLink' />.
-                </para>
+            <para>Gets a value indicating whether the 
+               <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> contains the specified <see cref="T:xpidea.neuro.net.NeuroLink"/>.</para>
             </summary>
-            <param name='value'>The <see cref='T:xpidea.neuro.net.NeuroLink' /> to locate.</param>
+            <param name="value">The <see cref="T:xpidea.neuro.net.NeuroLink"/> to locate.</param>
             <returns>
-                <para>
-                    <see langword='true' /> if the <see cref='T:xpidea.neuro.net.NeuroLink' /> is contained in the collection;
-                    otherwise, <see langword='false' />.
-                </para>
+            <para><see langword="true"/> if the <see cref="T:xpidea.neuro.net.NeuroLink"/> is contained in the collection; 
+              otherwise, <see langword="false"/>.</para>
             </returns>
-            <seealso cref='M:xpidea.neuro.net.NeuroLinkCollection.IndexOf(xpidea.neuro.net.NeuroLink)' />
+            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.IndexOf(xpidea.neuro.net.NeuroLink)"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.CopyTo(xpidea.neuro.net.NeuroLink[],System.Int32)">
             <summary>
-                <para>
-                    Copies the <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> values to a one-dimensional
-                    <see cref="T:System.Array" /> instance at the
-                    specified index.
-                </para>
+            	<para>Copies the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> values to a one-dimensional <see cref="T:System.Array"/> instance at the 
+               specified index.</para>
             </summary>
-            <param name="array">
-                <para>
-                    The one-dimensional <see cref="T:System.Array" /> that is the destination of the values copied from
-                    <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> .
-                </para>
-            </param>
-            <param name="index">The index in <paramref name="array" /> where copying begins.</param>
-            <exception cref="T:System.ArgumentException">
-                <para><paramref name="array" /> is multidimensional.</para>
-                <para>-or-</para>
-                <para>
-                    The number of elements in the <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> is greater than the
-                    available space between <paramref name="array" /> and the end of <paramref name="array" />.
-                </para>
-            </exception>
-            <exception cref="T:System.ArgumentNullException"><paramref name="array" /> is <see langword="null" />. </exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-                <paramref name="array" />'s lowbound.
-            </exception>
-            <seealso cref="T:System.Array" />
+            <param name="array"><para>The one-dimensional <see cref="T:System.Array"/> that is the destination of the values copied from <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> .</para></param>
+            <param name="index">The index in <paramref name="array"/> where copying begins.</param>
+            <exception cref="T:System.ArgumentException"><para><paramref name="array"/> is multidimensional.</para>
+            	<para>-or-</para>
+            	<para>The number of elements in the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> is greater than the available space between <paramref name="arrayIndex"/> and the end of <paramref name="array"/>.</para></exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="array"/> is <see langword="null"/>. </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="arrayIndex"/> is less than <paramref name="array"/>'s lowbound. </exception>
+            <seealso cref="T:System.Array"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.IndexOf(xpidea.neuro.net.NeuroLink)">
             <summary>
-                <para>
-                    Returns the index of a <see cref='T:xpidea.neuro.net.NeuroLink' /> in
-                    the <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> .
-                </para>
+               <para>Returns the index of a <see cref="T:xpidea.neuro.net.NeuroLink"/> in 
+                  the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> .</para>
             </summary>
-            <param name='value'>The <see cref='T:xpidea.neuro.net.NeuroLink' /> to locate.</param>
+            <param name="value">The <see cref="T:xpidea.neuro.net.NeuroLink"/> to locate.</param>
             <returns>
-                <para>
-                    The index of the <see cref='T:xpidea.neuro.net.NeuroLink' /> of <paramref name='value' /> in the
-                    <see cref='T:xpidea.neuro.net.NeuroLinkCollection' />, if found; otherwise, -1.
-                </para>
+            <para>The index of the <see cref="T:xpidea.neuro.net.NeuroLink"/> of <paramref name="value"/> in the 
+            <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/>, if found; otherwise, -1.</para>
             </returns>
-            <seealso cref='M:xpidea.neuro.net.NeuroLinkCollection.Contains(xpidea.neuro.net.NeuroLink)' />
+            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Contains(xpidea.neuro.net.NeuroLink)"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.Insert(System.Int32,xpidea.neuro.net.NeuroLink)">
             <summary>
-                <para>
-                    Inserts a <see cref="T:xpidea.neuro.net.NeuroLink" /> into the
-                    <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> at the specified index.
-                </para>
+            	<para>Inserts a <see cref="T:xpidea.neuro.net.NeuroLink"/> into the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> at the specified index.</para>
             </summary>
-            <param name="index">The zero-based index where <paramref name="value" /> should be inserted.</param>
-            <param name=" value">The <see cref="T:xpidea.neuro.net.NeuroLink" /> to insert.</param>
-            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)" />
+            <param name="index">The zero-based index where <paramref name="value"/> should be inserted.</param>
+            <param name=" value">The <see cref="T:xpidea.neuro.net.NeuroLink"/> to insert.</param>
+            <seealso cref="M:xpidea.neuro.net.NeuroLinkCollection.Add(xpidea.neuro.net.NeuroLink)"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.GetEnumerator">
             <summary>
-                <para>
-                    Returns an enumerator that can iterate through
-                    the <see cref='T:xpidea.neuro.net.NeuroLinkCollection' /> .
-                </para>
+               <para>Returns an enumerator that can iterate through 
+                  the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> .</para>
             </summary>
-            <returns>
-                <para>None.</para>
-            </returns>
-            <seealso cref='T:System.Collections.IEnumerator' />
+            <returns><para>None.</para></returns>
+            <seealso cref="T:System.Collections.IEnumerator"/>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.Remove(xpidea.neuro.net.NeuroLink)">
             <summary>
-                <para>
-                    Removes a specific <see cref="T:xpidea.neuro.net.NeuroLink" /> from the
-                    <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> .
-                </para>
+            	<para> Removes a specific <see cref="T:xpidea.neuro.net.NeuroLink"/> from the 
+               <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> .</para>
             </summary>
-            <param name="value">
-                The <see cref="T:xpidea.neuro.net.NeuroLink" /> to remove from the
-                <see cref="T:xpidea.neuro.net.NeuroLinkCollection" /> .
-            </param>
-            <exception cref="T:System.ArgumentException"><paramref name="value" /> is not found in the Collection. </exception>
+            <param name="value">The <see cref="T:xpidea.neuro.net.NeuroLink"/> to remove from the <see cref="T:xpidea.neuro.net.NeuroLinkCollection"/> .</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value"/> is not found in the Collection. </exception>
+        </member>
+        <member name="P:xpidea.neuro.net.NeuroLinkCollection.Item(System.Int32)">
+            <summary>
+            <para>Represents the entry at the specified index of the <see cref="T:xpidea.neuro.net.NeuroLink"/>.</para>
+            </summary>
+            <param name="index"><para>The zero-based index of the entry to locate in the collection.</para></param>
+            <value>
+               <para> The entry at the specified index of the collection.</para>
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is outside the valid range of indexes for the collection.</exception>
         </member>
         <member name="T:xpidea.neuro.net.NeuroLinkCollection.CustomNeuroLinkEnumerator">
             <summary>
-                Cusom collection enumerator.
+            Cusom collection enumerator.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.CustomNeuroLinkEnumerator.#ctor(xpidea.neuro.net.NeuroLinkCollection)">
             <summary>
-                Constructor.
+            Constructor.
             </summary>
             <param name="mappings">Collection to be enumerated.</param>
         </member>
-        <member name="P:xpidea.neuro.net.NeuroLinkCollection.CustomNeuroLinkEnumerator.Current">
-            <summary>
-                Points to Current element in collection.
-            </summary>
-        </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.CustomNeuroLinkEnumerator.MoveNext">
             <summary>
-                Advances the enumerator to the next element of the collection.
+            Advances the enumerator to the next element of the collection. 
             </summary>
-            <returns>
-                true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the
-                end of the collection.
-            </returns>
+            <returns>true if the enumerator was successfully advanced to the next element; false if the enumerator has passed the end of the collection.</returns>
         </member>
         <member name="M:xpidea.neuro.net.NeuroLinkCollection.CustomNeuroLinkEnumerator.Reset">
             <summary>
-                Sets the enumerator to its initial position, which is before the first element in the collection.
+            Sets the enumerator to its initial position, which is before the first element in the collection.
             </summary>
         </member>
-        <member name="T:xpidea.neuro.net.NeuroNode">
+        <member name="P:xpidea.neuro.net.NeuroLinkCollection.CustomNeuroLinkEnumerator.Current">
             <summary>
-                Represents the Node in a neural network.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuroNode.outLinks">
-            <summary>
-                Incomming and Outgoing links of this node.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuroNode.nodeValue">
-            <summary>
-                Node value and node error.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuroNode.nodeError">
-            <summary>
-                Node value and node error.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.#ctor">
-            <summary>
-                Constructor.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroNode.InLinks">
-            <summary>
-                Incomming links for this node.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroNode.OutLinks">
-            <summary>
-                Outgoing links of this node.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroNode.Value">
-            <summary>
-                <b>Value</b> property of the node.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuroNode.Error">
-            <summary>
-                <b>Error</b> property of the node.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.GetNodeValue">
-            <summary>
-                Getter methos of <see cref="P:xpidea.neuro.net.NeuroNode.Value" /> property.
-            </summary>
-            <returns>Node value.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.SetNodeValue(System.Double)">
-            <summary>
-                Setter method of <see cref="P:xpidea.neuro.net.NeuroNode.Value" /> property.
-            </summary>
-            <param name="value">New node value.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.GetNodeError">
-            <summary>
-                Getter method of <see cref="P:xpidea.neuro.net.NeuroNode.Error" /> property.
-            </summary>
-            <returns>Node error.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.SetNodeError(System.Double)">
-            <summary>
-                Setter method of <see cref="P:xpidea.neuro.net.NeuroNode.Error" /> property.
-            </summary>
-            <param name="error">Node error.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.Run">
-            <summary>
-                Executes node functionality.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.Learn">
-            <summary>
-                Teaches the node.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.LinkTo(xpidea.neuro.net.NeuroNode,xpidea.neuro.net.NeuroLink)">
-            <summary>
-                Connects this node to <b>toNode</b> using link <b>link</b>.
-            </summary>
-            <param name="toNode">Destination node.</param>
-            <param name="link">Link used to connect nodes.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.Load(System.IO.BinaryReader)">
-            <summary>
-                Overridden.Loads node data from a binary stream.
-            </summary>
-            <param name="binaryReader">Binary stream reader.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuroNode.Save(System.IO.BinaryWriter)">
-            <summary>
-                Overridden.Stores node data into binary stream.
-            </summary>
-            <param name="binaryWriter">Binary stream writer.</param>
-        </member>
-        <member name="T:xpidea.neuro.net.NeuralNetwork">
-            <summary>
-                Base abstract class for all neural networks.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuralNetwork.links">
-            <summary>
-                Links in the network.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuralNetwork.linksCount">
-            <summary>
-                Number of links in the network.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuralNetwork.nodes">
-            <summary>
-                Nodes in the netowrk.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.NeuralNetwork.nodesCount">
-            <summary>
-                Number of nodes in the network.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.#ctor">
-            <summary>
-                Constructor. Creates new instance of the network.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.#ctor(System.String)">
-            <summary>
-                Creates the network and loads it's state from a file.
-            </summary>
-            <param name="fileName">A file name.</param>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuralNetwork.NetworkType">
-            <summary>
-                Returns network type. Used for persistent purposes.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuralNetwork.NodesCount">
-            <summary>
-                Total number of nodes in the network.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuralNetwork.LinksCount">
-            <summary>
-                Total number of links in the network.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuralNetwork.InputNodesCount">
-            <summary>
-                Number of input nodes.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.NeuralNetwork.OutputNodesCount">
-            <summary>
-                Number of output nodes.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.CreateNetwork">
-            <summary>
-                Performs network construction based on specific topology.  Connects all nodes in the network using the links.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.LoadInputs">
-            <summary>
-                Loads data into input nodes of the network.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.GetNetworkType">
-            <summary>
-                Neural network type.
-            </summary>
-            <returns>Type of neural network.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.GetInputNodesCount">
-            <summary>
-                Returns number of input nodes in the network.
-            </summary>
-            <returns>Number of input nodes in the network.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.GetOutPutNodesCount">
-            <summary>
-                Returns number of output nodes in the network.
-            </summary>
-            <returns>Number of output nodes in the network.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.GetInputNode(System.Int32)">
-            <summary>
-                Returns N-th input node in the network.
-            </summary>
-            <param name="index">Node index.</param>
-            <returns>Input node.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.GetOutputNode(System.Int32)">
-            <summary>
-                Returns N-th output node in the network.
-            </summary>
-            <param name="index">Node index.</param>
-            <returns>Output node.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.Epoch(System.Int32)">
-            <summary>
-                Overridden.Finalizes trainig cycle of the network. Used by <see cref="M:xpidea.neuro.net.NeuralNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)" />
-                method of the network.
-            </summary>
-            <param name="epoch">Number of patterns was exposed to the network.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.Load(System.IO.BinaryReader)">
-            <summary>
-                Overridden.Loads network data from a binary stream.
-            </summary>
-            <param name="binaryReader">Binary stream reader.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.Save(System.IO.BinaryWriter)">
-            <summary>
-                Overridden.Saves the network to a binary stream.
-            </summary>
-            <param name="binaryWriter">Binary stream writer.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
-            <summary>
-                Performs network training. Here you write the code to train your network.
-            </summary>
-            <param name="patterns">Set of the patterns that will be exposed to a network during the training.</param>
-            <remarks>
-                <p>
-                    There are several major paradigms, or approaches, to neural network learning. These include
-                    <i>supervised, unsupervised</i>, and <i>reinforcement</i> learning. How the training data is processed is a
-                    major aspect of these learning paradigms.
-                </p>
-                <p>
-                    <i>Supervised</i> learning is the most common form of learning and is sometimes called programming by example.
-                    The neural network is trained by showing it examples of the problem state or attributes along with the desired
-                    output or action. The neural network makes a prediction based on the inputs and if the output differs from
-                    the desired out put, then the network is adjusted or adapted to produce the correct output. This process is
-                    repeated over and over until the agent learns to make accurate classifications or predictions. Historical data
-                    from databases, sensor logs, or trace logs is often used as the training or example data.
-                </p>
-                <p>
-                    <i>Unsupervised</i> learning is used when the neural network needs to recognize similarities between inputs or
-                    to identify features in the input data. The data is presented to the network, and it adapts so that it
-                    partitions the data into groups. The clustering or segmenting process continues until the neural network places
-                    the
-                    same data into the same group on successive passes over the data. An unsupervised learning algorithm performs a
-                    type of feature detection where important common attributes in the data are extracted. The Kohonen map will be
-                    a good example of the network using unsupervised learning.
-                </p>
-                <p>
-                    <i>Reinforcement</i> learning is a type of supervised learning used when explicit input/ output pairs of
-                    training data are not available. It can be used in cases where there is a sequence of inputs arid the desired
-                    output is only known after the specific sequence occurs. This process of identifying the relationship between a
-                    series of input values and a later output value is called temporal credit assignment. Because we provide less
-                    specific error information, reinforcement learning usually takes longer than supervised learning and is less
-                    efficient. However, in many situations, having exact prior information about the desired outcome is not
-                    possible. In many ways,
-                    reinforcement learning is the most realistic form of learning.
-                </p>
-            </remarks>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.InputNode(System.Int32)">
-            <summary>
-                Returns N-th input node of the network.<seealso cref="P:xpidea.neuro.net.NeuralNetwork.InputNodesCount" />
-            </summary>
-            <param name="index">Node index.</param>
-            <returns>Node.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.NeuralNetwork.OutputNode(System.Int32)">
-            <summary>
-                Returns N-th output node of the network. <seealso cref="P:xpidea.neuro.net.NeuralNetwork.OutputNodesCount" />
-            </summary>
-            <param name="index">Node index</param>
-            <returns>Node</returns>
-        </member>
-        <member name="T:xpidea.neuro.net.FeedForwardNode">
-            <summary>
-                A node that produce its value based on sum of values of it's inputs.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.FeedForwardNode.Transfer(System.Double)">
-            <summary>
-                An Activation function of the node.
-            </summary>
-            <param name="value">Sum of input values of the node.</param>
-            <returns>result</returns>
-            <remarks>
-                Activation functions for the hidden nodes are needed to introduce
-                nonlinearity into the network. You can override this method to introduce your own function.
-            </remarks>
-        </member>
-        <member name="M:xpidea.neuro.net.FeedForwardNode.Run">
-            <summary>
-                Overridden.Execute node's functionality.
+            Points to Current element in collection.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.InputNode">
             <summary>
-                Base class for all input nodes.
-                Represents an input node to a network.
+            Base class for all input nodes.
+            Represents an input node to a network.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.BiasNode">
             <summary>
-                Implements the node that always produces constant output value (bias).
+            Implements the node that always produces constant output value (bias).
             </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.BiasNode.#ctor(System.Double)">
-            <summary>
-                Constructs the Bias node.
-            </summary>
-            <param name="biasValue">Node value.</param>
         </member>
         <member name="M:xpidea.neuro.net.BiasNode.SetNodeValue(System.Double)">
             <summary>
-                Overridden.Overriden to prevent setting of node value directly.
+            Overridden.Overriden to prevent setting of node value directly.
             </summary>
             <param name="value">not used</param>
         </member>
+        <member name="M:xpidea.neuro.net.BiasNode.#ctor(System.Double)">
+            <summary>
+            Constructs the Bias node.
+            </summary>
+            <param name="biasValue">Node value.</param>
+        </member>
         <member name="T:xpidea.neuro.net.patterns.Pattern">
             <summary>
-                A class representing single training pattern and is used to train a neural network. Contains input data and
-                expected results arrays.
+            A class representing single training pattern and is used to train a neural network. Contains input data and expected results arrays.
             </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.Pattern.Save(System.IO.BinaryWriter)">
+            <summary>
+            Overridden.Saves the pattern to a stream.
+            </summary>
+            <param name="binaryWriter">A BinaryWriter used to write a stream.</param>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.Pattern.Load(System.IO.BinaryReader)">
+            <summary>
+            Overridden.Loads the pattern from a stream.
+            </summary>
+            <param name="binaryReader">A BinaryReader used to read the stream.</param>
         </member>
         <member name="M:xpidea.neuro.net.patterns.Pattern.#ctor(System.Int32,System.Int32)">
             <summary>
-                Constructor. Creates new instance of the pattern.
+            Constructor. Creates new instance of the pattern.
             </summary>
             <param name="inputsCount">Number of input values in a pattern.</param>
             <param name="outputsCount">Number of output/result values in the pattern.</param>
         </member>
         <member name="P:xpidea.neuro.net.patterns.Pattern.Input">
             <summary>
-                Array of input parameters. Each value usually in a range from -1..1
+            Array of input parameters. Each value usually in a range from -1..1
             </summary>
         </member>
         <member name="P:xpidea.neuro.net.patterns.Pattern.Output">
             <summary>
-                Array of output parameters. Each value usually in a range from -1..1
+            Array of output parameters. Each value usually in a range from -1..1
             </summary>
         </member>
         <member name="P:xpidea.neuro.net.patterns.Pattern.InputsCount">
             <summary>
-                Number of input parameters.
+            Number of input parameters.
             </summary>
         </member>
         <member name="P:xpidea.neuro.net.patterns.Pattern.OutputsCount">
             <summary>
-                Number of output parameters.
+            Number of output parameters.
             </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.Pattern.Save(System.IO.BinaryWriter)">
-            <summary>
-                Overridden.Saves the pattern to a stream.
-            </summary>
-            <param name="binaryWriter">A BinaryWriter used to write a stream.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.Pattern.Load(System.IO.BinaryReader)">
-            <summary>
-                Overridden.Loads the pattern from a stream.
-            </summary>
-            <param name="binaryReader">A BinaryReader used to read the stream.</param>
-        </member>
-        <member name="T:xpidea.neuro.net.patterns.NeuroObjectCollection">
-            <summary>
-                Represents vollection of <see cref="T:xpidea.neuro.net.NeuroObject" />
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.#ctor">
-            <summary>
-                Creates the collection.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.#ctor(System.String)">
-            <summary>
-                Constructor. Creates the collection and loads content from a file.
-            </summary>
-            <param name="fileName">Name of the file to load data from.</param>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.Save(System.IO.BinaryWriter)">
-            <summary>
-            </summary>
-            <param name="binaryWriter"></param>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.Load(System.IO.BinaryReader)">
-            <summary>
-            </summary>
-            <param name="binaryReader"></param>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.CreateContainigObject">
-            <summary>
-                Constucts the object that could be stored in this collection.
-            </summary>
-            <returns>Object.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.LoadFromFile(System.String)">
-            <summary>
-                Loads collection from a file.
-            </summary>
-            <param name="fileName"></param>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.NeuroObjectCollection.SaveToFile(System.String)">
-            <summary>
-                Stores collection of the objectects into a file in a binary format.
-            </summary>
-            <param name="fileName">File name.</param>
         </member>
         <member name="T:xpidea.neuro.net.patterns.PatternsCollection">
             <summary>
-                A class representing collection of the patterns.
+            A class representing collection of the patterns. 
                 <para>
-                    A collection that stores <see cref='T:xpidea.neuro.net.patterns.Pattern' /> objects.
-                </para>
+                  A collection that stores <see cref="T:xpidea.neuro.net.patterns.Pattern"/> objects.
+               </para>
             </summary>
-            <seealso cref='T:xpidea.neuro.net.patterns.PatternsCollection' />
+            <seealso cref="T:xpidea.neuro.net.patterns.PatternsCollection"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CreateContainigObject">
+            <summary>
+            Overridden.Creates new <see cref="T:xpidea.neuro.net.patterns.Pattern"/> object.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.#ctor">
             <summary>
                 <para>
-                    Initializes a new instance of <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" />.
-                </para>
+                  Initializes a new instance of <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/>.
+               </para>
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.#ctor(xpidea.neuro.net.patterns.PatternsCollection)">
             <summary>
                 <para>
-                    Initializes a new instance of <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> based on another
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" />.
-                </para>
+                  Initializes a new instance of <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> based on another <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/>.
+               </para>
             </summary>
-            <param name='value'>
-                A <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> from which the contents are copied
+            <param name="value">
+                  A <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> from which the contents are copied
             </param>
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.#ctor(xpidea.neuro.net.patterns.Pattern[])">
             <summary>
                 <para>
-                    Initializes a new instance of <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> containing any array
-                    of <see cref='T:xpidea.neuro.net.patterns.Pattern' /> objects.
-                </para>
+                  Initializes a new instance of <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> containing any array of <see cref="T:xpidea.neuro.net.patterns.Pattern"/> objects.
+               </para>
             </summary>
-            <param name='value'>
-                A array of <see cref='T:xpidea.neuro.net.patterns.Pattern' /> objects with which to intialize the collection
+            <param name="value">
+                  A array of <see cref="T:xpidea.neuro.net.patterns.Pattern"/> objects with which to intialize the collection
             </param>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)">
+            <summary>
+               <para>Adds a <see cref="T:xpidea.neuro.net.patterns.Pattern"/> with the specified value to the 
+               <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> .</para>
+            </summary>
+            <param name="value">The <see cref="T:xpidea.neuro.net.patterns.Pattern"/> to add.</param>
+            <returns>
+               <para>The index at which the new element was inserted.</para>
+            </returns>
+            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.AddRange(xpidea.neuro.net.patterns.Pattern[])"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.AddRange(xpidea.neuro.net.patterns.Pattern[])">
+            <summary>
+            	<para>Copies the elements of an array to the end of the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/>.</para>
+            </summary>
+            <param name="value">
+               An array of type <see cref="T:xpidea.neuro.net.patterns.Pattern"/> containing the objects to add to the collection.
+            </param>
+            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.AddRange(xpidea.neuro.net.patterns.PatternsCollection)">
+            <summary>
+            	<para>
+                  Adds the contents of another <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> to the end of the collection.
+               </para>
+            </summary>
+            <param name="value">
+               A <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> containing the objects to add to the collection.
+            </param>
+            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Contains(xpidea.neuro.net.patterns.Pattern)">
+            <summary>
+            <para>Gets a value indicating whether the 
+               <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> contains the specified <see cref="T:xpidea.neuro.net.patterns.Pattern"/>.</para>
+            </summary>
+            <param name="value">The <see cref="T:xpidea.neuro.net.patterns.Pattern"/> to locate.</param>
+            <returns>
+            <para><see langword="true"/> if the <see cref="T:xpidea.neuro.net.patterns.Pattern"/> is contained in the collection; 
+              otherwise, <see langword="false"/>.</para>
+            </returns>
+            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.IndexOf(xpidea.neuro.net.patterns.Pattern)"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CopyTo(xpidea.neuro.net.patterns.Pattern[],System.Int32)">
+            <summary>
+            	<para>Copies the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> values to a one-dimensional <see cref="T:System.Array"/> instance at the 
+               specified index.</para>
+            </summary>
+            <param name="array"><para>The one-dimensional <see cref="T:System.Array"/> that is the destination of the values copied from <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> .</para></param>
+            <param name="index">The index in <paramref name="array"/> where copying begins.</param>
+            <exception cref="T:System.ArgumentException"><para><paramref name="array"/> is multidimensional.</para>
+            	<para>-or-</para>
+            	<para>The number of elements in the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> is greater than the available space between <paramref name="arrayIndex"/> and the end of <paramref name="array"/>.</para></exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="array"/> is <see langword="null"/>. </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="arrayIndex"/> is less than <paramref name="array"/>'s lowbound. </exception>
+            <seealso cref="T:System.Array"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.IndexOf(xpidea.neuro.net.patterns.Pattern)">
+            <summary>
+               <para>Returns the index of a <see cref="T:xpidea.neuro.net.patterns.Pattern"/> in 
+                  the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> .</para>
+            </summary>
+            <param name="value">The <see cref="T:xpidea.neuro.net.patterns.Pattern"/> to locate.</param>
+            <returns>
+            <para>The index of the <see cref="T:xpidea.neuro.net.patterns.Pattern"/> of <paramref name="value"/> in the 
+            <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/>, if found; otherwise, -1.</para>
+            </returns>
+            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Contains(xpidea.neuro.net.patterns.Pattern)"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Insert(System.Int32,xpidea.neuro.net.patterns.Pattern)">
+            <summary>
+            	<para>Inserts a <see cref="T:xpidea.neuro.net.patterns.Pattern"/> into the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> at the specified index.</para>
+            </summary>
+            <param name="index">The zero-based index where <paramref name="value"/> should be inserted.</param>
+            <param name=" value">The <see cref="T:xpidea.neuro.net.patterns.Pattern"/> to insert.</param>
+            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.GetEnumerator">
+            <summary>
+               <para>Returns an enumerator that can iterate through 
+                  the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> .</para>
+            </summary>
+            <returns><para>None.</para></returns>
+            <seealso cref="T:System.Collections.IEnumerator"/>
+        </member>
+        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Remove(xpidea.neuro.net.patterns.Pattern)">
+            <summary>
+            	<para> Removes a specific <see cref="T:xpidea.neuro.net.patterns.Pattern"/> from the 
+               <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> .</para>
+            </summary>
+            <param name="value">The <see cref="T:xpidea.neuro.net.patterns.Pattern"/> to remove from the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection"/> .</param>
+            <exception cref="T:System.ArgumentException"><paramref name="value"/> is not found in the Collection. </exception>
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.#ctor(System.Int32,System.Int32,System.Int32)">
             <summary>
-                Constructor. Creates new cllection of the patterns.
+            Constructor. Creates new cllection of the patterns.
             </summary>
             <param name="patternsCount">Numeber of patterns in this collection.</param>
             <param name="inputsCount">Number of inputs in each pattern.</param>
@@ -1859,300 +1837,187 @@
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.#ctor(System.String)">
             <summary>
-                Constructor. Creates the collection and loads content from a file.
+            Constructor. Creates the collection and loads content from a file.
             </summary>
             <param name="fileName">Name of the file to load data from.</param>
         </member>
         <member name="P:xpidea.neuro.net.patterns.PatternsCollection.Item(System.Int32)">
             <summary>
-                <para>Represents the entry at the specified index of the <see cref='T:xpidea.neuro.net.patterns.Pattern' />.</para>
+            <para>Represents the entry at the specified index of the <see cref="T:xpidea.neuro.net.patterns.Pattern"/>.</para>
             </summary>
-            <param name='index'>
-                <para>The zero-based index of the entry to locate in the collection.</para>
-            </param>
+            <param name="index"><para>The zero-based index of the entry to locate in the collection.</para></param>
             <value>
-                <para> The entry at the specified index of the collection.</para>
+               <para> The entry at the specified index of the collection.</para>
             </value>
-            <exception cref='T:System.ArgumentOutOfRangeException'>
-                <paramref name='index' /> is outside the valid range of indexes
-                for the collection.
-            </exception>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CreateContainigObject">
-            <summary>
-                Overridden.Creates new <see cref="T:xpidea.neuro.net.patterns.Pattern" /> object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)">
-            <summary>
-                <para>
-                    Adds a <see cref='T:xpidea.neuro.net.patterns.Pattern' /> with the specified value to the
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> .
-                </para>
-            </summary>
-            <param name='value'>The <see cref='T:xpidea.neuro.net.patterns.Pattern' /> to add.</param>
-            <returns>
-                <para>The index at which the new element was inserted.</para>
-            </returns>
-            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.AddRange(xpidea.neuro.net.patterns.Pattern[])" />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.AddRange(xpidea.neuro.net.patterns.Pattern[])">
-            <summary>
-                <para>
-                    Copies the elements of an array to the end of the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" />
-                    .
-                </para>
-            </summary>
-            <param name="value">
-                An array of type <see cref="T:xpidea.neuro.net.patterns.Pattern" /> containing the objects to add to the collection.
-            </param>
-            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)" />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.AddRange(xpidea.neuro.net.patterns.PatternsCollection)">
-            <summary>
-                <para>
-                    Adds the contents of another <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> to the end of the
-                    collection.
-                </para>
-            </summary>
-            <param name="value">
-                A <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> containing the objects to add to the collection.
-            </param>
-            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)" />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Contains(xpidea.neuro.net.patterns.Pattern)">
-            <summary>
-                <para>
-                    Gets a value indicating whether the
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> contains the specified
-                    <see cref='T:xpidea.neuro.net.patterns.Pattern' />.
-                </para>
-            </summary>
-            <param name='value'>The <see cref='T:xpidea.neuro.net.patterns.Pattern' /> to locate.</param>
-            <returns>
-                <para>
-                    <see langword='true' /> if the <see cref='T:xpidea.neuro.net.patterns.Pattern' /> is contained in the collection;
-                    otherwise, <see langword='false' />.
-                </para>
-            </returns>
-            <seealso cref='M:xpidea.neuro.net.patterns.PatternsCollection.IndexOf(xpidea.neuro.net.patterns.Pattern)' />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CopyTo(xpidea.neuro.net.patterns.Pattern[],System.Int32)">
-            <summary>
-                <para>
-                    Copies the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> values to a one-dimensional
-                    <see cref="T:System.Array" /> instance at the
-                    specified index.
-                </para>
-            </summary>
-            <param name="array">
-                <para>
-                    The one-dimensional <see cref="T:System.Array" /> that is the destination of the values copied from
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> .
-                </para>
-            </param>
-            <param name="index">The index in <paramref name="array" /> where copying begins.</param>
-            <exception cref="T:System.ArgumentException">
-                <para><paramref name="array" /> is multidimensional.</para>
-                <para>-or-</para>
-                <para>
-                    The number of elements in the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> is greater than the
-                    available space between <paramref name="index" /> and the end of <paramref name="array" />.
-                </para>
-            </exception>
-            <exception cref="T:System.ArgumentNullException"><paramref name="array" /> is <see langword="null" />. </exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-                <paramref name="arrayIndex" /> is less than
-                <paramref name="array" />'s lowbound.
-            </exception>
-            <seealso cref="T:System.Array" />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.IndexOf(xpidea.neuro.net.patterns.Pattern)">
-            <summary>
-                <para>
-                    Returns the index of a <see cref='T:xpidea.neuro.net.patterns.Pattern' /> in
-                    the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> .
-                </para>
-            </summary>
-            <param name='value'>The <see cref='T:xpidea.neuro.net.patterns.Pattern' /> to locate.</param>
-            <returns>
-                <para>
-                    The index of the <see cref='T:xpidea.neuro.net.patterns.Pattern' /> of <paramref name='value' /> in the
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" />, if found; otherwise, -1.
-                </para>
-            </returns>
-            <seealso cref='M:xpidea.neuro.net.patterns.PatternsCollection.Contains(xpidea.neuro.net.patterns.Pattern)' />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Insert(System.Int32,xpidea.neuro.net.patterns.Pattern)">
-            <summary>
-                <para>
-                    Inserts a <see cref="T:xpidea.neuro.net.patterns.Pattern" /> into the
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> at the specified index.
-                </para>
-            </summary>
-            <param name="index">The zero-based index where <paramref name="value" /> should be inserted.</param>
-            <param name=" value">The <see cref="T:xpidea.neuro.net.patterns.Pattern" /> to insert.</param>
-            <seealso cref="M:xpidea.neuro.net.patterns.PatternsCollection.Add(xpidea.neuro.net.patterns.Pattern)" />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.GetEnumerator">
-            <summary>
-                <para>
-                    Returns an enumerator that can iterate through
-                    the <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> .
-                </para>
-            </summary>
-            <returns>
-                <para>None.</para>
-            </returns>
-            <seealso cref='T:System.Collections.IEnumerator' />
-        </member>
-        <member name="M:xpidea.neuro.net.patterns.PatternsCollection.Remove(xpidea.neuro.net.patterns.Pattern)">
-            <summary>
-                <para>
-                    Removes a specific <see cref="T:xpidea.neuro.net.patterns.Pattern" /> from the
-                    <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> .
-                </para>
-            </summary>
-            <param name="value">
-                The <see cref="T:xpidea.neuro.net.patterns.Pattern" /> to remove from the
-                <see cref="T:xpidea.neuro.net.patterns.PatternsCollection" /> .
-            </param>
-            <exception cref="T:System.ArgumentException"><paramref name="value" /> is not found in the Collection. </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is outside the valid range of indexes for the collection.</exception>
         </member>
         <member name="T:xpidea.neuro.net.patterns.PatternsCollection.CustomPatternEnumerator">
             <summary>
+            
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CustomPatternEnumerator.#ctor(xpidea.neuro.net.patterns.PatternsCollection)">
             <summary>
+            
             </summary>
             <param name="mappings"></param>
         </member>
-        <member name="P:xpidea.neuro.net.patterns.PatternsCollection.CustomPatternEnumerator.Current">
-            <summary>
-            </summary>
-        </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CustomPatternEnumerator.MoveNext">
             <summary>
+            
             </summary>
             <returns></returns>
         </member>
         <member name="M:xpidea.neuro.net.patterns.PatternsCollection.CustomPatternEnumerator.Reset">
             <summary>
+            
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.patterns.PatternsCollection.CustomPatternEnumerator.Current">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.son.SelfOrganizingNode">
             <summary>
-                Implements a node in <see cref="T:xpidea.neuro.net.son.SelfOrganizingNetwork" />
+            Implements a node in <see cref="T:xpidea.neuro.net.son.SelfOrganizingNetwork"/>
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNode.LearningRate">
             <summary>
-                Stores  node learning rate.
+            Stores  node learning rate.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNode.#ctor(System.Double)">
             <summary>
-                Constructs the node and defines the <see cref="F:xpidea.neuro.net.son.SelfOrganizingNode.LearningRate" />
+            Constructs the node and defines the <see cref="F:xpidea.neuro.net.son.SelfOrganizingNode.LearningRate"/>
             </summary>
             <param name="learningRate">The learning rate of the node.</param>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNode.Run">
             <summary>
-                Overridden.Runs the node.
+            Overridden.Runs the node.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNode.Learn">
             <summary>
-                Overridden.Teaches the node.
+            Overridden.Teaches the node.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.son.SelfOrganizingLink">
             <summary>
-                Represents a link in the <see cref="T:xpidea.neuro.net.son.SelfOrganizingNetwork" /> network.
+            Represents a link in the <see cref="T:xpidea.neuro.net.son.SelfOrganizingNetwork"/> network.
             </summary>
         </member>
         <member name="T:xpidea.neuro.net.son.SelfOrganizingNetwork">
             <summary>
-                Implements the Self Organizing Network (SON).
+            Implements the Self Organizing Network (SON).
             </summary>
             <remarks>
-                <img src="SON.jpg"></img>
-                The basic Self-Organizing Network  can be visualized as a sheet-like neural-network array , the cells (or nodes) of
-                which become specifically tuned to various input signal patterns or classes of patterns in an orderly fashion. The
-                learning process is competitive and unsupervised, meaning that no teacher is needed to define the correct output
-                (or actually the cell into which the input is mapped) for an input. In the basic version, only one map node
-                (winner) at a time is activated corresponding to each input. The locations of the responses in the array tend to
-                become ordered in the learning process as if some meaningful nonlinear coordinate system for the different input
-                features were being created over the network (Kohonen, 1995c).The SOM was developed by Prof. Teuvo Kohonen in the
-                early 1980s. The first application area of the SOM was speech recognition, or perhaps more accurately,
-                speech-to-text transformation.   (Timo Honkela)
+            <img src="SON.jpg"></img>
+            The basic Self-Organizing Network  can be visualized as a sheet-like neural-network array , the cells (or nodes) of which become specifically tuned to various input signal patterns or classes of patterns in an orderly fashion. The learning process is competitive and unsupervised, meaning that no teacher is needed to define the correct output (or actually the cell into which the input is mapped) for an input. In the basic version, only one map node (winner) at a time is activated corresponding to each input. The locations of the responses in the array tend to become ordered in the learning process as if some meaningful nonlinear coordinate system for the different input features were being created over the network (Kohonen, 1995c).The SOM was developed by Prof. Teuvo Kohonen in the early 1980s. The first application area of the SOM was speech recognition, or perhaps more accurately, speech-to-text transformation.   (Timo Honkela) 
             </remarks>
+        </member>
+        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.rowsCount">
+            <summary>
+            Number of rows in output layer.
+            </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.columsCount">
             <summary>
-                Number of colums in output layer.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.currentIteration">
-            <summary>
-                Current iteration.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.currentNeighborhoodSize">
-            <summary>
-                Current neighborhood size.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.finalLearningRate">
-            <summary>
-                Final learning rate.
+            Number of colums in output layer.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.initialLearningRate">
             <summary>
-                Initial learning rate.
+            Initial learning rate.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.finalLearningRate">
+            <summary>
+            Final learning rate.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.initialNeighborhoodSize">
             <summary>
-                Initial neighborhood size.
-            </summary>
-        </member>
-        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.kohonenLayer">
-            <summary>
-                Represents the Kohonen layer as two-dimetional array of <see cref="T:xpidea.neuro.net.NeuroNode" />.
+            Initial neighborhood size.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.neighborhoodReduceInterval">
             <summary>
-                Neighborhood reduce interval.
+            Neighborhood reduce interval.
             </summary>
         </member>
-        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.rowsCount">
+        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.currentNeighborhoodSize">
             <summary>
-                Number of rows in output layer.
+            Current neighborhood size.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.trainingIterations">
             <summary>
-                Number of training iterations.
+            Number of training iterations.
             </summary>
         </member>
-        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.winnigCol">
+        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.currentIteration">
             <summary>
-                Winning column in output layer.
+            Current iteration.
             </summary>
         </member>
         <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.winnigRow">
             <summary>
-                Winning row in output layer.
+            Winning row in output layer.
             </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.winnigCol">
+            <summary>
+            Winning column in output layer.
+            </summary>
+        </member>
+        <member name="F:xpidea.neuro.net.son.SelfOrganizingNetwork.kohonenLayer">
+            <summary>
+            Represents the Kohonen layer as two-dimetional array of <see cref="T:xpidea.neuro.net.NeuroNode"/>.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetNetworkType">
+            <summary>
+            Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntSON"/> for SON network.
+            </summary>
+            <returns>Network type.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.CreateNetwork">
+            <summary>
+            Overridden.Constructs network topology.
+            </summary>
+        </member>
+        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetInputNodesCount">
+            <summary>
+            Overridden.Returns number of nodes in input layer.
+            </summary>
+            <returns>Nodes count.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetInputNode(System.Int32)">
+            <summary>
+            Overridden.Retrieves the input node by its index.
+            </summary>
+            <param name="index">Input node index.</param>
+            <returns>Input node.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetOutputNode(System.Int32)">
+            <summary>
+            Overridden.Returns an output node by its index.
+            </summary>
+            <param name="index">Output node index.</param>
+            <returns>An output node.</returns>
+        </member>
+        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetOutPutNodesCount">
+            <summary>
+            Overridden.Number of nodes in output layer. Always return 0 since there are no nodes as its have an Kohonen layer.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.#ctor(System.Int32,System.Int32,System.Int32,System.Double,System.Double,System.Int32,System.Int32,System.Int64)">
             <summary>
-                Constructs the network.
+            Constructs the network.
             </summary>
             <param name="aInputNodesCount">Number of input nodes.</param>
             <param name="aRowCount">Number of rows in output layer.</param>
@@ -2165,126 +2030,89 @@
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.#ctor">
             <summary>
-                Constructs uninitialized instance of SON network. Used for persistance purposes.
+            Constructs uninitialized instance of SON network. Used for persistance purposes.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.#ctor(System.String)">
             <summary>
-                Creates the network from a file.
+            Creates the network from a file.
             </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.KohonenRowsCount">
-            <summary>
-                Number of rows in Kohonen layer.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.KohonenColumsCount">
-            <summary>
-                Number of colums in Kohonen layer.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.CurrentNeighborhoodSize">
-            <summary>
-                Current neighborhood size.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.KohonenNode">
-            <summary>
-                Array of nodes representing Kohonen layer.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.WinnigRow">
-            <summary>
-                Winning row index.
-            </summary>
-        </member>
-        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.WinnigCol">
-            <summary>
-                Winning column index.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetNetworkType">
-            <summary>
-                Overridden.Returns <see cref="F:xpidea.neuro.net.NeuralNetworkType.nntSON" /> for SON network.
-            </summary>
-            <returns>Network type.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.CreateNetwork">
-            <summary>
-                Overridden.Constructs network topology.
-            </summary>
-        </member>
-        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetInputNodesCount">
-            <summary>
-                Overridden.Returns number of nodes in input layer.
-            </summary>
-            <returns>Nodes count.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetInputNode(System.Int32)">
-            <summary>
-                Overridden.Retrieves the input node by its index.
-            </summary>
-            <param name="index">Input node index.</param>
-            <returns>Input node.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetOutputNode(System.Int32)">
-            <summary>
-                Overridden.Returns an output node by its index.
-            </summary>
-            <param name="index">Output node index.</param>
-            <returns>An output node.</returns>
-        </member>
-        <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetOutPutNodesCount">
-            <summary>
-                Overridden.Number of nodes in output layer. Always return 0 since there are no nodes as its have an Kohonen layer.
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.Epoch(System.Int32)">
             <summary>
-                Overridden.Epoch - number of patterns that was exposed to a network during one training cycle.
+            Overridden.Epoch - number of patterns that was exposed to a network during one training cycle.
             </summary>
             <param name="epoch"></param>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.GetNodeError">
             <summary>
-                Overridden.Always returns 0. There is no output node.
+            Overridden.Always returns 0. There is no output node.
             </summary>
             <returns></returns>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.SetNodeError(System.Double)">
             <summary>
-                Overridden.Doesn't do anything. There is no output node.
+            Overridden.Doesn't do anything. There is no output node.
             </summary>
             <param name="value">Error value.</param>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.Load(System.IO.BinaryReader)">
             <summary>
-                Overridden.Loads network data from the binary stream.
+            Overridden.Loads network data from the binary stream.
             </summary>
             <param name="binaryReader">Binary stream reader.</param>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.Save(System.IO.BinaryWriter)">
             <summary>
-                Overridden.Stores network into to a binary stream.
+            Overridden.Stores network into to a binary stream.
             </summary>
             <param name="binaryWriter">Binary stream writer.</param>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.Run">
             <summary>
-                Overridden.Runs the network.
+            Overridden.Runs the network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.Learn">
             <summary>
-                Overridden.Teaches the network.
+            Overridden.Teaches the network.
             </summary>
         </member>
         <member name="M:xpidea.neuro.net.son.SelfOrganizingNetwork.Train(xpidea.neuro.net.patterns.PatternsCollection)">
             <summary>
-                Overridden.Trains the network.
+            Overridden.Trains the network.
             </summary>
             <param name="patterns"></param>
+        </member>
+        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.KohonenRowsCount">
+            <summary>
+            Number of rows in Kohonen layer.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.KohonenColumsCount">
+            <summary>
+            Number of colums in Kohonen layer.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.CurrentNeighborhoodSize">
+            <summary>
+            Current neighborhood size.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.KohonenNode">
+            <summary>
+            Array of nodes representing Kohonen layer.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.WinnigRow">
+            <summary>
+            Winning row index.
+            </summary>
+        </member>
+        <member name="P:xpidea.neuro.net.son.SelfOrganizingNetwork.WinnigCol">
+            <summary>
+            Winning column index.
+            </summary>
         </member>
     </members>
 </doc>
